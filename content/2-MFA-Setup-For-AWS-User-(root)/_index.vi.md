@@ -1,6 +1,6 @@
 ---
 title : "MFA cho Tài khoản AWS"
-date :  "`r Sys.Date()`" 
+date :  2025-06-18
 weight : 2
 chapter : false
 pre : " <b> 2. </b> "
