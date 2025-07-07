@@ -1,59 +1,227 @@
 [
 {
-	"uri": "//localhost:1313/vi/1-create-new-aws-account/",
-	"title": "Tạo mới tài khoản AWS",
+	"uri": "//localhost:1313/vi/6-athena-analysis/6.1-configure-athena/",
+	"title": "Cấu hình Athena",
 	"tags": [],
 	"description": "",
-	"content": "Nội dung:\nHướng dẫn Tạo tài khoản AWS Thêm phương thức thanh toán Xác thực số điện thoại của bạn Chọn Support Plan Đợi account của bạn được kích hoạt Hướng dẫn Tạo tài khoản AWS Đi đến trang Amazon Web Service homepage. Chọn Create an AWS Account ở góc trên bên phải. Ghi Chú: Nếu bạn không thấy Create an AWS Account, chọn Sign In to the Console sau đó chọn Create a new AWS Account. Nhập thông tin email và AWS account name. Hoàn thành thông tin. Xác nhận mã được gửi từ email. Sau khi xác thực email thành công, bạn hoàn thành thông tin tài khoản. Thực hiện hoàn thành hồ sơ đăng ký tài khoản. Bạn có thể chọn tài khoản Personal hoặc Business. Thêm phương thức thanh toán Nhập thông tin thẻ tín dụng của bạn và chọn Verify and Add. *Ghi chú: Bạn có thể chọn 1 địa chỉ khác cho tài khoản của bạn bằng cách chọn Use a new address trước khi Verify and Add. Xác thực số điện thoại của bạn Nhập số điện thoại. Nhập mã security check sau đó chọn Call me now. AWS sẽ liên hệ và xác thực mở tài khoản. Chọn Support Plan Trong trang Select a support plan, chọn 1 plan có hiệu lực, để so sánh giữa các plan, bạn hãy xem Compare AWS Support Plans. Đợi account của bạn được kích hoạt Sau khi chọn Support plan, account thường được kích hoạt sau vài phút, nhưng quá trình có thể cần tốn đến 24 tiếng. Bạn vẫn có thể đăng nhập vào account AWS lúc này, Trang chủ AWS có thể sẽ hiển thị một nút “Complete Sign Up” trong thời gian này, cho dù bạn đã hoàn thành tất cả các bước ở phần đăng kí. Sau khi nhận được email xác nhận account của bạn đã được kích hoạt, bạn có thể truy cập vào tất cả dịch vụ của AWS. "
+	"content": "6.1 Cấu hình Athena Truy cập dịch vụ Athena từ AWS Console Ở lần sử dụng đầu tiên, cấu hình Query result location: Chọn thư mục: s3://my-data-pipeline-bucket/query-results/ Nhấn Save để hoàn tất cấu hình "
 },
 {
-	"uri": "//localhost:1313/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/",
-	"title": "Thiết bị MFA ảo",
+	"uri": "//localhost:1313/vi/1-introduction/",
+	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
-	"content": "Kích hoạt Multi-Factor Authentication (MFA) trên AWS Để kích hoạt MFA, bạn cần đăng nhập vào AWS sử dụng tài khoản root.\nKích hoạt thiết bị MFA ảo thông qua Console Để thiết lập và kích hoạt thiết bị MFA ảo, bạn có thể tuân theo các bước sau:\nĐăng nhập vào AWS Console.\nỞ góc trên bên phải, bạn sẽ thấy tên tài khoản của bạn. Nhấp vào tên và chọn My Security Credentials.\nMở rộng mục Multi-factor authentication (MFA) và chọn Assign MFA.\nTrong giao diện Select MFA device, nhập tên cho thiết bị MFA của bạn:\nChọn MFA device là Authenticator app. Chọn Next. Tiến hành cài đặt ứng dụng xác thực trên điện thoại của bạn. Danh sách ứng dụng MFA tương thích.\nBạn có thể tìm ứng dụng Authenticator trên Chrome Web Store. Sau đó nhấp vào Add to Chrome để cài đặt.\nSử dụng mã xác thực MFA để nhập vào xác nhận.\nThực hiện quét mã QR.\nSau khi quét mã QR, bạn cần nhập 2 mã xác thực từ ứng dụng MFA.\nSau khi nhập mã xác thực, chọn Add MFA để hoàn thành quá trình thêm MFA.\nQuá trình thêm MFA đã hoàn tất. "
+	"content": "Nội dung:\n📌 Mục tiêu dự án 💡 Ý nghĩa và ứng dụng 📌 Mục tiêu dự án Dự án hướng đến việc xây dựng một pipeline xử lý dữ liệu hoàn chỉnh trên nền tảng AWS, sử dụng các dịch vụ chủ chốt như Amazon S3, AWS Glue, và Amazon Athena. Toàn bộ quy trình ETL sẽ được tự động hóa nhằm đảm bảo hiệu suất và độ chính xác trong xử lý dữ liệu.\n💡 Ý nghĩa và ứng dụng Hỗ trợ doanh nghiệp hoặc cá nhân quản lý, phân tích dữ liệu lớn (Big Data) hiệu quả hơn. Tăng cường kỹ năng thực hành với các công cụ AWS thực tế. Là nền tảng để mở rộng ra các giải pháp BI như Amazon QuickSight cho trực quan hóa dữ liệu. "
+},
+{
+	"uri": "//localhost:1313/vi/8-quicksight-dashboard/8.1-connect-athena/",
+	"title": "Kết nối Athena với QuickSight",
+	"tags": [],
+	"description": "",
+	"content": "8.1 Kết nối Athena với QuickSight Truy cập Amazon QuickSight → Manage data Chọn New dataset → Athena Đặt tên và chọn Athena workgroup Chọn database sales_db, table sales_processed Import dữ liệu hoặc dùng chế độ SPICE để tăng tốc "
+},
+{
+	"uri": "//localhost:1313/vi/5-crawler-processed/5.1-create-new-crawler/",
+	"title": "Tạo Crawler mới",
+	"tags": [],
+	"description": "",
+	"content": "5.1 Tạo Crawler mới Truy cập AWS Glue → Crawlers → Add crawler Nhập: Tên: salesdatacrawler_processed Data source: s3://my-data-pipeline-bucket/processed/ IAM Role: sử dụng role Glue đã tạo trước đó Output: Database: sales_db Tên bảng mới: sales_processed "
+},
+{
+	"uri": "//localhost:1313/vi/3-crawler-raw/3.1-create-glue-database/",
+	"title": "Tạo Glue Database",
+	"tags": [],
+	"description": "",
+	"content": "3.1 Tạo Glue Database Vào AWS Glue Console. Chọn Databases → nhấn Add database. Đặt tên ví dụ: sales_db. Glue Database sẽ lưu các bảng được sinh ra từ Glue Crawler.\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-glue-job/4.1-create-new-job/",
+	"title": "Tạo Glue Job mới",
+	"tags": [],
+	"description": "",
+	"content": "4.1 Tạo Glue Job mới Vào AWS Glue → chọn Jobs → Add Job Tên Job: ProcessJob IAM Role: chọn IAM đã tạo từ bước trước Type: Spark, Python Script path: Tạo script xử lý dữ liệu từ bảng sales_raw và ghi kết quả ra s3://bucket/processed/ "
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare-environment/2.1-create-iam-role/",
+	"title": "Tạo IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "Tạo IAM Role Để các dịch vụ AWS có thể hoạt động đúng, cần tạo IAM Role với quyền thích hợp:\n🔹 Cho Glue: AWSGlueServiceRole AmazonS3FullAccess 🔹 Cho Lambda: AWSLambdaBasicExecutionRole AWSGlueConsoleFullAccess Các quyền này cho phép Glue đọc/ghi dữ liệu từ S3 và Lambda có thể gọi Glue Job.\n"
+},
+{
+	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.1-create-lambda-function/",
+	"title": "Tạo Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": "7.1 Tạo Lambda Function Truy cập AWS Lambda → Chọn Create function Chọn Author from scratch: Tên: RunETLPipeline Runtime: Python 3.12 Role: chọn IAM Role đã tạo (có quyền Glue + CloudWatch + S3) Trong phần function code, bạn sẽ viết mã để thực hiện: Start crawler cho sales_raw Chạy Glue Job ProcessJob Chạy crawler cho sales_processed "
 },
 {
 	"uri": "//localhost:1313/vi/",
-	"title": "Thiết lập Tài Khoản AWS",
+	"title": "Workshop Pipeline AWS Xử lý Dữ liệu",
 	"tags": [],
 	"description": "",
-	"content": "Tạo tài khoản AWS đầu tiên Tổng quan Trong bài lab đầu tiên này, bạn sẽ tạo mới tài khoản AWS đầu tiên của mình, tạo MFA (Multi-factor Authentication) để gia tăng bảo mật tài khoản của bạn. Bước tiếp theo bạn sẽ tạo Admin Group, Admin User để quản lý quyền truy cập vào các tài nguyên trong tài khoản của mình thay vì sử dụng user root.\nCuối cùng, nếu quá trình xác thực tài khoản của bạn có vấn đề, bạn sẽ được hướng dẫn hỗ trợ xác thực tài khoản với AWS Support.\nTài khoản AWS (AWS Account) Tài khoản AWS là phương tiện để bạn có thể truy cập và sử dụng những tài nguyên và dịch vụ của AWS. Theo mặc định, mỗi tài khoản AWS sẽ có một root user. Root user có toàn quyền với tài khoản AWS của bạn, và quyền hạn của root user không thể bị giới hạn. Nếu bạn mới sử dụng tài khoản AWS lần đầu tiên, bạn sẽ truy cập vào tài khoản dưới danh nghĩa của root user.\nChính vì quyền hạn của root user không thể bị giới hạn, AWS khuyên bạn không nên sử dụng trực tiếp root user cho bất kỳ công tác nào. Thay vào đó, bạn nên tạo ra một IAM User và trao quyền quản trị cho IAM User đó để dễ dàng quản lý và giảm thiểu rủi ro.\nMFA (Multi-factor Authentication) MFA là một tính năng được sử dụng để gia tăng bảo mật của tài khoản AWS. Nếu MFA được kích hoạt, bạn sẽ phải nhập mã OTP (One-time Password) mỗi lần bạn đăng nhập vào tài khoản AWS.\nIAM Group IAM Group là một công cụ quản lý người dùng (IAM User) của AWS. Một IAM Group có thể chứa nhiều IAM User. Các IAM User ở trong một IAM Group đều hưởng chung quyền hạn mà IAM Group đó được gán cho.\nIAM User IAM User là một đơn vị người dùng của AWS. Khi bạn đăng nhập vào AWS, bạn sẽ phải đăng nhập dưới danh nghĩa của một IAM User. Nếu bạn mới đăng nhập vào AWS lần đầu tiên, bạn sẽ đăng nhập dưới danh nghĩa của root user (tạm dịch là người dùng gốc). Ngoài root user ra, bạn có thể tạo ra nhiều IAM User khác để cho phép người khác truy cập dài hạn vào tài nguyên AWS trong tài khoản AWS của bạn.\nAWS Support AWS Support là một đơn vị cung cấp các dịch vụ hỗ trợ khách hàng của AWS.\nNội dung chính Tạo tài khoản AWS Thiết lập MFA cho tài khoản AWS (Root) Tài khoản và Nhóm Admin Hỗ trợ Xác thực Tài khoản "
+	"content": "👋 Chào mừng đến với Workshop AWS - FCJ 2025 Giới thiệu Trong workshop thực hành này, bạn sẽ học cách xây dựng pipeline xử lý dữ liệu không dùng máy chủ (serverless) sử dụng các dịch vụ AWS, từ việc nhận dữ liệu CSV đầu vào cho đến hiển thị dữ liệu qua QuickSight. Ngoài ra bạn còn được tự động hóa quy trình với Lambda và bảo mật bằng IAM \u0026amp; CloudTrail.\nDịch vụ Sử dụng Amazon S3 – Lưu trữ dữ liệu đầu vào và sau xử lý AWS Glue Crawler – Đọc và nhận diện cấu trúc CSV AWS Glue Job – Làm sạch và chuyển đổi dữ liệu Amazon Athena – Truy vấn dữ liệu đã xử lý Amazon QuickSight – Tạo dashboard trực quan AWS Lambda – Tự động hóa các bước xử lý AWS CloudTrail – Ghi lại hoạt động và giám sát Quy trình tổng quát Mục tiêu Workshop Nắm được kiến trúc xử lý dữ liệu serverless với AWS Làm sạch, tính toán dữ liệu với Glue Truy vấn kết quả bằng Athena Hiển thị dữ liệu qua QuickSight Tự động hóa xử lý với Lambda Ghi nhận và kiểm tra qua CloudTrail Nội dung chính Giới thiệu Pipeline và Kiến trúc Chuẩn bị môi trường AWS Crawler dữ liệu thô Xử lý dữ liệu với Glue Job Crawler dữ liệu đã xử lý Truy vấn với Athena Tự động hóa bằng Lambda Dashboard với QuickSight Xoá và dọn dẹp tài nguyên "
 },
 {
-	"uri": "//localhost:1313/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/",
-	"title": "Khóa bảo mật U2F",
+	"uri": "//localhost:1313/vi/2-prepare-environment/",
+	"title": "Các bước chuẩn bị",
 	"tags": [],
 	"description": "",
-	"content": "Nội dung\nKích hoạt khóa bảo mật U2F thông qua Console Nếu bạn không có thiết bị phần cứng , có thể bỏ qua các thao tác dưới đây nhé.\nKích hoạt khóa bảo mật U2F thông qua Console U2F Security Key là một giao thức chứng thực mở cho phép người dùng có thể truy cập các dịch vụ trực tuyếp với một khóa bảo mật duy nhất mà không cần sử dụng đến bất kì phần mềm nào.\nĐăng nhập vào AWS Console.\nGóc trên bên phải, bạn sẽ thấy tên account của bạn, chọn vào và chọn My Security Credentials sau đó mở rộng Multi-factor authentication (MFA).\nĐể quản lí khóa bảo mật U2F, bạn phải có quyền từ bộ quyền sau. ở thanh bên trái, chọn Policies sau đó chọn Create policy, chọn JSON tab và dán phần bên dưới vào:\n{ \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;AllowManageOwnUserMFA\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;iam:DeactivateMFADevice\u0026#34;, \u0026#34;iam:EnableMFADevice\u0026#34;, \u0026#34;iam:GetUser\u0026#34;, \u0026#34;iam:ListMFADevices\u0026#34;, \u0026#34;iam:ResyncMFADevice\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:iam::*:user/${aws:username}\u0026#34; }, { \u0026#34;Sid\u0026#34;: \u0026#34;DenyAllExceptListedIfNoMFA\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Deny\u0026#34;, \u0026#34;NotAction\u0026#34;: [ \u0026#34;iam:EnableMFADevice\u0026#34;, \u0026#34;iam:GetUser\u0026#34;, \u0026#34;iam:ListMFADevices\u0026#34;, \u0026#34;iam:ResyncMFADevice\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:iam::*:user/${aws:username}\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;BoolIfExists\u0026#34;: { \u0026#34;aws:MultiFactorAuthPresent\u0026#34;: \u0026#34;false\u0026#34; } } } ] } Chọn Next: Tags. Đây là màn hình về Tags một công cụ dùng để phân biệt các tài nguyên của AWS. Chọn Next: Review. Đây là màn hình cho phép bạn review về bộ quyền mà bạn đang tạo ra. Nhập tên bộ quyền (ví dụ: MFAHardDevice) và chọn Create policy. Ở thanh bên trái , chọn Dashboard và sau đó chọn Enable MFA. Mở rộng Multi-factor authentication (MFA) sau đó chọn Active MFA.\nTrong Manage MFA Device, chọn U2F security key sau đó nhấn Continue.\nCắm khóa bảo mật U2F vào cổng USB của máy tính.\nNhấn vào khóa bảo mật U2F, và sau đó chọn Close khi U2F thiết lập thành công. "
+	"content": "Tổng quan các bước chuẩn bị Trước khi triển khai pipeline xử lý dữ liệu với Glue và S3, cần chuẩn bị các tài nguyên và quyền sau trên AWS:\nNội dung: 2.1 Tạo IAM Role 2.2 Tạo Bucket S3 2.3 Upload dữ liệu mẫu 🔐 1. IAM Role Tạo IAM Role cho Glue và Lambda để đảm bảo quyền truy cập dịch vụ và S3.\n🪣 2. S3 Bucket Tạo bucket chứa dữ liệu đầu vào và đầu ra, với 2 thư mục chính: raw/ và processed/.\n📂 3. Upload dữ liệu mẫu Chuẩn bị tệp CSV đơn giản (ví dụ: sales.csv) và upload vào thư mục raw/.\n"
 },
 {
-	"uri": "//localhost:1313/vi/2-mfa-setup-for-aws-user-root/",
-	"title": "MFA cho Tài khoản AWS",
+	"uri": "//localhost:1313/vi/5-crawler-processed/5.2-run-and-verify/",
+	"title": "Chạy Crawler và kiểm tra bảng",
 	"tags": [],
 	"description": "",
-	"content": "Hướng dẫn Thiết lập Multi-Factor Authentication (MFA) Trong quy trình bảo mật, việc sử dụng Multi-Factor Authentication (MFA) rất quan trọng. Trong bước này, bạn sẽ sử dụng ba loại thiết bị MFA khác nhau để tăng cường tính bảo mật.\nThiết bị MFA ảo trên smartphone Một cách phổ biến để thực hiện MFA là sử dụng các ứng dụng MFA trên điện thoại thông minh. Có ba ứng dụng phổ biến mà bạn có thể sử dụng:\nMicrosoft Authenticator Google Authenticator Okta Verify Để cài đặt MFA với các ứng dụng này, bạn cần thực hiện các bước sau:\nTải và cài đặt ứng dụng từ cửa hàng ứng dụng chính thức của hãng phát triển. Theo hướng dẫn trong ứng dụng, thêm tài khoản bảo mật bằng cách quét mã QR hoặc nhập mã cung cấp. Khóa bảo mật U2F cứng Khóa bảo mật U2F (Universal 2nd Factor) cung cấp một lớp bảo mật bổ sung thông qua cổng USB. Để cài đặt khóa bảo mật U2F, bạn cần thực hiện các bước sau:\nMua khóa bảo mật U2F tương thích với hệ thống của bạn. Kết nối khóa vào cổng USB của máy tính. Theo hướng dẫn của hãng sản xuất, thực hiện quá trình đăng ký và cài đặt. Thiết bị MFA phần cứng khác Ngoài các tùy chọn trên, còn có các thiết bị MFA phần cứng khác như khóa bảo mật Gemalto. Để sử dụng các thiết bị này, bạn cần tuân thủ hướng dẫn cụ thể từ nhà sản xuất.\nLiên kết nhanh đến các phần hướng dẫn chi tiết Thiết lập với thiết bị MFA ảo Thiết lập với Khóa Bảo mật U2F Thiết lập với thiết bị MFA phần cứng khác "
+	"content": "5.2 Chạy Crawler và kiểm tra bảng Sau khi tạo xong, chọn crawler salesdatacrawler_processed và nhấn Run Crawler Truy cập Glue → Databases → sales_db Kiểm tra bảng sales_processed đã được tạo đúng với schema sau khi ETL Schema lúc này đã chuẩn hóa, đúng định dạng theo yêu cầu.\n"
 },
 {
-	"uri": "//localhost:1313/vi/3-create-admin-user-and-group/",
-	"title": "Tạo Admin Group và Admin User",
+	"uri": "//localhost:1313/vi/1-introduction/1.1-project-goals/",
+	"title": "Mục tiêu đề tài",
 	"tags": [],
 	"description": "",
-	"content": "Tạo Admin Group Đăng nhập vào Bảng điều khiển ở trang AWS Web Service page\nNhấn vào tên tài khoản ở góc trên bên phải và chọn My Security Credentials\nLưu ý: Trong trường hợp không thấy menu My Security Credentials, bạn có thể click vào biểu tượng tìm kiếm và điền IAM. Sau đó click vào dịch vụ IAM để truy cập vào giao diện quản lý dịch vụ IAM.\nỞ thanh bên trái, chọn User Groups sau đó chọn Create Group\nDưới mục Name the group, nhập tên Group (Ví dụ: AdminGroup) và cuộn chuột xuống dưới\nỞ phần Attach permissions policies, gõ AdministratorAccesss vào thanh tìm kiếm và nhấn chọn nó. Cuối cùng, chọn Create Group.\nHoàn thành tạo admin group.\nTạo Admin User Ở thanh bên trái, chọn Users sau đó chọn Add User\nNhập tên User (Ví dụ: AdminUser).\nClick AWS Management Console access. Click Programmatic Access. Click Custom password rồi gõ một password tùy ý của bạn (lưu ý: bạn phải ghi nhớ mật khẩu này cho những lần đăng nhập trong tương lai). Bỏ chọn mục User must create a new password\u0026hellip;. Click Next:Permissions. Lưu ý: Bằng cách chọn AWS Management Console access, bạn vừa cho phép IAM User được truy cập vào AWS thông qua bảng điều khiển AWS trên web. Việc bỏ mục User must create a new password\u0026hellip; cho phép người dùng khi lần đầu đăng nhập vào IAM User đó không cần phải tạo mật khẩu mới.\nClick tab Add user to group và click AdminGroup mà chúng ta tạo trước đó.\nClick Next:Tags\nTags (thẻ) là một tùy chọn không bắt buộc để tổ chức, theo dõi, hoặc điều khiển truy cập của user, thế nên bạn có thể thêm tags hoặc không. Click Next:Review.\nKiểm tra thông tin và chọn Create user\nHoàn thành tạo user. Có thể download.csv để lưu trữ Access key.\nTạo admin user thành công.\nKiểm tra thông tin chi tiết user.\nLưu ý: Sau khi tạo user, bạn sẽ thấy hiện lên hộp thoại download thông tin access key và secret key. Đây là thông tin dùng để thực hiện Programmatic access tới các tài nguyên của AWS thông qua AWS CLI và AWS SDK. Tạm thời chúng ta sẽ chưa sử dụng tới.\nĐăng nhập vào AdminUser Trở về dịch vụ IAM, và chọn Users ở thanh bên trái.\nNhấn vào tên của IAM User mà bạn vừa chọn.\nTrong mục Summary, chọn tab Security credentials. Nhìn vào dòng Summary: Console sign-in link và copy đường link bên cạnh nó. Đây là đường link bạn dùng để đăng nhập vào IAM User.\nMở một tab ẩn danh của trình duyệt bạn đang sử dụng và paste đường link ấy vào thanh tìm kiếm.\nLưu ý: Việc đăng nhập bằng tab ẩn danh cho phép bạn đăng nhập vào AWS bằng IAM User mà không cần phải log out khỏi root user trong tab chính.\nNhập đúng tên IAM User và password mà bạn đã nhập ở phần tạo IAM User ở trên. Nhấn sign in.\nChúc mừng, bạn đã truy cập thành công vào tài khoản của bạn dưới danh nghĩa của một IAM User AdminUser.\nBước tiếp theo, chúng ta sẽ chuyển sang sử dụng IAM Role để nâng cao tính bảo mật hơn cho account của bạn nhé.\nTham khảo IAM User và Đăng Nhập Trong AWS Một IAM user là một định danh được tạo trong một tài khoản AWS, có quyền được tương tác với các tài nguyên AWS. Người dùng IAM đăng nhập bằng cách sử dụng ID tài khoản hoặc tên bí danh, tên người dùng của họ và mật khẩu. Tên người dùng IAM được cấu hình bởi quản trị viên của bạn. Tên người dùng IAM có thể là tên thân thiện như \u0026ldquo;Zhang\u0026rdquo;, hoặc là địa chỉ email như \u0026ldquo;zhang@example.com\u0026rdquo;. Tên người dùng IAM không thể chứa khoảng trắng, nhưng có thể chứa chữ cái in hoa và thường, số, và các ký tự + = , . @ _ -.\nMẹo Nếu người dùng IAM của bạn đã bật xác thực đa yếu tố (MFA), bạn phải có quyền truy cập vào thiết bị xác thực. Để biết thêm chi tiết, xem Sử dụng thiết bị MFA với trang đăng nhập IAM của bạn.\nĐể đăng nhập với tư cách người dùng IAM\nMở Bảng điều khiển Quản lý AWS tại https://console.aws.amazon.com/.\nTrang đăng nhập chính hiển thị. Chọn \u0026ldquo;IAM user\u0026rdquo;, nhập ID tài khoản (12 chữ số) hoặc bí danh và chọn \u0026ldquo;Next\u0026rdquo;.\nGhi chú Bạn có thể không cần phải nhập ID tài khoản hoặc bí danh nếu bạn đã đăng nhập trước đó với tài khoản IAM bằng trình duyệt hiện tại hoặc nếu bạn đang sử dụng URL đăng nhập tài khoản của bạn.\nNhập tên người dùng IAM và mật khẩu của bạn, sau đó chọn \u0026ldquo;Sign in\u0026rdquo;.\nNếu MFA được bật cho người dùng IAM của bạn, sau đó bạn sẽ được xác thực sử dụng nó.\nSau khi xác thực, Bảng điều khiển Quản lý AWS sẽ mở trang chủ Bảng điều khiển.\nTạo khóa truy cập (access key) cho tài khoản root user trên AWS Quyền tối thiểu cần thiết Để thực hiện các bước sau, bạn cần có ít nhất các quyền IAM (Identity and Access Management) sau đây:\nBạn phải đăng nhập với tư cách là tài khoản root user của AWS, điều này không yêu cầu bất kỳ quyền IAM bổ sung nào khác. Bạn không thể thực hiện các bước này với tư cách là người dùng IAM hoặc vai trò (role).\nSử dụng địa chỉ email và mật khẩu của tài khoản AWS để đăng nhập vào Bảng điều khiển quản lý AWS (AWS Management Console) với tư cách là tài khoản root user.\nỞ góc trên bên phải của bảng điều khiển, chọn tên hoặc số tài khoản của bạn, sau đó chọn Security Credentials (Thông tin xác thực bảo mật).\nỞ phần Access keys (Khóa truy cập), chọn Create access key (Tạo khóa truy cập). Nếu tùy chọn này không khả dụng, điều đó có nghĩa bạn đã có số lượng tối đa các khóa truy cập. Bạn phải xóa một trong các khóa truy cập hiện có trước khi tạo khóa mới. Để biết thêm thông tin, xem IAM Object Quotas trong Hướng dẫn Người dùng IAM.\nTrên trang Alternatives to root user access keys (Các phương án thay thế cho khóa truy cập tài khoản root user), xem xét các khuyến nghị về bảo mật. Để tiếp tục, chọn vào ô kiểm và sau đó chọn Create access key (Tạo khóa truy cập).\nTrên trang Retrieve access key (Trang Lấy lại khóa truy cập), Access key ID của bạn sẽ được hiển thị.\nDưới mục Secret access key (Khóa truy cập bí mật), chọn Show (Hiển thị) và sau đó sao chép Access key ID và Secret key từ cửa sổ trình duyệt của bạn, sau đó dán chúng vào một nơi an toàn. Tùy chọn khác, bạn có thể chọn Download .csv file (Tải xuống tệp .csv) để tải xuống một tệp có tên là rootkey.csv chứa Access key ID và Secret key. Lưu tệp ở một nơi an toàn.\nChọn Done (Hoàn thành). Khi bạn không còn cần khóa truy cập nữa, chúng tôi khuyến nghị bạn xóa nó hoặc ít nhất là xem xét vô hiệu hóa nó để không ai có thể lạm dụng.\nLưu ý: Các bước này chỉ áp dụng cho tài khoản root user trên AWS. Đối với các người dùng IAM hoặc vai trò (role), cách tạo và quản lý khóa truy cập có thể khác nhau.\nXóa một khóa truy cập cho người dùng gốc trên AWS Quyền tối thiểu Để thực hiện các bước sau, bạn phải có ít nhất các quyền IAM (Quản lý Quyền và Danh sách quyền) sau đây:\nBạn phải đăng nhập dưới tư cách người dùng gốc của tài khoản AWS, điều này không yêu cầu bất kỳ quyền AWS Identity and Access Management (IAM) bổ sung nào. Bạn không thể thực hiện các bước này dưới tư cách người dùng IAM hoặc vai trò. Sử dụng địa chỉ email và mật khẩu của tài khoản AWS để đăng nhập vào Bảng điều khiển Quản lý AWS dưới tư cách người dùng gốc của bạn. Ở góc trên bên phải của bảng điều khiển, chọn tên hoặc số tài khoản của bạn, sau đó chọn Security Credentials (Chứng chỉ Bảo mật). Trong phần Access keys (Khóa truy cập), chọn khóa truy cập mà bạn muốn xóa, sau đó, ở mục Actions (Thao tác), chọn Delete (Xóa). Lưu ý Theo cách khác, bạn có thể Deactivate (Ngưng hoạt động) một khóa truy cập thay vì xóa nó vĩnh viễn. Điều này giúp bạn có thể tiếp tục sử dụng nó trong tương lai mà không cần thay đổi cả ID khóa lẫn khóa bí mật. Trong khi khóa bị vô hiệu hóa, mọi yêu cầu sử dụng nó trong các yêu cầu tới AWS API sẽ thất bại với lỗi \u0026ldquo;access denied\u0026rdquo; (truy cập bị từ chối).\nTrên hộp thoại Delete (Xóa \u0026lt;ID khóa truy cập\u0026gt;), chọn Deactivate (Ngưng hoạt động), nhập ID khóa truy cập để xác nhận bạn muốn xóa nó, sau đó chọn Delete (Xóa).\n"
+	"content": "Nội dung | Content:\n🎯 Mục tiêu tổng quan ⚙️ Tự động hóa quy trình ETL 📊 Hỗ trợ truy vấn và trực quan hóa 🎯 Mục tiêu tổng quan Xây dựng pipeline xử lý dữ liệu sử dụng các dịch vụ AWS: S3, Glue, và Athena. Thiết kế kiến trúc linh hoạt, có khả năng mở rộng, dễ dàng tích hợp thêm dịch vụ. Build a data processing pipeline using AWS services: S3, Glue, and Athena.\nDesign a flexible, scalable architecture that supports easy integration.\n⚙️ Tự động hóa quy trình ETL Toàn bộ quy trình ETL (Extract, Transform, Load) sẽ được tự động hóa bằng AWS Glue và các tác vụ lịch trình. Đảm bảo xử lý dữ liệu định kỳ, giảm thiểu lỗi do thao tác thủ công. The entire ETL process will be automated using AWS Glue and scheduled jobs.\nEnsure periodic data processing with minimal manual intervention.\n📊 Hỗ trợ truy vấn và trực quan hóa Dữ liệu sau xử lý được lưu trữ trên S3 và truy vấn bằng Athena thông qua SQL. Tùy chọn kết nối với Amazon QuickSight để trực quan hóa dữ liệu qua biểu đồ, dashboard. Processed data is stored in S3 and queried using Athena with SQL.\nOptionally connect to Amazon QuickSight for visualization via charts and dashboards.\n"
 },
 {
-	"uri": "//localhost:1313/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/",
-	"title": "Thiết bị MFA cứng",
+	"uri": "//localhost:1313/vi/8-quicksight-dashboard/8.2-create-dashboard/",
+	"title": "Tạo dashboard trực quan",
 	"tags": [],
 	"description": "",
-	"content": "Nội dung\nKích hoạt thiết bị MFA phần cứng khác thông qua Console Kích hoạt thiết bị MFA phần cứng khác thông qua Console Đăng nhập vào AWS Console. Góc trên bên phải, bạn sẽ thấy tên account của bạn, chọn vào và chọn My Security Credentials sau đó mở rộng Multi-factor authentication (MFA). Để quản lí khóa bảo mật U2F, bạn phải có quyền từ bộ quyền sau. ở thanh bên trái, chọn Policies sau đó chọn Create policy, chọn JSON tab và dán phần bên dưới vào: { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;AllowManageOwnUserMFA\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;iam:DeactivateMFADevice\u0026#34;, \u0026#34;iam:EnableMFADevice\u0026#34;, \u0026#34;iam:GetUser\u0026#34;, \u0026#34;iam:ListMFADevices\u0026#34;, \u0026#34;iam:ResyncMFADevice\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:iam::*:user/${aws:username}\u0026#34; }, { \u0026#34;Sid\u0026#34;: \u0026#34;DenyAllExceptListedIfNoMFA\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Deny\u0026#34;, \u0026#34;NotAction\u0026#34;: [ \u0026#34;iam:EnableMFADevice\u0026#34;, \u0026#34;iam:GetUser\u0026#34;, \u0026#34;iam:ListMFADevices\u0026#34;, \u0026#34;iam:ResyncMFADevice\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:iam::*:user/${aws:username}\u0026#34;, \u0026#34;Condition\u0026#34;: { \u0026#34;BoolIfExists\u0026#34;: { \u0026#34;aws:MultiFactorAuthPresent\u0026#34;: \u0026#34;false\u0026#34; } } } ] } Chọn Next: Tags. Đây là màn hình về Tags một công cụ dùng để phân biệt các tài nguyên của AWS. Chọn Next: Review. Đây là màn hình cho phép bạn review về bộ quyền mà bạn đang tạo ra. Nhập tên bộ quyền (ví dụ: MFAHardDevice) và chọn Create policy. Ở thanh bên trái , chọn Dashboard và sau đó chọn Enable MFA. Mở rộng Multi-factor authentication (MFA) sau đó chọn Active MFA.\nTrong Manage MFA Device, chọn Other Hardware MFA Device sau đó nhấn Continue.\nNhập Serial Number ở đằng sau thiết bị.\nNhập MFA code 1 sau đó đợi 30 giây và nhập MFA code 2. Chọn Assign MFA. "
+	"content": "8.2 Tạo dashboard trực quan Chọn New analysis → dataset sales_processed Thêm biểu đồ: Biểu đồ cột: doanh thu theo ngày (order_date, amount) Bảng dữ liệu: top sản phẩm bán chạy (product, SUM(amount)) Tuỳ chỉnh màu sắc, tiêu đề và lọc dữ liệu theo nhu cầu "
 },
 {
-	"uri": "//localhost:1313/vi/4-verify-new-account/",
-	"title": "Hỗ trợ Xác thực Tài khoản",
+	"uri": "//localhost:1313/vi/3-crawler-raw/3.2-create-glue-crawler/",
+	"title": "Tạo Glue Crawler",
 	"tags": [],
 	"description": "",
-	"content": "Nội dung:\nKiểm tra các thông tin Tạo case hỗ trợ với AWS Support Trong quá trình khởi tạo tài khoản AWS, ở bước xác thực thông tin số điện thoại liên lạc, đôi khi sẽ xảy ra tình trạng không nhận được tin nhắn SMS hoặc cuộc gọi từ phía AWS. Trong trường hợp đó, hãy làm theo các bước sau để hoàn thành việc xác nhận thông tin tài khoản:\nKiểm tra các thông tin Đầu tiên, hãy kiểm tra lại các thông tin tài khoản của bạn và đảm bảo chúng đã được nhập chính xác:\nBạn đã nhập thông tin số điện thoại và chọn mã vùng quốc tế chính xác để nhận cuộc gọi. Nếu bạn sử dụng điện thoại di động, kiểm tra điện thoại của bạn để chắc chắn bạn vẫn đang trong vòng phủ sóng để nhận cuộc gọi. Thông tin về phương thức thanh toán đã được nhập chính xác. Hãy chắc chắn rằng số điện thoại mà bạn cung cấp trong tài khoản AWS của bạn có thể liên lạc được.\nTạo case hỗ trợ với AWS Support Sau khi kiểm tra thông tin chính xác nhưng vẫn chưa nhận được cuộc gọi xác thực, AWS Support sẽ hỗ trợ bạn kích hoạt tài khoản một cách thủ công.\nTruy cập vào AWS Support console, chọn Create case. Chọn Account and billing support và nhập các thông tin hỗ trợ: Type: chọn Account. Category: chọn Activation. Subject: viết ngắn gọn tình trạng gặp phải của bạn (VD: Did not receive an SMS message or call for verification) Description: Cung cấp chi tiết tình trạng gặp phải và thông tin về thời gian bạn cần hỗ trợ kích hoạt tài khoản. Attachments: Đính kèm hình ảnh mô tả bước xác thực đang vướng phải. Ở mục Contact options, chọn Chat ở Contact methods. Chọn Submit. 5. Đội ngũ AWS Support sẽ liên lạc và hỗ trợ kích hoạt tài khoản của bạn.\nBạn có thể tạo yêu cầu hỗ trợ với AWS Support ngay cả khi tài khoản của bạn chưa được kích hoạt.\n"
+	"content": "3.2 Tạo Glue Crawler Vào Crawlers → chọn Add crawler Nhập: Tên: salesdatacrawler Data source: s3://my-data-pipeline-bucket/raw/ IAM Role: chọn role đã tạo Output: Database: sales_db Bảng: sales_raw Crawler giúp tự động phát hiện schema từ file CSV.\n"
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare-environment/2.2-create-s3-bucket/",
+	"title": "Tạo S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "Tạo S3 Bucket Truy cập dịch vụ S3 từ AWS Console. Chọn Create Bucket, đặt tên ví dụ: my-data-pipeline-bucket Tạo 2 thư mục bên trong: raw/ – chứa dữ liệu gốc processed/ – chứa dữ liệu sau xử lý "
+},
+{
+	"uri": "//localhost:1313/vi/6-athena-analysis/6.2-basic-query/",
+	"title": "Truy vấn dữ liệu đã xử lý",
+	"tags": [],
+	"description": "",
+	"content": "6.2 Truy vấn dữ liệu đã xử lý Sau khi crawler đã tạo bảng sales_processed, bạn có thể truy vấn thử:\nSELECT * FROM sales_db.sales_processed LIMIT 10; "
+},
+{
+	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.2-write-python-code/",
+	"title": "Viết mã Python cho Lambda",
+	"tags": [],
+	"description": "",
+	"content": "7.2 Viết mã Python cho Lambda Sử dụng thư viện boto3 để gọi AWS Glue APIs:\nimport boto3 glue = boto3.client(\u0026#39;glue\u0026#39;) def lambda_handler(event, context): try: glue.start_crawler(Name=\u0026#39;salesdatacrawler\u0026#39;) glue.start_job_run(JobName=\u0026#39;ProcessJob\u0026#39;) glue.start_crawler(Name=\u0026#39;salesdatacrawler_processed\u0026#39;) return {\u0026#39;status\u0026#39;: \u0026#39;Pipeline triggered\u0026#39;} except Exception as e: print(e) return {\u0026#39;error\u0026#39;: str(e)} Đừng quên log trạng thái để kiểm tra trong CloudWatch Logs.\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-glue-job/4.2-write-etl-script/",
+	"title": "Viết script ETL",
+	"tags": [],
+	"description": "",
+	"content": "4.2 Viết script ETL Trong script Python (Spark):\nĐọc dữ liệu từ bảng sales_raw Đổi tên cột nếu cần (order_id → id, v.v.) Ép kiểu dữ liệu phù hợp (ví dụ: date, float) Ghi ra s3://my-data-pipeline-bucket/processed/ dưới dạng Parquet hoặc CSV import sys from pyspark.context import SparkContext from awsglue.utils import getResolvedOptions from awsglue.context import GlueContext from awsglue.job import Job from pyspark.sql.functions import col, trim, regexp_replace, round from awsglue.dynamicframe import DynamicFrame args = getResolvedOptions(sys.argv, [\u0026#39;JOB_NAME\u0026#39;]) sc = SparkContext() glueContext = GlueContext(sc) spark = glueContext.spark_session job = Job(glueContext) job.init(args[\u0026#39;JOB_NAME\u0026#39;], args) input_dyf = glueContext.create_dynamic_frame.from_catalog( database=\u0026#34;sales_analysis_db\u0026#34;, table_name=\u0026#34;raw_sales_dataset\u0026#34; ) df = input_dyf.toDF() for col_name in df.columns: if df.schema[col_name].dataType.simpleString() == \u0026#39;string\u0026#39;: df = df.withColumn( col_name, trim( regexp_replace( regexp_replace(col(col_name), \u0026#39;^\u0026#34;|\u0026#34;$\u0026#39;, \u0026#39;\u0026#39;), \u0026#39;\\s+\u0026#39;, \u0026#39; \u0026#39; ) ) ) if \u0026#39;price\u0026#39; in df.columns and \u0026#39;quantity\u0026#39; in df.columns: df = df.withColumn(\u0026#34;revenue\u0026#34;, round(col(\u0026#34;price\u0026#34;) * col(\u0026#34;quantity\u0026#34;), 2)) output_dyf = DynamicFrame.fromDF(df, glueContext, \u0026#34;output_dyf\u0026#34;) output_path = \u0026#34;s3://your-data-pipeline-bucket/processed/\u0026#34; glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={ \u0026#34;path\u0026#34;: output_path, \u0026#34;partitionKeys\u0026#34;: [] }, format=\u0026#34;csv\u0026#34; ) glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={\u0026#34;path\u0026#34;: \u0026#34;s3://your-data-pipeline-bucket/processed/\u0026#34;}, format=\u0026#34;csv\u0026#34; ) job.commit() Nên dùng định dạng Parquet để tối ưu chi phí \u0026amp; hiệu năng khi query bằng Athena.\n"
+},
+{
+	"uri": "//localhost:1313/vi/3-crawler-raw/3.3-run-crawler/",
+	"title": "Chạy Crawler",
+	"tags": [],
+	"description": "",
+	"content": "3.3 Chạy Glue Crawler Sau khi tạo xong, chọn crawler salesdatacrawler và nhấn Run Crawler. Kiểm tra bảng: Vào Glue Console → Databases → sales_db Đảm bảo bảng sales_raw đúng với dữ liệu từ sales.csv. Đây là bước xác minh schema được trích xuất chính xác.\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-glue-job/4.3-run-and-verify/",
+	"title": "Chạy Job &amp; kiểm tra output",
+	"tags": [],
+	"description": "",
+	"content": "4.3 Chạy Job \u0026amp; kiểm tra output Vào Glue → Jobs → chọn ProcessJob → Run Theo dõi trạng thái job: RUNNING → SUCCEEDED Mở S3 Bucket → thư mục processed/ Kiểm tra file được sinh ra có đúng định dạng: Parquet hoặc CSV "
+},
+{
+	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.3-attach-s3-trigger/",
+	"title": "Gắn trigger S3 event",
+	"tags": [],
+	"description": "",
+	"content": "7.3 Gắn trigger S3 event Truy cập S3 → chọn bucket chứa dữ liệu (my-data-pipeline-bucket) Vào tab Properties → Event notifications Thêm trigger: Prefix: raw/ Event type: PUT (ObjectCreated) Destination: Lambda function RunETLPipeline Mỗi khi có file mới trong thư mục raw/, Lambda sẽ tự động chạy pipeline.\n"
+},
+{
+	"uri": "//localhost:1313/vi/1-introduction/1.2-purpose-and-applications/",
+	"title": "Mục đích và Ứng dụng",
+	"tags": [],
+	"description": "",
+	"content": "Nội dung:\n🌐 Tại sao dùng AWS cho Data Pipeline? 📌 Trường hợp sử dụng thực tế 🚀 Khả năng mở rộng trong tương lai 🌐 Tại sao dùng AWS cho Data Pipeline? AWS cung cấp các dịch vụ mạnh mẽ như S3, Glue, và Athena, giúp xây dựng hệ thống xử lý dữ liệu hiệu quả, không cần quản lý hạ tầng phức tạp, và hỗ trợ tự động hóa toàn diện.\nVới mô hình tính phí theo mức sử dụng, khả năng mở rộng toàn cầu và tích hợp dịch vụ linh hoạt, AWS là lựa chọn hàng đầu cho các bài toán kỹ thuật dữ liệu hiện đại.\n📌 Trường hợp sử dụng thực tế 🔍 Làm sạch và chuyển đổi dữ liệu: Tự động xử lý, chuẩn hóa file CSV, JSON hoặc log với Glue 📊 Phân tích kinh doanh: Truy vấn trực tiếp dữ liệu trên S3 bằng SQL qua Athena 🏢 Chuẩn bị dữ liệu cho kho dữ liệu: Chuyển dữ liệu về dạng có cấu trúc để đưa vào Redshift hoặc công cụ BI khác 🔁 Cập nhật dữ liệu định kỳ: Chạy các job theo lịch để cập nhật dữ liệu báo cáo 🚀 Khả năng mở rộng trong tương lai Dễ dàng tích hợp thêm các dịch vụ như:\nAmazon QuickSight để trực quan hóa Amazon Redshift làm kho dữ liệu AWS Lambda để kích hoạt tự động theo sự kiện Hỗ trợ thêm nguồn dữ liệu và dung lượng lớn mà không cần thay đổi hệ thống hiện tại.\nKiến trúc có tính mô-đun, linh hoạt và “cloud-native”, phù hợp cho mọi nhu cầu mở rộng về sau.\n"
+},
+{
+	"uri": "//localhost:1313/vi/3-crawler-raw/",
+	"title": "Tạo Glue Crawler",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Glue Crawler Để AWS Glue hiểu được cấu trúc dữ liệu trong S3, bạn cần thực hiện 3 bước:\n3.1 Tạo Glue Database 3.2 Tạo Glue Crawler 3.3 Chạy Glue Crawler "
+},
+{
+	"uri": "//localhost:1313/vi/2-prepare-environment/2.3-upload-sample-data/",
+	"title": "Upload dữ liệu mẫu",
+	"tags": [],
+	"description": "",
+	"content": "Upload dữ liệu mẫu Chuẩn bị tệp mẫu: sales.csv, định dạng CSV đơn giản (ví dụ: id, date, amount) Truy cập S3 Bucket đã tạo Upload tệp sales.csv vào thư mục raw/ "
+},
+{
+	"uri": "//localhost:1313/vi/6-athena-analysis/6.3-advanced-queries/",
+	"title": "Viết truy vấn nâng cao",
+	"tags": [],
+	"description": "",
+	"content": "6.3 Viết các câu truy vấn nâng cao (tuỳ chọn) Một số ví dụ truy vấn phổ biến:\nTổng doanh thu theo sản phẩm: SELECT product, SUM(amount) AS total_amount FROM sales_db.sales_processed GROUP BY product; Doanh thu theo ngày: SELECT order_date, SUM(amount) AS total FROM sales_db.sales_processed GROUP BY order_date ORDER BY order_date; "
+},
+{
+	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/",
+	"title": "Ghi lại hành vi người dùng với AWS CloudTrail",
+	"tags": [],
+	"description": "",
+	"content": "10. Ghi lại hành vi người dùng với AWS CloudTrail Mục đích AWS CloudTrail giúp theo dõi và ghi nhật ký tất cả hoạt động của người dùng và dịch vụ AWS, bao gồm các thao tác trên S3, IAM, Lambda, và nhiều dịch vụ khác.\nCác bước thực hiện 1. Truy cập dịch vụ CloudTrail Vào AWS Console → Tìm CloudTrail → Nhấn Create trail 2. Tạo Trail mới Trail name: fcj-trail Storage location: Tạo hoặc chọn 1 S3 Bucket để chứa log Bật tùy chọn Log file validation Bật chế độ: Multi-region trail 3. Cấu hình nhật ký Chọn ghi nhật ký Management events Loại hành động: Write-only Bật tùy chọn: Data events → Chọn S3 → Add bucket: Bucket name: your-data-pipeline-bucket Event type: PUT (để ghi lại hành vi ghi dữ liệu) 4. Kiểm tra hoạt động Upload một file CSV mới vào S3 Truy cập lại CloudTrail → Event history Lọc theo EventName = PutObject và Resource = your-data-pipeline-bucket Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào Lợi ích Giúp kiểm tra xem ai đã upload file nào, lúc nào Phát hiện bất thường trong thao tác dữ liệu Phục vụ mục đích audit và bảo mật Gợi ý Bạn có thể kết hợp CloudTrail với:\nAWS CloudWatch Logs để giám sát theo thời gian thực AWS Config để theo dõi cấu hình tài nguyên "
+},
+{
+	"uri": "//localhost:1313/vi/4-glue-job/",
+	"title": "Tạo Glue Job",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Glue Job Để xử lý dữ liệu từ sales_raw và ghi kết quả ra thư mục processed/, bạn cần:\n4.1 Tạo Glue Job mới 4.2 Viết script ETL 4.3 Chạy Job \u0026amp; kiểm tra kết quả "
+},
+{
+	"uri": "//localhost:1313/vi/5-crawler-processed/",
+	"title": "Tạo Glue Crawler cho dữ liệu đã xử lý",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Glue Crawler cho dữ liệu đã xử lý Sau khi dữ liệu đã được xử lý và ghi vào thư mục processed/, chúng ta cần tạo một Glue Crawler mới để phát hiện schema của dữ liệu đầu ra.\nCác bước: 5.1 Tạo Crawler mới 5.2 Chạy Crawler và kiểm tra bảng "
+},
+{
+	"uri": "//localhost:1313/vi/6-athena-analysis/",
+	"title": "Truy vấn với Amazon Athena",
+	"tags": [],
+	"description": "",
+	"content": "Truy vấn với Amazon Athena Sau khi crawler đã tạo bảng sales_processed, bạn có thể sử dụng Amazon Athena để truy vấn dữ liệu trực tiếp trên S3.\nCác bước: 6.1 Cấu hình Athena 6.2 Truy vấn dữ liệu đã xử lý 6.3 Viết các câu truy vấn nâng cao (tuỳ chọn) "
+},
+{
+	"uri": "//localhost:1313/vi/7-automate-with-lambda/",
+	"title": "Tự động hóa bằng AWS Lambda",
+	"tags": [],
+	"description": "",
+	"content": "Tự động hóa bằng AWS Lambda Để tự động hóa toàn bộ pipeline, chúng ta sử dụng AWS Lambda để kích hoạt quá trình ETL khi có file mới.\nCác bước: 7.1 Tạo Lambda Function 7.2 Viết mã Python cho Lambda 7.3 Gắn trigger S3 event "
+},
+{
+	"uri": "//localhost:1313/vi/8-quicksight-dashboard/",
+	"title": "Trực quan hóa với Amazon QuickSight",
+	"tags": [],
+	"description": "",
+	"content": "Trực quan hóa với Amazon QuickSight (Tuỳ chọn) Sau khi dữ liệu đã được xử lý và lưu trong sales_processed, bạn có thể sử dụng Amazon QuickSight để tạo các dashboard trực quan.\nCác bước: 8.1 Kết nối Athena với QuickSight 8.2 Tạo dashboard trực quan "
+},
+{
+	"uri": "//localhost:1313/vi/9-cleanup/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "Dọn dẹp tài nguyên Sau khi hoàn tất pipeline, bạn nên dọn dẹp các tài nguyên AWS để tránh phát sinh chi phí không cần thiết.\n🧹 Xoá tài nguyên theo danh mục: AWS Glue Xoá Crawler: salesdatacrawler, salesdatacrawler_processed Xoá Job: ProcessJob Xoá Database: sales_db AWS Lambda Xoá function: RunETLPipeline Amazon S3 Xoá bucket: my-data-pipeline-bucket (hoặc chỉ xoá thư mục raw/, processed/ nếu giữ bucket) IAM Xoá các IAM Role nếu không tái sử dụng: AWSGlueServiceRole AWSLambdaExecutionRole CloudWatch Vào CloudWatch → Logs → Xoá log group của Lambda QuickSight Vào QuickSight: Xoá dataset sales_processed Xoá dashboard nếu đã tạo "
 },
 {
 	"uri": "//localhost:1313/vi/categories/",
