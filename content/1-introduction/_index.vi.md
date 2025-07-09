@@ -10,6 +10,8 @@ pre : " <b> 1. </b> "
 - [📌 Mục tiêu dự án](#-mục-tiêu-dự-án)
 - [💡 Ý nghĩa và ứng dụng](#-ý-nghĩa-và-ứng-dụng)
 
+![Pipeline Architecture](/images/00/0001.png?featherlight=false&width=90pc)
+
 ---
 
 #### 📌 Mục tiêu dự án

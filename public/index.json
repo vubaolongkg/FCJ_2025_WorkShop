@@ -32,7 +32,7 @@
 	"title": "Create IAM Role",
 	"tags": [],
 	"description": "",
-	"content": "Create IAM Role To ensure AWS services work correctly, you must create IAM roles with proper permissions:\n🔹 For Glue: AWSGlueServiceRole AmazonS3FullAccess 🔹 For Lambda: AWSLambdaBasicExecutionRole AWSGlueConsoleFullAccess These permissions allow Glue to access S3 and Lambda to trigger Glue jobs.\n"
+	"content": "Create IAM Roles To ensure AWS services operate correctly, appropriate IAM Roles must be created:\nGo to the IAM service and navigate to the Roles section.\n🔹 For Lambda: AWSGlueServiceRole AWSS3FullAccess CloudWatchLogsFullAccess Click Create Role, select Service as Lambda.\nSearch for and select the roles you need.\nName it LambdaRole, review the settings, and click Create Role.\n🔹 For Glue: AWSGlueServiceRole AmazonAthenaFullAccess AmazonQuicksightAthenaFullAccess AmazonS3FullAccess Similarly, click Create Role, then choose the service as Glue.\nSearch for and select the roles you need.\nName it GlueRole, review the settings, and click Create Role.\nThese permissions allow Glue to access S3 and Lambda to trigger Glue jobs.\n"
 },
 {
 	"uri": "//localhost:1313/7-automate-with-lambda/7.1-create-lambda-function/",
@@ -81,7 +81,7 @@
 	"title": "Create S3 Bucket",
 	"tags": [],
 	"description": "",
-	"content": "Create S3 Bucket Go to S3 from the AWS Console. Click Create Bucket and name it (e.g., my-data-pipeline-bucket) Inside the bucket, create two folders: raw/ – for raw input data processed/ – for cleaned/transformed data "
+	"content": "Create S3 Bucket Go to the S3 service from the AWS Console. Click Create Bucket, and give it a name, for example: sales-data-bucket-2025 Block Public Access.\nAfter selecting the desired options, click Create Bucket.\n"
 },
 {
 	"uri": "//localhost:1313/2-prepare-environment/",
@@ -123,7 +123,7 @@
 	"title": "Write Python Code for Lambda",
 	"tags": [],
 	"description": "",
-	"content": "7.2 Write Python Code for Lambda Use boto3 to call AWS Glue APIs:\nimport boto3 glue = boto3.client(\u0026#39;glue\u0026#39;) def lambda_handler(event, context): try: glue.start_crawler(Name=\u0026#39;salesdatacrawler\u0026#39;) glue.start_job_run(JobName=\u0026#39;ProcessJob\u0026#39;) glue.start_crawler(Name=\u0026#39;salesdatacrawler_processed\u0026#39;) return {\u0026#39;status\u0026#39;: \u0026#39;Pipeline triggered\u0026#39;} except Exception as e: print(e) return {\u0026#39;error\u0026#39;: str(e)} Don’t forget to log output to monitor in CloudWatch Logs.\n"
+	"content": "7.2 Write Python Code for Lambda Use boto3 to call AWS Glue APIs:\nimport boto3 import logging import time logger = logging.getLogger() logger.setLevel(logging.INFO) glue = boto3.client(\u0026#39;glue\u0026#39;) def lambda_handler(event, context): logger.info(\u0026#34;🔁 Lambda triggered\u0026#34;) crawler_name = \u0026#39;salesdatacrawler\u0026#39; try: glue.start_crawler(Name=crawler_name) logger.info(f\u0026#34;✅ Successfully started crawler: {crawler_name}\u0026#34;) except glue.exceptions.CrawlerRunningException: logger.warning(f\u0026#34;⚠️ Crawler {crawler_name} is already running.\u0026#34;) except Exception as e: logger.error(f\u0026#34;❌ Failed to start crawler {crawler_name}: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Error starting crawler {crawler_name}: {str(e)}\u0026#34; } logger.info(f\u0026#34;⏳ Waiting for crawler {crawler_name} to complete...\u0026#34;) while True: crawler_state = glue.get_crawler(Name=crawler_name)[\u0026#39;Crawler\u0026#39;][\u0026#39;State\u0026#39;] if crawler_state == \u0026#39;READY\u0026#39;: logger.info(f\u0026#34;✅ Crawler {crawler_name} finished.\u0026#34;) break time.sleep(10) job_name = \u0026#39;ProcessJob\u0026#39; try: while True: job_runs = glue.get_job_runs(JobName=job_name, MaxResults=1) if not job_runs[\u0026#39;JobRuns\u0026#39;]: break current_status = job_runs[\u0026#39;JobRuns\u0026#39;][0][\u0026#39;JobRunState\u0026#39;] if current_status in [\u0026#39;RUNNING\u0026#39;, \u0026#39;STARTING\u0026#39;, \u0026#39;STOPPING\u0026#39;]: logger.info(f\u0026#34;🕒 Glue Job {job_name} is currently {current_status}, waiting...\u0026#34;) time.sleep(15) else: break logger.info(f\u0026#34;🚀 Starting Glue Job: {job_name}\u0026#34;) response = glue.start_job_run(JobName=job_name) job_run_id = response[\u0026#39;JobRunId\u0026#39;] except Exception as e: logger.error(f\u0026#34;❌ Failed to start Glue Job: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Error starting Glue job: {str(e)}\u0026#34; } logger.info(f\u0026#34;⏳ Waiting for Glue Job {job_name} to complete...\u0026#34;) while True: job_status = glue.get_job_run(JobName=job_name, RunId=job_run_id) state = job_status[\u0026#39;JobRun\u0026#39;][\u0026#39;JobRunState\u0026#39;] logger.info(f\u0026#34;🧪 Glue Job status: {state}\u0026#34;) if state in [\u0026#39;SUCCEEDED\u0026#39;, \u0026#39;FAILED\u0026#39;, \u0026#39;STOPPED\u0026#39;]: break time.sleep(15) if state != \u0026#39;SUCCEEDED\u0026#39;: logger.error(f\u0026#34;❌ Glue Job ended with status: {state}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Glue Job failed or stopped with status: {state}\u0026#34; } logger.info(f\u0026#34;✅ Glue Job {job_name} completed successfully.\u0026#34;) second_crawler = \u0026#39;salesdatacrawler_processed\u0026#39; try: glue.start_crawler(Name=second_crawler) logger.info(f\u0026#34;✅ Successfully started crawler: {second_crawler}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: f\u0026#34;Workflow completed. Crawler {second_crawler} started.\u0026#34; } except Exception as e: logger.error(f\u0026#34;❌ Failed to start second crawler: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Error starting second crawler {second_crawler}: {str(e)}\u0026#34; } Don’t forget to log output to monitor in CloudWatch Logs.\n"
 },
 {
 	"uri": "//localhost:1313/6-athena-analysis/6.3-advanced-queries/",
@@ -175,18 +175,18 @@
 	"content": "Upload Sample Data Prepare a sample file named sales.csv in basic CSV format (e.g., id, date, amount) Go to your created S3 bucket Upload the sales.csv file into the raw/ folder "
 },
 {
-	"uri": "//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/",
-	"title": "Automate with AWS Lambda",
-	"tags": [],
-	"description": "",
-	"content": "Automate with AWS Lambda To fully automate the pipeline, we will use AWS Lambda to trigger the ETL process whenever a new file is uploaded.\nSteps: 7.1 Create Lambda Function 7.2 Write Python Code for Lambda 7.3 Attach S3 Trigger "
-},
-{
 	"uri": "//localhost:1313/4-glue-job/",
 	"title": "Create Glue Job",
 	"tags": [],
 	"description": "",
 	"content": "Create Glue Job To process data from sales_raw and write to the processed/ folder, complete these steps:\n4.1 Create new Glue Job 4.2 Write ETL Script 4.3 Run Job \u0026amp; Verify Output "
+},
+{
+	"uri": "//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/",
+	"title": "Track User Behavior with AWS CloudTrail",
+	"tags": [],
+	"description": "",
+	"content": "Purpose AWS CloudTrail records API calls and actions across your AWS account. This is crucial for auditing user activities, especially actions like file uploads into S3.\nSteps 1. Access CloudTrail Go to AWS Console → Search CloudTrail → Click Create trail 2. Create a new Trail Trail name: fcj-trail Storage: Choose or create an S3 bucket for logs Enable Log file validation Enable Multi-region trail 3. Configure Logging Enable Management events → Write-only Under Data events: Choose S3 Add bucket: your-data-pipeline-bucket Enable PUT actions only (to track uploads) 4. Verify in Event History Upload a file to S3 Navigate to Event history Filter: EventName = PutObject, Resource = your-data-pipeline-bucket You’ll see who uploaded what and when Benefits Track user actions on critical data Detect abnormal behavior or misuse Improve security and auditing posture Tip Integrate CloudTrail with:\nCloudWatch Logs for real-time alerts AWS Config for resource state tracking "
 },
 {
 	"uri": "//localhost:1313/5-crawler-processed/",

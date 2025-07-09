@@ -12,21 +12,21 @@
     <title>Create IAM Role :: Create a new AWS account.</title>
 
     
-    <link href="/css/nucleus.css?1751812862" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751812862" rel="stylesheet">
-    <link href="/css/hybrid.css?1751812862" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751812862" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751812862" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751812862" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751812862" rel="stylesheet">
-    <link href="/css/theme.css?1751812862" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751812862" rel="stylesheet">
+    <link href="/css/nucleus.css?1751876009" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1751876009" rel="stylesheet">
+    <link href="/css/hybrid.css?1751876009" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1751876009" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1751876009" rel="stylesheet">
+    <link href="/css/auto-complete.css?1751876009" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1751876009" rel="stylesheet">
+    <link href="/css/theme.css?1751876009" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1751876009" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751812862" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1751876009" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751812862"></script>
+    <script src="/js/jquery-3.3.1.min.js?1751876009"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751812862"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751812862"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1751876009"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1751876009"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751812862"></script>
+<script type="text/javascript" src="/js/search.js?1751876009"></script>
 
     
   </div>
@@ -873,13 +873,13 @@
  
   
     
-    <li data-nav-id="/7-automate-with-lambda/7.4-cloudtrail-monitoring/" title="Automate with AWS Lambda" class="dd-item 
+    <li data-nav-id="/7-automate-with-lambda/7.4-cloudtrail-monitoring/" title="Track User Behavior with AWS CloudTrail" class="dd-item 
         
         
         
         ">
       <a href="/7-automate-with-lambda/7.4-cloudtrail-monitoring/">
-           <b> 7.4 </b> Automate with AWS Lambda
+           <b> 7.4 </b> Track User Behavior with AWS CloudTrail
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1178,10 +1178,10 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#create-iam-role">Create IAM Role</a>
+    <li><a href="#create-iam-roles">Create IAM Roles</a>
       <ul>
-        <li><a href="#-for-glue">🔹 For Glue:</a></li>
         <li><a href="#-for-lambda">🔹 For Lambda:</a></li>
+        <li><a href="#-for-glue">🔹 For Glue:</a></li>
       </ul>
     </li>
   </ul>
@@ -1209,18 +1209,44 @@
 
 
 
-	<h2 id="create-iam-role">Create IAM Role</h2>
-<p>To ensure AWS services work correctly, you must create IAM roles with proper permissions:</p>
+	<h2 id="create-iam-roles">Create IAM Roles</h2>
+<p>To ensure AWS services operate correctly, appropriate IAM Roles must be created:</p>
+<p>Go to the IAM service and navigate to the <strong>Roles</strong> section.<br>
+<img src="/images/02/021/1.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<h3 id="-for-lambda">🔹 For Lambda:</h3>
+<ul>
+<li><code>AWSGlueServiceRole</code></li>
+<li><code>AWSS3FullAccess</code></li>
+<li><code>CloudWatchLogsFullAccess</code></li>
+</ul>
+<p>Click <strong>Create Role</strong>, select <strong>Service</strong> as <strong>Lambda</strong>.<br>
+<img src="/images/02/021/2.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p>Search for and select the roles you need.<br>
+<img src="/images/02/021/3.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/4.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/5.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p>Name it <code>LambdaRole</code>, review the settings, and click <strong>Create Role</strong>.<br>
+<img src="/images/02/021/6.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/7.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/8.png?featherlight=false&amp;width=90pc" alt="Role"></p>
 <h3 id="-for-glue">🔹 For Glue:</h3>
 <ul>
 <li><code>AWSGlueServiceRole</code></li>
+<li><code>AmazonAthenaFullAccess</code></li>
+<li><code>AmazonQuicksightAthenaFullAccess</code></li>
 <li><code>AmazonS3FullAccess</code></li>
 </ul>
-<h3 id="-for-lambda">🔹 For Lambda:</h3>
-<ul>
-<li><code>AWSLambdaBasicExecutionRole</code></li>
-<li><code>AWSGlueConsoleFullAccess</code></li>
-</ul>
+<p>Similarly, click <strong>Create Role</strong>, then choose the service as <strong>Glue</strong>.<br>
+<img src="/images/02/021/9.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p>Search for and select the roles you need.<br>
+<img src="/images/02/021/10.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/11.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/12.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/13.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p>Name it <code>GlueRole</code>, review the settings, and click <strong>Create Role</strong>.<br>
+<img src="/images/02/021/14.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/15.png?featherlight=false&amp;width=90pc" alt="Role"></p>
+<p><img src="/images/02/021/16.png?featherlight=false&amp;width=90pc" alt="Role"></p>
 <blockquote>
 <p>These permissions allow Glue to access S3 and Lambda to trigger Glue jobs.</p></blockquote>
 
@@ -1800,19 +1826,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751812862"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751812862"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751812862"></script>
-    <script src="/js/jquery.sticky.js?1751812862"></script>
-    <script src="/js/featherlight.min.js?1751812862"></script>
-    <script src="/js/highlight.pack.js?1751812862"></script>
+    <script src="/js/clipboard.min.js?1751876009"></script>
+    <script src="/js/perfect-scrollbar.min.js?1751876009"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1751876009"></script>
+    <script src="/js/jquery.sticky.js?1751876009"></script>
+    <script src="/js/featherlight.min.js?1751876009"></script>
+    <script src="/js/highlight.pack.js?1751876009"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751812862"></script>
-    <script src="/js/learn.js?1751812862"></script>
-    <script src="/js/hugo-learn.js?1751812862"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1751876009"></script>
+    <script src="/js/learn.js?1751876009"></script>
+    <script src="/js/hugo-learn.js?1751876009"></script>
 
-    <link href="/mermaid/mermaid.css?1751812862" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751812862"></script>
+    <link href="/mermaid/mermaid.css?1751876009" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1751876009"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -327,19 +327,6 @@
                 href="//localhost:1313/2-prepare-environment/2.3-upload-sample-data/"
                 />
   </url><url>
-    <loc>//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/</loc>
-    <lastmod>2025-07-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
-                />
-  </url><url>
     <loc>//localhost:1313/4-glue-job/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -351,6 +338,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/4-glue-job/"
+                />
+  </url><url>
+    <loc>//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/</loc>
+    <lastmod>2025-07-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
                 />
   </url><url>
     <loc>//localhost:1313/5-crawler-processed/</loc>

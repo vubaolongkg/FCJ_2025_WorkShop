@@ -9,7 +9,20 @@ pre : " <b> 2.2 </b> "
 ## Tạo S3 Bucket
 
 1. Truy cập dịch vụ **S3** từ AWS Console.
-2. Chọn **Create Bucket**, đặt tên ví dụ: `my-data-pipeline-bucket`
-3. Tạo 2 thư mục bên trong:
-   - `raw/` – chứa dữ liệu gốc
-   - `processed/` – chứa dữ liệu sau xử lý
+
+![S3](/images/02/022/1.png?featherlight=false&width=90pc)
+
+2. Chọn **Create Bucket**, đặt tên ví dụ: `sales-data-bucket-2025`
+
+![S3](/images/02/022/2.png?featherlight=false&width=90pc)
+
+Chặn Public Access.
+![S3](/images/02/022/3.png?featherlight=false&width=90pc)
+
+![S3](/images/02/022/4.png?featherlight=false&width=90pc)
+
+Sau khi chọn các tùy chọn thì nhâấ **Create Bucket**
+![S3](/images/02/022/5.png?featherlight=false&width=90pc)
+
+![S3](/images/02/022/6.png?featherlight=false&width=90pc)
+
