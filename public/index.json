@@ -25,7 +25,7 @@
 	"title": "Create Glue Database",
 	"tags": [],
 	"description": "",
-	"content": "3.1 Create Glue Database Open AWS Glue Console. Go to Databases → click Add database. Name it for example: sales_db. The Glue database will store tables created by the Glue crawler.\n"
+	"content": "3.1 Create Glue Database Go to AWS Glue Console, select Databases → click Add database. Name the example: sales_analysis_db. Then select Create Database. The Glue database will store tables created by the Glue crawler.\n"
 },
 {
 	"uri": "//localhost:1313/2-prepare-environment/2.1-create-iam-role/",
@@ -46,14 +46,14 @@
 	"title": "Create New Crawler",
 	"tags": [],
 	"description": "",
-	"content": "5.1 Create New Crawler Go to AWS Glue → Crawlers → Add crawler Fill in: Name: salesdatacrawler_processed Data source: s3://my-data-pipeline-bucket/processed/ IAM Role: reuse the existing Glue role Output: Database: sales_db New table: sales_processed "
+	"content": "5.1 Create New Crawler Go to AWS Glue → Crawlers → Add crawler Fill in: Name: salesdatacrawler_processed Data source: s3://my-data-pipeline-bucket/processed/ IAM Role: reuse the existing Glue role Output: Database: sales_analysis_db New table: sales_data_processed "
 },
 {
 	"uri": "//localhost:1313/4-glue-job/4.1-create-new-job/",
 	"title": "Create New Glue Job",
 	"tags": [],
 	"description": "",
-	"content": "4.1 Create New Glue Job Open AWS Glue → go to Jobs → Add Job Job name: ProcessJob IAM Role: select the one created earlier Type: Spark, Python Script: Process data from sales_raw and write output to s3://bucket/processed/ "
+	"content": "4.1 Create New Glue Job Open AWS Glue → go to Jobs → Add Job Job name: ProcessJob IAM Role: select the one created earlier Type: Spark Script: Process data from sales_data_raw and write output to s3://bucket/processed/ "
 },
 {
 	"uri": "//localhost:1313/1-introduction/",
@@ -67,7 +67,7 @@
 	"title": "Create Glue Crawler",
 	"tags": [],
 	"description": "",
-	"content": "3.2 Create Glue Crawler Go to Crawlers → click Add crawler Provide: Name: salesdatacrawler Data source: s3://my-data-pipeline-bucket/raw/ IAM Role: choose the created role Output: Database: sales_db Table: sales_raw The crawler auto-detects the schema from the CSV file.\n"
+	"content": "3.2 Create Glue Crawler Go to Crawlers → select Add crawler Enter: Name: salesdatacrawler Data source: s3://my-data-pipeline-bucket/raw/ IAM Role: select the created role Output: Database: sales_analysis_db Board: sales-data-raw The crawler auto-detects the schema from the CSV file.\n"
 },
 {
 	"uri": "//localhost:1313/8-quicksight-dashboard/8.2-create-dashboard/",
@@ -109,7 +109,7 @@
 	"title": "Run Crawler and Verify Table",
 	"tags": [],
 	"description": "",
-	"content": "5.2 Run Crawler and Verify Table After creation, select salesdatacrawler_processed and click Run Crawler Go to Glue → Databases → sales_db Check that the sales_processed table was created correctly with the expected schema The schema should now be normalized and ready for analytics.\n"
+	"content": "5.2 Run Crawler and Verify Table After creation, select salesdatacrawler_processed and click Run Crawler Go to Glue → Databases → sales_analysis_db Check that the sales_data_processed table was created correctly with the expected schema The schema should now be normalized and ready for analytics.\n"
 },
 {
 	"uri": "//localhost:1313/4-glue-job/4.2-write-etl-script/",
@@ -158,7 +158,7 @@
 	"title": "Run Crawler",
 	"tags": [],
 	"description": "",
-	"content": "3.3 Run Glue Crawler After creating, select the salesdatacrawler and click Run Crawler. Verify the table: Open Glue Console → Databases → sales_db Ensure sales_raw table has correct structure matching sales.csv. This confirms that schema extraction was successful.\n"
+	"content": "3.3 Run Glue Crawler After creating, select the salesdatacrawler and click Run Crawler. Verify the table: Open Glue Console → Databases → sales_analysis_db Ensure sales_raw table has correct structure matching sales_dataset.csv. This confirms that schema extraction was successful.\n"
 },
 {
 	"uri": "//localhost:1313/4-glue-job/4.3-run-and-verify/",
@@ -172,7 +172,7 @@
 	"title": "Upload Sample Data",
 	"tags": [],
 	"description": "",
-	"content": "Upload Sample Data Prepare a sample file named sales.csv in basic CSV format (e.g., id, date, amount) Go to your created S3 bucket Upload the sales.csv file into the raw/ folder "
+	"content": "Upload Sample Data Go to S3 Prepare sample file: sales_dataset.csv, simple CSV format (eg: id, date, amount) Access the created S3 Bucket, Upload the file sales_dataset.csv to the folder raw/ Then click Upload "
 },
 {
 	"uri": "//localhost:1313/4-glue-job/",

@@ -32,7 +32,7 @@
 	"title": "Tạo Glue Database",
 	"tags": [],
 	"description": "",
-	"content": "3.1 Tạo Glue Database Vào AWS Glue Console. Chọn Databases → nhấn Add database. Đặt tên ví dụ: sales_db. Glue Database sẽ lưu các bảng được sinh ra từ Glue Crawler.\n"
+	"content": "3.1 Tạo Glue Database Vào AWS Glue Console, chọn Databases → nhấn Add database. Đặt tên ví dụ: sales_analysis_db. Sau đó chọn Create Database. "
 },
 {
 	"uri": "//localhost:1313/vi/4-glue-job/4.1-create-new-job/",
@@ -46,7 +46,7 @@
 	"title": "Tạo IAM Role",
 	"tags": [],
 	"description": "",
-	"content": "Tạo IAM Role Để các dịch vụ AWS có thể hoạt động đúng, cần tạo IAM Role với quyền thích hợp:\n🔹 Cho Glue: AWSGlueServiceRole AmazonS3FullAccess 🔹 Cho Lambda: AWSLambdaBasicExecutionRole AWSGlueConsoleFullAccess Các quyền này cho phép Glue đọc/ghi dữ liệu từ S3 và Lambda có thể gọi Glue Job.\n"
+	"content": "Tạo IAM Role Để các dịch vụ AWS có thể hoạt động đúng, cần tạo IAM Role với quyền thích hợp:\nVào dịch vụ IAM, đi đến phần Role. 🔹 Cho Lambda: AWSGlueServiceRole AWSS3FullAccess CloudWatchLogsFullAccess Chọn Create Role, chọn Service là Lambda. Tìm kiếm và chọn các vai trò mà mình mong muốn. Đặt tên LambdaRole, kiểm tra lại và nhấn Create Role. 🔹 Cho Glue: AWSGlueServiceRole AmazonAthenaFullAccess AmazonQuicksightAthenaFullAccess AmazonS3FullAccess Tương tự chọn Create Role, sau đó chọn dịch vụ Glue. Tìm kiếm và chọn các vai trò mà mình mong muốn. Đặt tên GlueRole, kiểm tra lại và nhấn Create Role. Các quyền này cho phép Glue đọc/ghi dữ liệu từ S3 và Lambda có thể gọi Glue Job.\n"
 },
 {
 	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.1-create-lambda-function/",
@@ -102,7 +102,7 @@
 	"title": "Tạo S3 Bucket",
 	"tags": [],
 	"description": "",
-	"content": "Tạo S3 Bucket Truy cập dịch vụ S3 từ AWS Console. Chọn Create Bucket, đặt tên ví dụ: my-data-pipeline-bucket Tạo 2 thư mục bên trong: raw/ – chứa dữ liệu gốc processed/ – chứa dữ liệu sau xử lý "
+	"content": "Tạo S3 Bucket Truy cập dịch vụ S3 từ AWS Console. Chọn Create Bucket, đặt tên ví dụ: sales-data-bucket-2025 Chặn Public Access. Sau khi chọn các tùy chọn thì nhâấ Create Bucket "
 },
 {
 	"uri": "//localhost:1313/vi/6-athena-analysis/6.2-basic-query/",
@@ -165,7 +165,7 @@
 	"title": "Upload dữ liệu mẫu",
 	"tags": [],
 	"description": "",
-	"content": "Upload dữ liệu mẫu Chuẩn bị tệp mẫu: sales.csv, định dạng CSV đơn giản (ví dụ: id, date, amount) Truy cập S3 Bucket đã tạo Upload tệp sales.csv vào thư mục raw/ "
+	"content": "Upload dữ liệu mẫu Tạo thư mục bên raw/ – chứa dữ liệu gốc\nVào S3 Chuẩn bị tệp mẫu: sales_dataset.csv, định dạng CSV đơn giản (ví dụ: id, date, amount) Truy cập S3 Bucket đã tạo, Upload tệp sales_dataset.csv vào thư mục raw/ Sau đó nhấn Upload "
 },
 {
 	"uri": "//localhost:1313/vi/6-athena-analysis/6.3-advanced-queries/",

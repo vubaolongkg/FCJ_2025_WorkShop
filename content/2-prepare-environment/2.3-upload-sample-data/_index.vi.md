@@ -10,6 +10,7 @@ pre : " <b> 2.3 </b> "
 
 - Tạo thư mục bên `raw/` – chứa dữ liệu gốc
 
+- Vào S3
 ![S3](/images/02/023/1.png?featherlight=false&width=90pc)
 
 ![S3](/images/02/023/2.png?featherlight=false&width=90pc)
@@ -24,4 +25,5 @@ pre : " <b> 2.3 </b> "
   
 ![S3](/images/02/023/4.png?featherlight=false&width=90pc)
 
+- Sau đó nhấn Upload
 ![S3](/images/02/023/5.png?featherlight=false&width=90pc)
