@@ -10,10 +10,10 @@ pre: " <b> 4.2 </b> "
 
 Trong script Python (Spark):
 
-- Đọc dữ liệu từ bảng `sales_raw`
+- Đọc dữ liệu từ bảng `sales_data_raw`
 - Đổi tên cột nếu cần (`order_id` → `id`, v.v.)
 - Ép kiểu dữ liệu phù hợp (ví dụ: date, float)
-- Ghi ra `s3://my-data-pipeline-bucket/processed/` dưới dạng Parquet hoặc CSV
+- Ghi ra `s3://sales-data-bucket-2025/processed/` dưới dạng Parquet hoặc CSV
 
 ```python
 import sys
@@ -33,7 +33,7 @@ job.init(args['JOB_NAME'], args)
 
 input_dyf = glueContext.create_dynamic_frame.from_catalog(
     database="sales_analysis_db",
-    table_name="raw_sales_dataset"  
+    table_name="sales_dataset_raw"  
 )
 
 df = input_dyf.toDF()
@@ -55,7 +55,7 @@ if 'price' in df.columns and 'quantity' in df.columns:
 
 output_dyf = DynamicFrame.fromDF(df, glueContext, "output_dyf")
 
-output_path = "s3://your-data-pipeline-bucket/processed/"
+output_path = "s3://sales-data-bucket-2025/processed/"
 
 glueContext.write_dynamic_frame.from_options(
     frame=output_dyf,
@@ -70,7 +70,7 @@ glueContext.write_dynamic_frame.from_options(
 glueContext.write_dynamic_frame.from_options(
     frame=output_dyf,
     connection_type="s3",
-    connection_options={"path": "s3://your-data-pipeline-bucket/processed/"},
+    connection_options={"path": "s3://sales-data-bucket-2025/processed/"},
     format="csv"
 )
 
