@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tạo Crawler mới on Tạo mới tài khoản AWS</title>
-    <link>https://vubaolongkg.github.io/FCJ_2025_Workshop/vi/5-crawler-processed/5.1-create-new-crawler/</link>
+    <link>/vi/5-crawler-processed/5.1-create-new-crawler/</link>
     <description>Recent content in Tạo Crawler mới on Tạo mới tài khoản AWS</description>
     <generator>Hugo</generator>
     <language>vi</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://vubaolongkg.github.io/FCJ_2025_Workshop/vi/5-crawler-processed/5.1-create-new-crawler/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/vi/5-crawler-processed/5.1-create-new-crawler/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
