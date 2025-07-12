@@ -15,6 +15,8 @@ home = [ "HTML", "RSS", "JSON"]
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
+  baseURL = "https://vubaolongkg.github.io/FCJ_2025_Workshop/"
+
   
 [Languages]
 [Languages.en]

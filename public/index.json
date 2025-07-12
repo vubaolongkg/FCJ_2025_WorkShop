@@ -18,7 +18,7 @@
 	"title": "Connect Athena to QuickSight",
 	"tags": [],
 	"description": "",
-	"content": "8.1 Connect Athena to QuickSight Set up IAM Role. ![Lambda](/images/08/081/4.png?f eatherlight=false\u0026amp;width=90pc) Go to Amazon QuickSight → Manage data Select New dataset → Athena Name and select Athena workgroup Select database sales_analysis_db, table sales_data_processed Import data or use SPICE mode to speed up "
+	"content": "8.1 Connect Athena to QuickSight Set up IAM Role. From the QuickSight home page, select Manage QuickSight, in the upper right corner Select Security \u0026amp; Permission Select Manage We see the role name, go to the Roles section of IAM, find that role name Attach Policy for the role: AmazonAthenaFullAccess, AmazonS3FullAccess,AWSGlueServiceRole,AWSQuicksightAthenaAccess Go to Amazon QuickSight → Manage data Select New dataset → Athena Name and select Athena workgroup Select database sales_analysis_db, table sales_data_processed Import data or use SPICE mode to speed up "
 },
 {
 	"uri": "//localhost:1313/3-crawler-raw/3.1-create-glue-database/",
@@ -74,7 +74,7 @@
 	"title": "Create interactive dashboard",
 	"tags": [],
 	"description": "",
-	"content": "8.2 Create Interactive Dashboard Select New analysis → use sales_processed dataset Add visualizations: Bar chart: total revenue by order_date (order_date, amount) Table: top-selling products (product, SUM(amount)) Customize titles, colors, and filters as needed "
+	"content": "8.2 Create Interactive Dashboard Select New analysis → use sales_data_processed dataset Add visualizations: Bar chart: total revenue by order_date (order_date, amount) Table: top-selling products (product, SUM(amount)) Customize titles, colors, and filters as needed Create charts by reselecting the chart, dragging and dropping measures Create dashboards to visualize data "
 },
 {
 	"uri": "//localhost:1313/2-prepare-environment/2.2-create-s3-bucket/",
@@ -221,7 +221,7 @@
 	"title": "Clean Up Resources",
 	"tags": [],
 	"description": "",
-	"content": "Clean Up Resources After completing the pipeline, it\u0026rsquo;s recommended to clean up your AWS resources to avoid unnecessary costs.\n🧹 Delete resources by category: AWS Glue Delete Crawlers: salesdatacrawler, salesdatacrawler_processed Delete Job: ProcessJob Delete Database: sales_db AWS Lambda Delete Lambda function: RunETLPipeline Amazon S3 Delete the bucket: my-data-pipeline-bucket (or just delete raw/, processed/ folders if keeping the bucket) IAM Delete IAM roles if no longer needed: AWSGlueServiceRole AWSLambdaExecutionRole CloudWatch Go to CloudWatch → Logs → Delete Lambda log groups QuickSight In QuickSight: Delete the dataset: sales_processed Delete the dashboard (if created) "
+	"content": "Clean Up Resources After completing the pipeline, it\u0026rsquo;s recommended to clean up your AWS resources to avoid unnecessary costs.\n🧹 Delete resources by category: AWS Glue Delete Crawler: salesdatacrawler, salesdatacrawler_processed Delete Job: ProcessJob Delete Database: sales_analysis_db AWS Lambda Delete function: gluecrawljob Amazon S3 Delete bucket: sales-data-bucket-2025 (or just delete folder raw/, processed/ if keeping bucket) IAM Delete IAM Roles if not reused CloudWatch Go to CloudWatch → Logs → Delete Lambda log group QuickSight Go to QuickSight:\nDelete dataset sales_data_processed\nDelete dashboard if created "
 },
 {
 	"uri": "//localhost:1313/categories/",

@@ -4,7 +4,7 @@
 	"title": "Cấu hình Athena",
 	"tags": [],
 	"description": "",
-	"content": "6.1 Cấu hình Athena Truy cập dịch vụ Athena từ AWS Console Ở lần sử dụng đầu tiên, cấu hình Query result location: Chọn thư mục: s3://my-data-pipeline-bucket/query-results/ Nhấn Save để hoàn tất cấu hình "
+	"content": "6.1 Cấu hình Athena Truy cập dịch vụ Athena từ AWS Console Ở lần sử dụng đầu tiên, cấu hình Query result location: Chọn thư mục: s3://sales-data-bucket-2025/query-results/ Nhấn Save để hoàn tất cấu hình "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduction/",
@@ -18,7 +18,7 @@
 	"title": "Kết nối Athena với QuickSight",
 	"tags": [],
 	"description": "",
-	"content": "8.1 Kết nối Athena với QuickSight Truy cập Amazon QuickSight → Manage data Chọn New dataset → Athena Đặt tên và chọn Athena workgroup Chọn database sales_db, table sales_processed Import dữ liệu hoặc dùng chế độ SPICE để tăng tốc "
+	"content": "8.1 Kết nối Athena với QuickSight Thiết lập IAM Role. Từ trang chủ QuickSight, chọn Manage QuickSight, ở góc trên bên phải Chọn Security \u0026amp; Permission Chọn Manage Ta thấy tên role, vào phần Roles của IAM, tìm tên role đó Attach Policy cho role: AmazonAthenaFullAccess, AmazonS3FullAccess,AWSGlueServiceRole,AWSQuicksightAthenaAccess Truy cập Amazon QuickSight → Manage data Chọn New dataset → Athena Đặt tên và chọn Athena workgroup Chọn database sales_analysis_db, table sales_data_processed Import dữ liệu hoặc dùng chế độ SPICE để tăng tốc "
 },
 {
 	"uri": "//localhost:1313/vi/5-crawler-processed/5.1-create-new-crawler/",
@@ -53,7 +53,7 @@
 	"title": "Tạo Lambda Function",
 	"tags": [],
 	"description": "",
-	"content": "7.1 Tạo Lambda Function Truy cập AWS Lambda → Chọn Create function Chọn Author from scratch: Tên: RunETLPipeline Runtime: Python 3.12 Role: chọn IAM Role đã tạo (có quyền Glue + CloudWatch + S3) Trong phần function code, bạn sẽ viết mã để thực hiện: Start crawler cho sales_raw Chạy Glue Job ProcessJob Chạy crawler cho sales_processed "
+	"content": "7.1 Tạo Lambda Function Go to AWS Lambda → Select Create function Select Author from scratch: Name: gluecrawljob Runtime: Python 3.13 Role: select the IAM Role created (with Glue + CloudWatch + S3 permissions) In the function code section, you will write code to perform: Start crawler for sales_data_raw Run Glue Job ProcessJob Run crawler for sales_data_processed "
 },
 {
 	"uri": "//localhost:1313/vi/",
@@ -88,7 +88,7 @@
 	"title": "Tạo dashboard trực quan",
 	"tags": [],
 	"description": "",
-	"content": "8.2 Tạo dashboard trực quan Chọn New analysis → dataset sales_processed Thêm biểu đồ: Biểu đồ cột: doanh thu theo ngày (order_date, amount) Bảng dữ liệu: top sản phẩm bán chạy (product, SUM(amount)) Tuỳ chỉnh màu sắc, tiêu đề và lọc dữ liệu theo nhu cầu "
+	"content": "8.2 Tạo dashboard trực quan Chọn New analysis → dataset sales_data_processed Thêm biểu đồ: Biểu đồ cột: doanh thu theo ngày (order_date, amount) Bảng dữ liệu: top sản phẩm bán chạy (product, SUM(amount)) Tuỳ chỉnh màu sắc, tiêu đề và lọc dữ liệu theo nhu cầu Tạo các biểu đồ bằng các chọn lại biểu đồ, kéo thả các measure Tạo dashboard trực quan hóa dữ liệu "
 },
 {
 	"uri": "//localhost:1313/vi/3-crawler-raw/3.2-create-glue-crawler/",
@@ -109,7 +109,7 @@
 	"title": "Truy vấn dữ liệu đã xử lý",
 	"tags": [],
 	"description": "",
-	"content": "6.2 Truy vấn dữ liệu đã xử lý Sau khi crawler đã tạo bảng sales_processed, bạn có thể truy vấn thử:\nSELECT * FROM sales_db.sales_processed LIMIT 10; "
+	"content": "6.2 Truy vấn dữ liệu đã xử lý Sau khi crawler đã tạo bảng sales_data_processed, bạn có thể truy vấn thử: SELECT * FROM sales_db.sales_processed LIMIT 10; Kết quả: "
 },
 {
 	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.2-write-python-code/",
@@ -144,7 +144,7 @@
 	"title": "Gắn trigger S3 event",
 	"tags": [],
 	"description": "",
-	"content": "7.3 Gắn trigger S3 event Truy cập S3 → chọn bucket chứa dữ liệu (my-data-pipeline-bucket) Vào tab Properties → Event notifications Thêm trigger: Prefix: raw/ Event type: PUT (ObjectCreated) Destination: Lambda function RunETLPipeline Mỗi khi có file mới trong thư mục raw/, Lambda sẽ tự động chạy pipeline.\n"
+	"content": "7.3 Gắn trigger S3 event Tại Lambda Function, chọn Add Trigger\nTrigger Configuration: S3 Bucket: s3/sales-data-bucket-2025 Event types: All Object create events Sau đó nhấn Add Trigger Test thử Lambda và Trigger Thêm file mới vào S3 salesdatacrawler bắt đầu chạy salesdatacrawler chạy xong Cấu hình Amazon EventBridge để các hành động khác cũng được kích hoạt sau khi crawl dữ liệu Vào trang chủ Amazon EventBridge Chọn Create rule Chọn Event Pattern là JSON { \u0026#34;detail\u0026#34;: { \u0026#34;crawlerName\u0026#34;: [\u0026#34;salesdatacrawler\u0026#34;], \u0026#34;state\u0026#34;: [\u0026#34;SUCCEEDED\u0026#34;] } } Sau đó cấu hình như ảnh, role là LambdaRole Test lại thì sau khi Crawl xong lần 1 thì sẽ tự động chạy ETL Job "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduction/1.2-purpose-and-applications/",
@@ -172,14 +172,14 @@
 	"title": "Viết truy vấn nâng cao",
 	"tags": [],
 	"description": "",
-	"content": "6.3 Viết các câu truy vấn nâng cao (tuỳ chọn) Một số ví dụ truy vấn phổ biến:\nTổng doanh thu theo sản phẩm: SELECT product, SUM(amount) AS total_amount FROM sales_db.sales_processed GROUP BY product; Doanh thu theo ngày: SELECT order_date, SUM(amount) AS total FROM sales_db.sales_processed GROUP BY order_date ORDER BY order_date; "
+	"content": "6.3 Viết các câu truy vấn nâng cao (tuỳ chọn) Một số ví dụ truy vấn phổ biến:\nĐơn hàng ở được đặt Paris. SELECT * FROM sales_db.sales_processed WHERE city = \u0026#39;Paris\u0026#39;; Đơn hàng thuộc nhóm sản phẩm nước uống. SELECT FROM sales_db.sales_processed WHERE product = \u0026#39;Beverages\u0026#39; "
 },
 {
 	"uri": "//localhost:1313/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/",
 	"title": "Ghi lại hành vi người dùng với AWS CloudTrail",
 	"tags": [],
 	"description": "",
-	"content": "Mục đích AWS CloudTrail giúp theo dõi và ghi nhật ký tất cả hoạt động của người dùng và dịch vụ AWS, bao gồm các thao tác trên S3, IAM, Lambda, và nhiều dịch vụ khác.\nCác bước thực hiện 1. Truy cập dịch vụ CloudTrail Vào AWS Console → Tìm CloudTrail → Nhấn Create trail 2. Tạo Trail mới Trail name: fcj-trail Storage location: Tạo hoặc chọn 1 S3 Bucket để chứa log Bật tùy chọn Log file validation Bật chế độ: Multi-region trail 3. Cấu hình nhật ký Chọn ghi nhật ký Management events Loại hành động: Write-only Bật tùy chọn: Data events → Chọn S3 → Add bucket: Bucket name: your-data-pipeline-bucket Event type: PUT (để ghi lại hành vi ghi dữ liệu) 4. Kiểm tra hoạt động Upload một file CSV mới vào S3 Truy cập lại CloudTrail → Event history Lọc theo EventName = PutObject và Resource = your-data-pipeline-bucket Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào Lợi ích Giúp kiểm tra xem ai đã upload file nào, lúc nào Phát hiện bất thường trong thao tác dữ liệu Phục vụ mục đích audit và bảo mật Gợi ý Bạn có thể kết hợp CloudTrail với:\nAWS CloudWatch Logs để giám sát theo thời gian thực AWS Config để theo dõi cấu hình tài nguyên "
+	"content": "Mục đích AWS CloudTrail giúp theo dõi và ghi nhật ký tất cả hoạt động của người dùng và dịch vụ AWS, bao gồm các thao tác trên S3, IAM, Lambda, và nhiều dịch vụ khác.\nCác bước thực hiện 1. Truy cập dịch vụ CloudTrail Vào AWS Console → Tìm CloudTrail → Nhấn Create trail 2. Tạo Trail mới Trail name: management-events Storage location: Tạo hoặc chọn 1 S3 Bucket để chứa log Bật tùy chọn Log file validation Bật chế độ: Multi-region trail 3. Kiểm tra hoạt động Upload một file CSV mới vào S3 Truy cập lại CloudTrail → Event history Lọc theo EventName = PutObject và Resource = your-data-pipeline-bucket Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào Lợi ích Giúp kiểm tra xem ai đã upload file nào, lúc nào Phát hiện bất thường trong thao tác dữ liệu Phục vụ mục đích audit và bảo mật Gợi ý Bạn có thể kết hợp CloudTrail với:\nAWS CloudWatch Logs để giám sát theo thời gian thực AWS Config để theo dõi cấu hình tài nguyên "
 },
 {
 	"uri": "//localhost:1313/vi/4-glue-job/",
@@ -221,7 +221,7 @@
 	"title": "Dọn dẹp tài nguyên",
 	"tags": [],
 	"description": "",
-	"content": "Dọn dẹp tài nguyên Sau khi hoàn tất pipeline, bạn nên dọn dẹp các tài nguyên AWS để tránh phát sinh chi phí không cần thiết.\n🧹 Xoá tài nguyên theo danh mục: AWS Glue Xoá Crawler: salesdatacrawler, salesdatacrawler_processed Xoá Job: ProcessJob Xoá Database: sales_db AWS Lambda Xoá function: RunETLPipeline Amazon S3 Xoá bucket: my-data-pipeline-bucket (hoặc chỉ xoá thư mục raw/, processed/ nếu giữ bucket) IAM Xoá các IAM Role nếu không tái sử dụng: AWSGlueServiceRole AWSLambdaExecutionRole CloudWatch Vào CloudWatch → Logs → Xoá log group của Lambda QuickSight Vào QuickSight: Xoá dataset sales_processed Xoá dashboard nếu đã tạo "
+	"content": "Dọn dẹp tài nguyên Sau khi hoàn tất pipeline, bạn nên dọn dẹp các tài nguyên AWS để tránh phát sinh chi phí không cần thiết.\n🧹 Xoá tài nguyên theo danh mục: AWS Glue Xoá Crawler: salesdatacrawler, salesdatacrawler_processed Xoá Job: ProcessJob Xoá Database: sales_analysis_db AWS Lambda Xoá function: gluecrawljob Amazon S3 Xoá bucket: sales-data-bucket-2025 (hoặc chỉ xoá thư mục raw/, processed/ nếu giữ bucket) IAM Xoá các IAM Role nếu không tái sử dụng CloudWatch Vào CloudWatch → Logs → Xoá log group của Lambda QuickSight Vào QuickSight: Xoá dataset sales_data_processed Xoá dashboard nếu đã tạo "
 },
 {
 	"uri": "//localhost:1313/vi/categories/",
