@@ -23,7 +23,7 @@ Trong workshop thực hành này, bạn sẽ học cách xây dựng **pipeline 
 
 #### Quy trình tổng quát
 
-![Pipeline Architecture](/images/00/0001.png?featherlight=false&width=90pc)
+![Pipeline Architecture](../../images/00/0001.png?featherlight=false&width=90pc)
 
 #### Mục tiêu Workshop
 
