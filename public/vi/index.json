@@ -1,237 +1,237 @@
 [
 {
-	"uri": "/vi/6-athena-analysis/6.1-configure-athena/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/6-athena-analysis/6.1-configure-athena/",
 	"title": "Cấu hình Athena",
 	"tags": [],
 	"description": "",
 	"content": "6.1 Cấu hình Athena Truy cập dịch vụ Athena từ AWS Console Ở lần sử dụng đầu tiên, cấu hình Query result location: Chọn thư mục: s3://sales-data-bucket-2025/query-results/ Nhấn Save để hoàn tất cấu hình "
 },
 {
-	"uri": "/vi/1-introduction/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/1-introduction/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
 	"content": "Nội dung:\n📌 Mục tiêu dự án 💡 Ý nghĩa và ứng dụng 📌 Mục tiêu dự án Dự án hướng đến việc xây dựng một pipeline xử lý dữ liệu hoàn chỉnh trên nền tảng AWS, sử dụng các dịch vụ chủ chốt như Amazon S3, AWS Glue, và Amazon Athena. Toàn bộ quy trình ETL sẽ được tự động hóa nhằm đảm bảo hiệu suất và độ chính xác trong xử lý dữ liệu.\n💡 Ý nghĩa và ứng dụng Hỗ trợ doanh nghiệp hoặc cá nhân quản lý, phân tích dữ liệu lớn (Big Data) hiệu quả hơn. Tăng cường kỹ năng thực hành với các công cụ AWS thực tế. Là nền tảng để mở rộng ra các giải pháp BI như Amazon QuickSight cho trực quan hóa dữ liệu. "
 },
 {
-	"uri": "/vi/8-quicksight-dashboard/8.1-connect-athena/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/8-quicksight-dashboard/8.1-connect-athena/",
 	"title": "Kết nối Athena với QuickSight",
 	"tags": [],
 	"description": "",
 	"content": "8.1 Kết nối Athena với QuickSight Thiết lập IAM Role. Từ trang chủ QuickSight, chọn Manage QuickSight, ở góc trên bên phải Chọn Security \u0026amp; Permission Chọn Manage Ta thấy tên role, vào phần Roles của IAM, tìm tên role đó Attach Policy cho role: AmazonAthenaFullAccess, AmazonS3FullAccess,AWSGlueServiceRole,AWSQuicksightAthenaAccess Truy cập Amazon QuickSight → Manage data Chọn New dataset → Athena Đặt tên và chọn Athena workgroup Chọn database sales_analysis_db, table sales_data_processed Import dữ liệu hoặc dùng chế độ SPICE để tăng tốc "
 },
 {
-	"uri": "/vi/5-crawler-processed/5.1-create-new-crawler/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/5-crawler-processed/5.1-create-new-crawler/",
 	"title": "Tạo Crawler mới",
 	"tags": [],
 	"description": "",
 	"content": "5.1 Tạo Crawler mới Truy cập AWS Glue → Crawlers → Add crawler Nhập: Tên: salesdatacrawler_processed Data source: s3://my-data-pipeline-bucket/processed/ IAM Role: sử dụng role Glue đã tạo trước đó Output: Database: sales_analysis_db Tên bảng mới: sales_data_processed "
 },
 {
-	"uri": "/vi/3-crawler-raw/3.1-create-glue-database/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/3-crawler-raw/3.1-create-glue-database/",
 	"title": "Tạo Glue Database",
 	"tags": [],
 	"description": "",
 	"content": "3.1 Tạo Glue Database Vào AWS Glue Console, chọn Databases → nhấn Add database. Đặt tên ví dụ: sales_analysis_db. Sau đó chọn Create Database. "
 },
 {
-	"uri": "/vi/4-glue-job/4.1-create-new-job/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/4-glue-job/4.1-create-new-job/",
 	"title": "Tạo Glue Job mới",
 	"tags": [],
 	"description": "",
 	"content": "4.1 Tạo Glue Job mới Vào AWS Glue → chọn Jobs → Add Job Tên Job: ProcessJob IAM Role: chọn IAM đã tạo từ bước trước Type: Spark Vào phần Script, chọn Edit Script, Script path: Tạo script xử lý dữ liệu từ bảng sales_data_raw và ghi kết quả ra s3://sales-data-bucket-2025/processed/ "
 },
 {
-	"uri": "/vi/2-prepare-environment/2.1-create-iam-role/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/2-prepare-environment/2.1-create-iam-role/",
 	"title": "Tạo IAM Role",
 	"tags": [],
 	"description": "",
 	"content": "Tạo IAM Role Để các dịch vụ AWS có thể hoạt động đúng, cần tạo IAM Role với quyền thích hợp:\nVào dịch vụ IAM, đi đến phần Role. 🔹 Cho Lambda: AWSGlueServiceRole AWSS3FullAccess CloudWatchLogsFullAccess Chọn Create Role, chọn Service là Lambda. Tìm kiếm và chọn các vai trò mà mình mong muốn. Đặt tên LambdaRole, kiểm tra lại và nhấn Create Role. 🔹 Cho Glue: AWSGlueServiceRole AmazonAthenaFullAccess AmazonQuicksightAthenaFullAccess AmazonS3FullAccess Tương tự chọn Create Role, sau đó chọn dịch vụ Glue. Tìm kiếm và chọn các vai trò mà mình mong muốn. Đặt tên GlueRole, kiểm tra lại và nhấn Create Role. Các quyền này cho phép Glue đọc/ghi dữ liệu từ S3 và Lambda có thể gọi Glue Job.\n"
 },
 {
-	"uri": "/vi/7-automate-with-lambda/7.1-create-lambda-function/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/7-automate-with-lambda/7.1-create-lambda-function/",
 	"title": "Tạo Lambda Function",
 	"tags": [],
 	"description": "",
 	"content": "7.1 Tạo Lambda Function Go to AWS Lambda → Select Create function Select Author from scratch: Name: gluecrawljob Runtime: Python 3.13 Role: select the IAM Role created (with Glue + CloudWatch + S3 permissions) In the function code section, you will write code to perform: Start crawler for sales_data_raw Run Glue Job ProcessJob Run crawler for sales_data_processed "
 },
 {
-	"uri": "/vi/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/",
 	"title": "Workshop Pipeline AWS Xử lý Dữ liệu",
 	"tags": [],
 	"description": "",
 	"content": "👋 Chào mừng đến với Workshop AWS - FCJ 2025 Giới thiệu Trong workshop thực hành này, bạn sẽ học cách xây dựng pipeline xử lý dữ liệu không dùng máy chủ (serverless) sử dụng các dịch vụ AWS, từ việc nhận dữ liệu CSV đầu vào cho đến hiển thị dữ liệu qua QuickSight. Ngoài ra bạn còn được tự động hóa quy trình với Lambda và bảo mật bằng IAM \u0026amp; CloudTrail.\nDịch vụ Sử dụng Amazon S3 – Lưu trữ dữ liệu đầu vào và sau xử lý AWS Glue Crawler – Đọc và nhận diện cấu trúc CSV AWS Glue Job – Làm sạch và chuyển đổi dữ liệu Amazon Athena – Truy vấn dữ liệu đã xử lý Amazon QuickSight – Tạo dashboard trực quan AWS Lambda – Tự động hóa các bước xử lý AWS CloudTrail – Ghi lại hoạt động và giám sát Quy trình tổng quát Mục tiêu Workshop Nắm được kiến trúc xử lý dữ liệu serverless với AWS Làm sạch, tính toán dữ liệu với Glue Truy vấn kết quả bằng Athena Hiển thị dữ liệu qua QuickSight Tự động hóa xử lý với Lambda Ghi nhận và kiểm tra qua CloudTrail Nội dung chính Giới thiệu Pipeline và Kiến trúc Chuẩn bị môi trường AWS Crawler dữ liệu thô Xử lý dữ liệu với Glue Job Crawler dữ liệu đã xử lý Truy vấn với Athena Tự động hóa bằng Lambda Dashboard với QuickSight Xoá và dọn dẹp tài nguyên "
 },
 {
-	"uri": "/vi/2-prepare-environment/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/2-prepare-environment/",
 	"title": "Các bước chuẩn bị",
 	"tags": [],
 	"description": "",
 	"content": "Tổng quan các bước chuẩn bị Trước khi triển khai pipeline xử lý dữ liệu với Glue và S3, cần chuẩn bị các tài nguyên và quyền sau trên AWS:\nNội dung: 2.1 Tạo IAM Role 2.2 Tạo Bucket S3 2.3 Upload dữ liệu mẫu 🔐 1. IAM Role Tạo IAM Role cho Glue và Lambda để đảm bảo quyền truy cập dịch vụ và S3.\n🪣 2. S3 Bucket Tạo bucket chứa dữ liệu đầu vào và đầu ra, với 2 thư mục chính: raw/ và processed/.\n📂 3. Upload dữ liệu mẫu Chuẩn bị tệp CSV đơn giản (ví dụ: sales.csv) và upload vào thư mục raw/.\n"
 },
 {
-	"uri": "/vi/5-crawler-processed/5.2-run-and-verify/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/5-crawler-processed/5.2-run-and-verify/",
 	"title": "Chạy Crawler và kiểm tra bảng",
 	"tags": [],
 	"description": "",
 	"content": "5.2 Chạy Crawler và kiểm tra bảng Sau khi tạo xong, chọn crawler salesdatacrawler_processed và nhấn Run Crawler Truy cập Glue → Databases → sales_analysis_db Kiểm tra bảng sales_data_processed đã được tạo đúng với schema sau khi ETL Schema lúc này đã chuẩn hóa, đúng định dạng theo yêu cầu.\n"
 },
 {
-	"uri": "/vi/1-introduction/1.1-project-goals/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/1-introduction/1.1-project-goals/",
 	"title": "Mục tiêu đề tài",
 	"tags": [],
 	"description": "",
 	"content": "Nội dung | Content:\n🎯 Mục tiêu tổng quan ⚙️ Tự động hóa quy trình ETL 📊 Hỗ trợ truy vấn và trực quan hóa 🎯 Mục tiêu tổng quan Xây dựng pipeline xử lý dữ liệu sử dụng các dịch vụ AWS: S3, Glue, và Athena. Thiết kế kiến trúc linh hoạt, có khả năng mở rộng, dễ dàng tích hợp thêm dịch vụ. Build a data processing pipeline using AWS services: S3, Glue, and Athena.\nDesign a flexible, scalable architecture that supports easy integration.\n⚙️ Tự động hóa quy trình ETL Toàn bộ quy trình ETL (Extract, Transform, Load) sẽ được tự động hóa bằng AWS Glue và các tác vụ lịch trình. Đảm bảo xử lý dữ liệu định kỳ, giảm thiểu lỗi do thao tác thủ công. The entire ETL process will be automated using AWS Glue and scheduled jobs.\nEnsure periodic data processing with minimal manual intervention.\n📊 Hỗ trợ truy vấn và trực quan hóa Dữ liệu sau xử lý được lưu trữ trên S3 và truy vấn bằng Athena thông qua SQL. Tùy chọn kết nối với Amazon QuickSight để trực quan hóa dữ liệu qua biểu đồ, dashboard. Processed data is stored in S3 and queried using Athena with SQL.\nOptionally connect to Amazon QuickSight for visualization via charts and dashboards.\n"
 },
 {
-	"uri": "/vi/8-quicksight-dashboard/8.2-create-dashboard/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/8-quicksight-dashboard/8.2-create-dashboard/",
 	"title": "Tạo dashboard trực quan",
 	"tags": [],
 	"description": "",
 	"content": "8.2 Tạo dashboard trực quan Chọn New analysis → dataset sales_data_processed Thêm biểu đồ: Biểu đồ cột: doanh thu theo ngày (order_date, amount) Bảng dữ liệu: top sản phẩm bán chạy (product, SUM(amount)) Tuỳ chỉnh màu sắc, tiêu đề và lọc dữ liệu theo nhu cầu Tạo các biểu đồ bằng các chọn lại biểu đồ, kéo thả các measure Tạo dashboard trực quan hóa dữ liệu "
 },
 {
-	"uri": "/vi/3-crawler-raw/3.2-create-glue-crawler/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/3-crawler-raw/3.2-create-glue-crawler/",
 	"title": "Tạo Glue Crawler",
 	"tags": [],
 	"description": "",
 	"content": "3.2 Tạo Glue Crawler Vào Crawlers → chọn Add crawler Nhập: Tên: salesdatacrawler Data source: s3://sales-data-bucket-2025/raw/ IAM Role: chọn role đã tạo Output: Database: sales_analysis_db Bảng: sales_data_raw Crawler giúp tự động phát hiện schema từ file CSV.\n"
 },
 {
-	"uri": "/vi/2-prepare-environment/2.2-create-s3-bucket/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/2-prepare-environment/2.2-create-s3-bucket/",
 	"title": "Tạo S3 Bucket",
 	"tags": [],
 	"description": "",
 	"content": "Tạo S3 Bucket Truy cập dịch vụ S3 từ AWS Console. Chọn Create Bucket, đặt tên ví dụ: sales-data-bucket-2025 Chặn Public Access. Sau khi chọn các tùy chọn thì nhâấ Create Bucket "
 },
 {
-	"uri": "/vi/6-athena-analysis/6.2-basic-query/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/6-athena-analysis/6.2-basic-query/",
 	"title": "Truy vấn dữ liệu đã xử lý",
 	"tags": [],
 	"description": "",
 	"content": "6.2 Truy vấn dữ liệu đã xử lý Sau khi crawler đã tạo bảng sales_data_processed, bạn có thể truy vấn thử: SELECT * FROM sales_db.sales_processed LIMIT 10; Kết quả: "
 },
 {
-	"uri": "/vi/7-automate-with-lambda/7.2-write-python-code/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/7-automate-with-lambda/7.2-write-python-code/",
 	"title": "Viết mã Python cho Lambda",
 	"tags": [],
 	"description": "",
 	"content": "7.2 Viết mã Python cho Lambda Sử dụng thư viện boto3 để gọi AWS Glue APIs:\nimport boto3 import logging import time logger = logging.getLogger() logger.setLevel(logging.INFO) glue = boto3.client(\u0026#39;glue\u0026#39;) def lambda_handler(event, context): logger.info(\u0026#34;🔁 Lambda triggered\u0026#34;) crawler_name = \u0026#39;salesdatacrawler\u0026#39; try: glue.start_crawler(Name=crawler_name) logger.info(f\u0026#34;✅ Successfully started crawler: {crawler_name}\u0026#34;) except glue.exceptions.CrawlerRunningException: logger.warning(f\u0026#34;⚠️ Crawler {crawler_name} is already running.\u0026#34;) except Exception as e: logger.error(f\u0026#34;❌ Failed to start crawler {crawler_name}: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Error starting crawler {crawler_name}: {str(e)}\u0026#34; } logger.info(f\u0026#34;⏳ Waiting for crawler {crawler_name} to complete...\u0026#34;) while True: crawler_state = glue.get_crawler(Name=crawler_name)[\u0026#39;Crawler\u0026#39;][\u0026#39;State\u0026#39;] if crawler_state == \u0026#39;READY\u0026#39;: logger.info(f\u0026#34;✅ Crawler {crawler_name} finished.\u0026#34;) break time.sleep(10) job_name = \u0026#39;ProcessJob\u0026#39; try: while True: job_runs = glue.get_job_runs(JobName=job_name, MaxResults=1) if not job_runs[\u0026#39;JobRuns\u0026#39;]: break current_status = job_runs[\u0026#39;JobRuns\u0026#39;][0][\u0026#39;JobRunState\u0026#39;] if current_status in [\u0026#39;RUNNING\u0026#39;, \u0026#39;STARTING\u0026#39;, \u0026#39;STOPPING\u0026#39;]: logger.info(f\u0026#34;🕒 Glue Job {job_name} is currently {current_status}, waiting...\u0026#34;) time.sleep(15) else: break logger.info(f\u0026#34;🚀 Starting Glue Job: {job_name}\u0026#34;) response = glue.start_job_run(JobName=job_name) job_run_id = response[\u0026#39;JobRunId\u0026#39;] except Exception as e: logger.error(f\u0026#34;❌ Failed to start Glue Job: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Error starting Glue job: {str(e)}\u0026#34; } logger.info(f\u0026#34;⏳ Waiting for Glue Job {job_name} to complete...\u0026#34;) while True: job_status = glue.get_job_run(JobName=job_name, RunId=job_run_id) state = job_status[\u0026#39;JobRun\u0026#39;][\u0026#39;JobRunState\u0026#39;] logger.info(f\u0026#34;🧪 Glue Job status: {state}\u0026#34;) if state in [\u0026#39;SUCCEEDED\u0026#39;, \u0026#39;FAILED\u0026#39;, \u0026#39;STOPPED\u0026#39;]: break time.sleep(15) if state != \u0026#39;SUCCEEDED\u0026#39;: logger.error(f\u0026#34;❌ Glue Job ended with status: {state}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Glue Job failed or stopped with status: {state}\u0026#34; } logger.info(f\u0026#34;✅ Glue Job {job_name} completed successfully.\u0026#34;) second_crawler = \u0026#39;salesdatacrawler_processed\u0026#39; try: glue.start_crawler(Name=second_crawler) logger.info(f\u0026#34;✅ Successfully started crawler: {second_crawler}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: f\u0026#34;Workflow completed. Crawler {second_crawler} started.\u0026#34; } except Exception as e: logger.error(f\u0026#34;❌ Failed to start second crawler: {str(e)}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: f\u0026#34;Error starting second crawler {second_crawler}: {str(e)}\u0026#34; } Đừng quên log trạng thái để kiểm tra trong CloudWatch Logs.\n"
 },
 {
-	"uri": "/vi/4-glue-job/4.2-write-etl-script/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/4-glue-job/4.2-write-etl-script/",
 	"title": "Viết script ETL",
 	"tags": [],
 	"description": "",
 	"content": "4.2 Viết script ETL Trong script Python (Spark):\nĐọc dữ liệu từ bảng sales_data_raw Đổi tên cột nếu cần (order_id → id, v.v.) Ép kiểu dữ liệu phù hợp (ví dụ: date, float) Ghi ra s3://sales-data-bucket-2025/processed/ dưới dạng Parquet hoặc CSV import sys from pyspark.context import SparkContext from awsglue.utils import getResolvedOptions from awsglue.context import GlueContext from awsglue.job import Job from pyspark.sql.functions import col, trim, regexp_replace, round from awsglue.dynamicframe import DynamicFrame args = getResolvedOptions(sys.argv, [\u0026#39;JOB_NAME\u0026#39;]) sc = SparkContext() glueContext = GlueContext(sc) spark = glueContext.spark_session job = Job(glueContext) job.init(args[\u0026#39;JOB_NAME\u0026#39;], args) input_dyf = glueContext.create_dynamic_frame.from_catalog( database=\u0026#34;sales_analysis_db\u0026#34;, table_name=\u0026#34;sales_dataset_raw\u0026#34; ) df = input_dyf.toDF() for col_name in df.columns: if df.schema[col_name].dataType.simpleString() == \u0026#39;string\u0026#39;: df = df.withColumn( col_name, trim( regexp_replace( regexp_replace(col(col_name), \u0026#39;^\u0026#34;|\u0026#34;$\u0026#39;, \u0026#39;\u0026#39;), \u0026#39;\\s+\u0026#39;, \u0026#39; \u0026#39; ) ) ) if \u0026#39;price\u0026#39; in df.columns and \u0026#39;quantity\u0026#39; in df.columns: df = df.withColumn(\u0026#34;revenue\u0026#34;, round(col(\u0026#34;price\u0026#34;) * col(\u0026#34;quantity\u0026#34;), 2)) output_dyf = DynamicFrame.fromDF(df, glueContext, \u0026#34;output_dyf\u0026#34;) output_path = \u0026#34;s3://sales-data-bucket-2025/processed/\u0026#34; glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={ \u0026#34;path\u0026#34;: output_path, \u0026#34;partitionKeys\u0026#34;: [] }, format=\u0026#34;csv\u0026#34; ) glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={\u0026#34;path\u0026#34;: \u0026#34;s3://sales-data-bucket-2025/processed/\u0026#34;}, format=\u0026#34;csv\u0026#34; ) job.commit() Nên dùng định dạng Parquet để tối ưu chi phí \u0026amp; hiệu năng khi query bằng Athena.\n"
 },
 {
-	"uri": "/vi/3-crawler-raw/3.3-run-crawler/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/3-crawler-raw/3.3-run-crawler/",
 	"title": "Chạy Crawler",
 	"tags": [],
 	"description": "",
 	"content": "3.3 Chạy Glue Crawler Sau khi tạo xong, chọn crawler salesdatacrawler và nhấn Run Crawler. Kiểm tra bảng: Vào Glue Console → Databases → sales_analysis_db Đảm bảo bảng sales_data_raw đúng với dữ liệu từ sales_dataset.csv. Đây là bước xác minh schema được trích xuất chính xác.\n"
 },
 {
-	"uri": "/vi/4-glue-job/4.3-run-and-verify/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/4-glue-job/4.3-run-and-verify/",
 	"title": "Chạy Job &amp; kiểm tra output",
 	"tags": [],
 	"description": "",
 	"content": "4.3 Chạy Job \u0026amp; kiểm tra output Vào Glue → Jobs → chọn ProcessJob → Run Theo dõi trạng thái job: RUNNING → SUCCEEDED Mở S3 Bucket → thư mục processed/ Kiểm tra file được sinh ra có đúng định dạng: Parquet hoặc CSV "
 },
 {
-	"uri": "/vi/7-automate-with-lambda/7.3-attach-s3-trigger/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/7-automate-with-lambda/7.3-attach-s3-trigger/",
 	"title": "Gắn trigger S3 event",
 	"tags": [],
 	"description": "",
 	"content": "7.3 Gắn trigger S3 event Tại Lambda Function, chọn Add Trigger\nTrigger Configuration: S3 Bucket: s3/sales-data-bucket-2025 Event types: All Object create events Sau đó nhấn Add Trigger Test thử Lambda và Trigger Thêm file mới vào S3 salesdatacrawler bắt đầu chạy salesdatacrawler chạy xong Cấu hình Amazon EventBridge để các hành động khác cũng được kích hoạt sau khi crawl dữ liệu Vào trang chủ Amazon EventBridge Chọn Create rule Chọn Event Pattern là JSON { \u0026#34;detail\u0026#34;: { \u0026#34;crawlerName\u0026#34;: [\u0026#34;salesdatacrawler\u0026#34;], \u0026#34;state\u0026#34;: [\u0026#34;SUCCEEDED\u0026#34;] } } Sau đó cấu hình như ảnh, role là LambdaRole Test lại thì sau khi Crawl xong lần 1 thì sẽ tự động chạy ETL Job "
 },
 {
-	"uri": "/vi/1-introduction/1.2-purpose-and-applications/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/1-introduction/1.2-purpose-and-applications/",
 	"title": "Mục đích và Ứng dụng",
 	"tags": [],
 	"description": "",
 	"content": "Nội dung:\n🌐 Tại sao dùng AWS cho Data Pipeline? 📌 Trường hợp sử dụng thực tế 🚀 Khả năng mở rộng trong tương lai 🌐 Tại sao dùng AWS cho Data Pipeline? AWS cung cấp các dịch vụ mạnh mẽ như S3, Glue, và Athena, giúp xây dựng hệ thống xử lý dữ liệu hiệu quả, không cần quản lý hạ tầng phức tạp, và hỗ trợ tự động hóa toàn diện.\nVới mô hình tính phí theo mức sử dụng, khả năng mở rộng toàn cầu và tích hợp dịch vụ linh hoạt, AWS là lựa chọn hàng đầu cho các bài toán kỹ thuật dữ liệu hiện đại.\n📌 Trường hợp sử dụng thực tế 🔍 Làm sạch và chuyển đổi dữ liệu: Tự động xử lý, chuẩn hóa file CSV, JSON hoặc log với Glue 📊 Phân tích kinh doanh: Truy vấn trực tiếp dữ liệu trên S3 bằng SQL qua Athena 🏢 Chuẩn bị dữ liệu cho kho dữ liệu: Chuyển dữ liệu về dạng có cấu trúc để đưa vào Redshift hoặc công cụ BI khác 🔁 Cập nhật dữ liệu định kỳ: Chạy các job theo lịch để cập nhật dữ liệu báo cáo 🚀 Khả năng mở rộng trong tương lai Dễ dàng tích hợp thêm các dịch vụ như:\nAmazon QuickSight để trực quan hóa Amazon Redshift làm kho dữ liệu AWS Lambda để kích hoạt tự động theo sự kiện Hỗ trợ thêm nguồn dữ liệu và dung lượng lớn mà không cần thay đổi hệ thống hiện tại.\nKiến trúc có tính mô-đun, linh hoạt và “cloud-native”, phù hợp cho mọi nhu cầu mở rộng về sau.\n"
 },
 {
-	"uri": "/vi/3-crawler-raw/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/3-crawler-raw/",
 	"title": "Tạo Glue Crawler",
 	"tags": [],
 	"description": "",
 	"content": "Tạo Glue Crawler Để AWS Glue hiểu được cấu trúc dữ liệu trong S3, bạn cần thực hiện 3 bước:\n3.1 Tạo Glue Database 3.2 Tạo Glue Crawler 3.3 Chạy Glue Crawler "
 },
 {
-	"uri": "/vi/2-prepare-environment/2.3-upload-sample-data/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/2-prepare-environment/2.3-upload-sample-data/",
 	"title": "Upload dữ liệu mẫu",
 	"tags": [],
 	"description": "",
 	"content": "Upload dữ liệu mẫu Tạo thư mục bên raw/ – chứa dữ liệu gốc\nVào S3 Chuẩn bị tệp mẫu: sales_dataset.csv, định dạng CSV đơn giản (ví dụ: id, date, amount) Truy cập S3 Bucket đã tạo, Upload tệp sales_dataset.csv vào thư mục raw/ Sau đó nhấn Upload "
 },
 {
-	"uri": "/vi/6-athena-analysis/6.3-advanced-queries/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/6-athena-analysis/6.3-advanced-queries/",
 	"title": "Viết truy vấn nâng cao",
 	"tags": [],
 	"description": "",
 	"content": "6.3 Viết các câu truy vấn nâng cao (tuỳ chọn) Một số ví dụ truy vấn phổ biến:\nĐơn hàng ở được đặt Paris. SELECT * FROM sales_db.sales_processed WHERE city = \u0026#39;Paris\u0026#39;; Đơn hàng thuộc nhóm sản phẩm nước uống. SELECT FROM sales_db.sales_processed WHERE product = \u0026#39;Beverages\u0026#39; "
 },
 {
-	"uri": "/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/",
 	"title": "Ghi lại hành vi người dùng với AWS CloudTrail",
 	"tags": [],
 	"description": "",
 	"content": "Mục đích AWS CloudTrail giúp theo dõi và ghi nhật ký tất cả hoạt động của người dùng và dịch vụ AWS, bao gồm các thao tác trên S3, IAM, Lambda, và nhiều dịch vụ khác.\nCác bước thực hiện 1. Truy cập dịch vụ CloudTrail Vào AWS Console → Tìm CloudTrail → Nhấn Create trail 2. Tạo Trail mới Trail name: management-events Storage location: Tạo hoặc chọn 1 S3 Bucket để chứa log Bật tùy chọn Log file validation Bật chế độ: Multi-region trail 3. Kiểm tra hoạt động Upload một file CSV mới vào S3 Truy cập lại CloudTrail → Event history Lọc theo EventName = PutObject và Resource = your-data-pipeline-bucket Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào Lợi ích Giúp kiểm tra xem ai đã upload file nào, lúc nào Phát hiện bất thường trong thao tác dữ liệu Phục vụ mục đích audit và bảo mật Gợi ý Bạn có thể kết hợp CloudTrail với:\nAWS CloudWatch Logs để giám sát theo thời gian thực AWS Config để theo dõi cấu hình tài nguyên "
 },
 {
-	"uri": "/vi/4-glue-job/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/4-glue-job/",
 	"title": "Tạo Glue Job",
 	"tags": [],
 	"description": "",
 	"content": "Tạo Glue Job Để xử lý dữ liệu từ sales_raw và ghi kết quả ra thư mục processed/, bạn cần:\n4.1 Tạo Glue Job mới 4.2 Viết script ETL 4.3 Chạy Job \u0026amp; kiểm tra kết quả "
 },
 {
-	"uri": "/vi/5-crawler-processed/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/5-crawler-processed/",
 	"title": "Tạo Glue Crawler cho dữ liệu đã xử lý",
 	"tags": [],
 	"description": "",
 	"content": "Tạo Glue Crawler cho dữ liệu đã xử lý Sau khi dữ liệu đã được xử lý và ghi vào thư mục processed/, chúng ta cần tạo một Glue Crawler mới để phát hiện schema của dữ liệu đầu ra.\nCác bước: 5.1 Tạo Crawler mới 5.2 Chạy Crawler và kiểm tra bảng "
 },
 {
-	"uri": "/vi/6-athena-analysis/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/6-athena-analysis/",
 	"title": "Truy vấn với Amazon Athena",
 	"tags": [],
 	"description": "",
 	"content": "Truy vấn với Amazon Athena Sau khi crawler đã tạo bảng sales_processed, bạn có thể sử dụng Amazon Athena để truy vấn dữ liệu trực tiếp trên S3.\nCác bước: 6.1 Cấu hình Athena 6.2 Truy vấn dữ liệu đã xử lý 6.3 Viết các câu truy vấn nâng cao (tuỳ chọn) "
 },
 {
-	"uri": "/vi/7-automate-with-lambda/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/7-automate-with-lambda/",
 	"title": "Tự động hóa bằng AWS Lambda",
 	"tags": [],
 	"description": "",
 	"content": "Tự động hóa bằng AWS Lambda Để tự động hóa toàn bộ pipeline, chúng ta sử dụng AWS Lambda để kích hoạt quá trình ETL khi có file mới.\nCác bước: 7.1 Tạo Lambda Function 7.2 Viết mã Python cho Lambda 7.3 Gắn trigger S3 event "
 },
 {
-	"uri": "/vi/8-quicksight-dashboard/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/8-quicksight-dashboard/",
 	"title": "Trực quan hóa với Amazon QuickSight",
 	"tags": [],
 	"description": "",
 	"content": "Trực quan hóa với Amazon QuickSight (Tuỳ chọn) Sau khi dữ liệu đã được xử lý và lưu trong sales_processed, bạn có thể sử dụng Amazon QuickSight để tạo các dashboard trực quan.\nCác bước: 8.1 Kết nối Athena với QuickSight 8.2 Tạo dashboard trực quan "
 },
 {
-	"uri": "/vi/9-cleanup/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/9-cleanup/",
 	"title": "Dọn dẹp tài nguyên",
 	"tags": [],
 	"description": "",
 	"content": "Dọn dẹp tài nguyên Sau khi hoàn tất pipeline, bạn nên dọn dẹp các tài nguyên AWS để tránh phát sinh chi phí không cần thiết.\n🧹 Xoá tài nguyên theo danh mục: AWS Glue Xoá Crawler: salesdatacrawler, salesdatacrawler_processed Xoá Job: ProcessJob Xoá Database: sales_analysis_db AWS Lambda Xoá function: gluecrawljob Amazon S3 Xoá bucket: sales-data-bucket-2025 (hoặc chỉ xoá thư mục raw/, processed/ nếu giữ bucket) IAM Xoá các IAM Role nếu không tái sử dụng CloudWatch Vào CloudWatch → Logs → Xoá log group của Lambda QuickSight Vào QuickSight: Xoá dataset sales_data_processed Xoá dashboard nếu đã tạo "
 },
 {
-	"uri": "/vi/categories/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/vi/tags/",
+	"uri": "http://localhost:1313/FCJ_2025_Workshop/vi/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
