@@ -11,7 +11,7 @@ pre : " <b> 2.1 </b> "
 To ensure AWS services operate correctly, appropriate IAM Roles must be created:
 
 Go to the IAM service and navigate to the **Roles** section.  
-![Role](images/02/021/1.png?featherlight=false&width=90pc)
+![Role](../../images/02/021/1.png?featherlight=false&width=90pc)
 
 ### 🔹 For Lambda:
 - `AWSGlueServiceRole`

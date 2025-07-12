@@ -23,7 +23,7 @@ In this hands-on workshop, you will build a **serverless data pipeline** using A
 
 #### Pipeline Flow
 
-![Pipeline Architecture](images/00/0001.png?featherlight=false&width=90pc)
+![Pipeline Architecture](/images/00/0001.png?featherlight=false&width=90pc)
 
 #### Workshop Goals
 
