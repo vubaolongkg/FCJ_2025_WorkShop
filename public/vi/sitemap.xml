@@ -2,444 +2,444 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/vi/6-athena-analysis/6.1-configure-athena/</loc>
+    <loc>/vi/6-athena-analysis/6.1-configure-athena/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-athena-analysis/6.1-configure-athena/"
+                href="/6-athena-analysis/6.1-configure-athena/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-athena-analysis/6.1-configure-athena/"
+                href="/vi/6-athena-analysis/6.1-configure-athena/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/1-introduction/</loc>
+    <loc>/vi/1-introduction/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/1-introduction/"
+                href="/1-introduction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/1-introduction/"
+                href="/vi/1-introduction/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/8-quicksight-dashboard/8.1-connect-athena/</loc>
+    <loc>/vi/8-quicksight-dashboard/8.1-connect-athena/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/8-quicksight-dashboard/8.1-connect-athena/"
+                href="/8-quicksight-dashboard/8.1-connect-athena/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/8-quicksight-dashboard/8.1-connect-athena/"
+                href="/vi/8-quicksight-dashboard/8.1-connect-athena/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/5-crawler-processed/5.1-create-new-crawler/</loc>
+    <loc>/vi/5-crawler-processed/5.1-create-new-crawler/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/5-crawler-processed/5.1-create-new-crawler/"
+                href="/5-crawler-processed/5.1-create-new-crawler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/5-crawler-processed/5.1-create-new-crawler/"
+                href="/vi/5-crawler-processed/5.1-create-new-crawler/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-crawler-raw/3.1-create-glue-database/</loc>
+    <loc>/vi/3-crawler-raw/3.1-create-glue-database/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-crawler-raw/3.1-create-glue-database/"
+                href="/3-crawler-raw/3.1-create-glue-database/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-crawler-raw/3.1-create-glue-database/"
+                href="/vi/3-crawler-raw/3.1-create-glue-database/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/4-glue-job/4.1-create-new-job/</loc>
+    <loc>/vi/4-glue-job/4.1-create-new-job/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-glue-job/4.1-create-new-job/"
+                href="/4-glue-job/4.1-create-new-job/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-glue-job/4.1-create-new-job/"
+                href="/vi/4-glue-job/4.1-create-new-job/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prepare-environment/2.1-create-iam-role/</loc>
+    <loc>/vi/2-prepare-environment/2.1-create-iam-role/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prepare-environment/2.1-create-iam-role/"
+                href="/2-prepare-environment/2.1-create-iam-role/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prepare-environment/2.1-create-iam-role/"
+                href="/vi/2-prepare-environment/2.1-create-iam-role/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/7-automate-with-lambda/7.1-create-lambda-function/</loc>
+    <loc>/vi/7-automate-with-lambda/7.1-create-lambda-function/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/7-automate-with-lambda/7.1-create-lambda-function/"
+                href="/7-automate-with-lambda/7.1-create-lambda-function/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/7-automate-with-lambda/7.1-create-lambda-function/"
+                href="/vi/7-automate-with-lambda/7.1-create-lambda-function/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/</loc>
+    <loc>/vi/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/"
+                href="/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/"
+                href="/vi/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prepare-environment/</loc>
+    <loc>/vi/2-prepare-environment/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prepare-environment/"
+                href="/2-prepare-environment/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prepare-environment/"
+                href="/vi/2-prepare-environment/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/5-crawler-processed/5.2-run-and-verify/</loc>
+    <loc>/vi/5-crawler-processed/5.2-run-and-verify/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/5-crawler-processed/5.2-run-and-verify/"
+                href="/5-crawler-processed/5.2-run-and-verify/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/5-crawler-processed/5.2-run-and-verify/"
+                href="/vi/5-crawler-processed/5.2-run-and-verify/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/1-introduction/1.1-project-goals/</loc>
+    <loc>/vi/1-introduction/1.1-project-goals/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/1-introduction/1.1-project-goals/"
+                href="/1-introduction/1.1-project-goals/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/1-introduction/1.1-project-goals/"
+                href="/vi/1-introduction/1.1-project-goals/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/8-quicksight-dashboard/8.2-create-dashboard/</loc>
+    <loc>/vi/8-quicksight-dashboard/8.2-create-dashboard/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/8-quicksight-dashboard/8.2-create-dashboard/"
+                href="/8-quicksight-dashboard/8.2-create-dashboard/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/8-quicksight-dashboard/8.2-create-dashboard/"
+                href="/vi/8-quicksight-dashboard/8.2-create-dashboard/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-crawler-raw/3.2-create-glue-crawler/</loc>
+    <loc>/vi/3-crawler-raw/3.2-create-glue-crawler/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-crawler-raw/3.2-create-glue-crawler/"
+                href="/3-crawler-raw/3.2-create-glue-crawler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-crawler-raw/3.2-create-glue-crawler/"
+                href="/vi/3-crawler-raw/3.2-create-glue-crawler/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prepare-environment/2.2-create-s3-bucket/</loc>
+    <loc>/vi/2-prepare-environment/2.2-create-s3-bucket/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prepare-environment/2.2-create-s3-bucket/"
+                href="/2-prepare-environment/2.2-create-s3-bucket/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prepare-environment/2.2-create-s3-bucket/"
+                href="/vi/2-prepare-environment/2.2-create-s3-bucket/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/6-athena-analysis/6.2-basic-query/</loc>
+    <loc>/vi/6-athena-analysis/6.2-basic-query/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-athena-analysis/6.2-basic-query/"
+                href="/6-athena-analysis/6.2-basic-query/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-athena-analysis/6.2-basic-query/"
+                href="/vi/6-athena-analysis/6.2-basic-query/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/7-automate-with-lambda/7.2-write-python-code/</loc>
+    <loc>/vi/7-automate-with-lambda/7.2-write-python-code/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/7-automate-with-lambda/7.2-write-python-code/"
+                href="/7-automate-with-lambda/7.2-write-python-code/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/7-automate-with-lambda/7.2-write-python-code/"
+                href="/vi/7-automate-with-lambda/7.2-write-python-code/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/4-glue-job/4.2-write-etl-script/</loc>
+    <loc>/vi/4-glue-job/4.2-write-etl-script/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-glue-job/4.2-write-etl-script/"
+                href="/4-glue-job/4.2-write-etl-script/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-glue-job/4.2-write-etl-script/"
+                href="/vi/4-glue-job/4.2-write-etl-script/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-crawler-raw/3.3-run-crawler/</loc>
+    <loc>/vi/3-crawler-raw/3.3-run-crawler/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-crawler-raw/3.3-run-crawler/"
+                href="/3-crawler-raw/3.3-run-crawler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-crawler-raw/3.3-run-crawler/"
+                href="/vi/3-crawler-raw/3.3-run-crawler/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/4-glue-job/4.3-run-and-verify/</loc>
+    <loc>/vi/4-glue-job/4.3-run-and-verify/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-glue-job/4.3-run-and-verify/"
+                href="/4-glue-job/4.3-run-and-verify/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-glue-job/4.3-run-and-verify/"
+                href="/vi/4-glue-job/4.3-run-and-verify/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/7-automate-with-lambda/7.3-attach-s3-trigger/</loc>
+    <loc>/vi/7-automate-with-lambda/7.3-attach-s3-trigger/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/7-automate-with-lambda/7.3-attach-s3-trigger/"
+                href="/7-automate-with-lambda/7.3-attach-s3-trigger/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/7-automate-with-lambda/7.3-attach-s3-trigger/"
+                href="/vi/7-automate-with-lambda/7.3-attach-s3-trigger/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/1-introduction/1.2-purpose-and-applications/</loc>
+    <loc>/vi/1-introduction/1.2-purpose-and-applications/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/1-introduction/1.2-purpose-and-applications/"
+                href="/1-introduction/1.2-purpose-and-applications/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/1-introduction/1.2-purpose-and-applications/"
+                href="/vi/1-introduction/1.2-purpose-and-applications/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-crawler-raw/</loc>
+    <loc>/vi/3-crawler-raw/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-crawler-raw/"
+                href="/3-crawler-raw/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-crawler-raw/"
+                href="/vi/3-crawler-raw/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-prepare-environment/2.3-upload-sample-data/</loc>
+    <loc>/vi/2-prepare-environment/2.3-upload-sample-data/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-prepare-environment/2.3-upload-sample-data/"
+                href="/2-prepare-environment/2.3-upload-sample-data/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-prepare-environment/2.3-upload-sample-data/"
+                href="/vi/2-prepare-environment/2.3-upload-sample-data/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/6-athena-analysis/6.3-advanced-queries/</loc>
+    <loc>/vi/6-athena-analysis/6.3-advanced-queries/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-athena-analysis/6.3-advanced-queries/"
+                href="/6-athena-analysis/6.3-advanced-queries/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-athena-analysis/6.3-advanced-queries/"
+                href="/vi/6-athena-analysis/6.3-advanced-queries/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/</loc>
+    <loc>/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
+                href="/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
+                href="/vi/7-automate-with-lambda/7.4-cloudtrail-monitoring/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/4-glue-job/</loc>
+    <loc>/vi/4-glue-job/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-glue-job/"
+                href="/4-glue-job/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-glue-job/"
+                href="/vi/4-glue-job/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/5-crawler-processed/</loc>
+    <loc>/vi/5-crawler-processed/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/5-crawler-processed/"
+                href="/5-crawler-processed/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/5-crawler-processed/"
+                href="/vi/5-crawler-processed/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/6-athena-analysis/</loc>
+    <loc>/vi/6-athena-analysis/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-athena-analysis/"
+                href="/6-athena-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-athena-analysis/"
+                href="/vi/6-athena-analysis/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/7-automate-with-lambda/</loc>
+    <loc>/vi/7-automate-with-lambda/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/7-automate-with-lambda/"
+                href="/7-automate-with-lambda/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/7-automate-with-lambda/"
+                href="/vi/7-automate-with-lambda/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/8-quicksight-dashboard/</loc>
+    <loc>/vi/8-quicksight-dashboard/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/8-quicksight-dashboard/"
+                href="/8-quicksight-dashboard/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/8-quicksight-dashboard/"
+                href="/vi/8-quicksight-dashboard/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/9-cleanup/</loc>
+    <loc>/vi/9-cleanup/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/9-cleanup/"
+                href="/9-cleanup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/9-cleanup/"
+                href="/vi/9-cleanup/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/categories/</loc>
+    <loc>/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/categories/"
+                href="/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/categories/"
+                href="/vi/categories/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/tags/</loc>
+    <loc>/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/tags/"
+                href="/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/tags/"
+                href="/vi/tags/"
                 />
   </url>
 </urlset>
