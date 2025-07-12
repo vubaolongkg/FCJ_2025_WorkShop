@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Run Crawler on Create a new AWS account.</title>
-    <link>https://vubaolongkg.github.io/FCJ_2025_Workshop/3-crawler-raw/3.3-run-crawler/</link>
-    <description>Recent content in Run Crawler on Create a new AWS account.</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://vubaolongkg.github.io/FCJ_2025_Workshop/3-crawler-raw/3.3-run-crawler/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Run Crawler on Create a new AWS account.</title><link>https://vubaolongkg.github.io/FCJ_2025_Workshop/3-crawler-raw/3.3-run-crawler/</link><description>Recent content in Run Crawler on Create a new AWS account.</description><generator>Hugo</generator><language>en</language><lastBuildDate/><atom:link href="https://vubaolongkg.github.io/FCJ_2025_Workshop/3-crawler-raw/3.3-run-crawler/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

@@ -11,8 +11,8 @@ pre : " <b> 2.1 </b> "
 Để các dịch vụ AWS có thể hoạt động đúng, cần tạo IAM Role với quyền thích hợp:
 
 Vào dịch vụ IAM, đi đến phần Role.
-![Role](images/02/021/1.png?featherlight=false&width=90pc)
-![Pipeline Architecture](images/00/0001.png?featherlight=false&width=90pc)
+![Role](../../images/02/021/1.png?featherlight=false&width=90pc)
+![Pipeline Architecture](/images/00/0001.png?featherlight=false&width=90pc)
 
 ### 🔹 Cho Lambda:
 - `AWSGlueServiceRole`
