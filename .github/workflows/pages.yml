@@ -3,20 +3,23 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - master  # Nếu bạn đang dùng 'main', đổi lại thành 'main'
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code
+      - name: Checkout source code (with submodules)
         uses: actions/checkout@v3
+        with:
+          submodules: true          # ✅ clone luôn cả theme submodule
+          fetch-depth: 0            # ✅ để tránh lỗi thiếu history
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.124.1'  # Có thể dùng phiên bản bạn đang cài, hoặc 'latest'
+          hugo-version: '0.124.1'   # hoặc 'latest'
 
       - name: Build Hugo site
         run: hugo --minify
