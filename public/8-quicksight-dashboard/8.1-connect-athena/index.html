@@ -12,21 +12,21 @@
     <title>Connect Athena to QuickSight :: Create a new AWS account.</title>
 
     
-    <link href="/css/nucleus.css?1752112111" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752112111" rel="stylesheet">
-    <link href="/css/hybrid.css?1752112111" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752112111" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752112111" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752112111" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752112111" rel="stylesheet">
-    <link href="/css/theme.css?1752112111" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752112111" rel="stylesheet">
+    <link href="/css/nucleus.css?1752158688" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752158688" rel="stylesheet">
+    <link href="/css/hybrid.css?1752158688" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752158688" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752158688" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752158688" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752158688" rel="stylesheet">
+    <link href="/css/theme.css?1752158688" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752158688" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752112111" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752158688" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752112111"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752158688"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752112111"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752112111"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752158688"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752158688"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752112111"></script>
+<script type="text/javascript" src="/js/search.js?1752158688"></script>
 
     
   </div>
@@ -1206,11 +1206,35 @@
 
 	<h2 id="81-connect-athena-to-quicksight">8.1 Connect Athena to QuickSight</h2>
 <ol>
+<li>Set up IAM Role.</li>
+</ol>
+<ul>
+<li>From the QuickSight home page, select Manage QuickSight, in the upper right corner
+<img src="/images/08/081/1.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+<li>Select Security &amp; Permission
+<img src="/images/08/081/2.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+<li>Select Manage
+<img src="/images/08/081/3.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+<li>We see the role name, go to the Roles section of IAM, find that role name
+<img src="/images/08/081/4.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+<li>Attach Policy for the role: <code>AmazonAthenaFullAccess</code>, <code>AmazonS3FullAccess</code>,<code>AWSGlueServiceRole</code>,<code>AWSQuicksightAthenaAccess</code>
+<img src="/images/08/081/5.png?featherlight=false&amp;width=90pc" alt="Quicksight">
+<img src="/images/08/081/6.png?featherlight=false&amp;width=90pc" alt="Quicksight">
+<img src="/images/08/081/7.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+</ul>
+<ol start="2">
 <li>Go to Amazon QuickSight → <strong>Manage data</strong></li>
-<li>Select <strong>New dataset</strong> → <strong>Athena</strong></li>
-<li>Provide a name and choose <strong>Athena workgroup</strong></li>
-<li>Choose the <code>sales_db</code> database and <code>sales_processed</code> table</li>
-<li>Choose either direct query or SPICE import mode for better performance</li>
+<li>Select <strong>New dataset</strong> → <strong>Athena</strong>
+<img src="/images/08/081/8.png?featherlight=false&amp;width=90pc" alt="Quicksight">
+<img src="/images/08/081/9.png?featherlight=false&amp;width=90pc" alt="Quicksight">
+<img src="/images/08/081/10.png?featherlight=false&amp;width=90pc" alt="Quicksight">
+<img src="/images/08/081/11.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+<li>Name and select <strong>Athena workgroup</strong>
+<img src="/images/08/081/12.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
+<li>Select database <code>sales_analysis_db</code>, table <code>sales_data_processed</code></li>
+<li>Import data or use SPICE mode to speed up
+<img src="/images/08/081/13.png?featherlight=false&amp;width=90pc" alt="Quicksight">
+<img src="/images/08/081/14.png?featherlight=false&amp;width=90pc" alt="Quicksight"></li>
 </ol>
 
 
@@ -1789,19 +1813,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752112111"></script>
-    <script src="/js/jquery.sticky.js?1752112111"></script>
-    <script src="/js/featherlight.min.js?1752112111"></script>
-    <script src="/js/highlight.pack.js?1752112111"></script>
+    <script src="/js/clipboard.min.js?1752158688"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752158688"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752158688"></script>
+    <script src="/js/jquery.sticky.js?1752158688"></script>
+    <script src="/js/featherlight.min.js?1752158688"></script>
+    <script src="/js/highlight.pack.js?1752158688"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752112111"></script>
-    <script src="/js/learn.js?1752112111"></script>
-    <script src="/js/hugo-learn.js?1752112111"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752158688"></script>
+    <script src="/js/learn.js?1752158688"></script>
+    <script src="/js/hugo-learn.js?1752158688"></script>
 
-    <link href="/mermaid/mermaid.css?1752112111" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752112111"></script>
+    <link href="/mermaid/mermaid.css?1752158688" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752158688"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

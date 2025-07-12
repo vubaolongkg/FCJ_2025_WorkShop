@@ -7,14 +7,17 @@ pre: " <b> 7.1 </b> "
 ---
 
 ## 7.1 Create Lambda Function
-
 1. Go to **AWS Lambda** → Select **Create function**
-2. Choose Author from scratch:
-   - Name: `RunETLPipeline`
-   - Runtime: Python 3.12
-   - Role: select existing IAM Role (with Glue, S3, CloudWatch permissions)
-3. In the function code section, you'll implement:
-
-- Start crawler for `sales_raw`
+![Lambda](/images/07/071/1.png?featherlight=false&width=90pc)
+2. Select Author from scratch:
+- Name: `gluecrawljob`
+- Runtime: Python 3.13
+- Role: select the IAM Role created (with Glue + CloudWatch + S3 permissions)
+![Lambda](/images/07/071/2.png?featherlight=false&width=90pc)
+![Lambda](/images/07/071/3.png?featherlight=false&width=90pc)
+![Lambda](/images/07/073/1.png?featherlight=false&width=90pc)
+3. In the function code section, you will write code to perform:
+- Start crawler for `sales_data_raw`
 - Run Glue Job `ProcessJob`
-- Run crawler for `sales_processed`
+- Run crawler for `sales_data_processed`
+![Lambda](/images/07/071/4.png?featherlight=false&width=90pc)

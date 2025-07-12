@@ -11,14 +11,14 @@
 	"title": "Configure Athena",
 	"tags": [],
 	"description": "",
-	"content": "6.1 Configure Athena Open Athena service from the AWS Console On first use, set up the Query result location: Choose: s3://my-data-pipeline-bucket/query-results/ Click Save to complete the configuration "
+	"content": "6.1 Configure Athena Open Athena service from the AWS Console On first use, set up the Query result location: Choose: s3://sales-data-bucket-2025/query-results/ Click Save to complete the configuration "
 },
 {
 	"uri": "//localhost:1313/8-quicksight-dashboard/8.1-connect-athena/",
 	"title": "Connect Athena to QuickSight",
 	"tags": [],
 	"description": "",
-	"content": "8.1 Connect Athena to QuickSight Go to Amazon QuickSight → Manage data Select New dataset → Athena Provide a name and choose Athena workgroup Choose the sales_db database and sales_processed table Choose either direct query or SPICE import mode for better performance "
+	"content": "8.1 Connect Athena to QuickSight Set up IAM Role. ![Lambda](/images/08/081/4.png?f eatherlight=false\u0026amp;width=90pc) Go to Amazon QuickSight → Manage data Select New dataset → Athena Name and select Athena workgroup Select database sales_analysis_db, table sales_data_processed Import data or use SPICE mode to speed up "
 },
 {
 	"uri": "//localhost:1313/3-crawler-raw/3.1-create-glue-database/",
@@ -39,7 +39,7 @@
 	"title": "Create Lambda Function",
 	"tags": [],
 	"description": "",
-	"content": "7.1 Create Lambda Function Go to AWS Lambda → Select Create function Choose Author from scratch: Name: RunETLPipeline Runtime: Python 3.12 Role: select existing IAM Role (with Glue, S3, CloudWatch permissions) In the function code section, you\u0026rsquo;ll implement: Start crawler for sales_raw Run Glue Job ProcessJob Run crawler for sales_processed "
+	"content": "7.1 Create Lambda Function Go to AWS Lambda → Select Create function Select Author from scratch: Name: gluecrawljob Runtime: Python 3.13 Role: select the IAM Role created (with Glue + CloudWatch + S3 permissions) In the function code section, you will write code to perform: Start crawler for sales_data_raw Run Glue Job ProcessJob Run crawler for sales_data_processed "
 },
 {
 	"uri": "//localhost:1313/5-crawler-processed/5.1-create-new-crawler/",
@@ -53,7 +53,7 @@
 	"title": "Create New Glue Job",
 	"tags": [],
 	"description": "",
-	"content": "4.1 Create New Glue Job Open AWS Glue → go to Jobs → Add Job Job name: ProcessJob IAM Role: select the one created earlier Type: Spark Script: Process data from sales_data_raw and write output to s3://bucket/processed/ "
+	"content": "4.1 Create New Glue Job Open AWS Glue → go to Jobs → Add Job Job name: ProcessJob IAM Role: select the one created earlier Type: Spark Script: Process data from sales_data_raw and write output to s3://sales-data-bucket-2025/processed/ "
 },
 {
 	"uri": "//localhost:1313/1-introduction/",
@@ -67,7 +67,7 @@
 	"title": "Create Glue Crawler",
 	"tags": [],
 	"description": "",
-	"content": "3.2 Create Glue Crawler Go to Crawlers → select Add crawler Enter: Name: salesdatacrawler Data source: s3://my-data-pipeline-bucket/raw/ IAM Role: select the created role Output: Database: sales_analysis_db Board: sales-data-raw The crawler auto-detects the schema from the CSV file.\n"
+	"content": "3.2 Create Glue Crawler Go to Crawlers → select Add crawler Enter: Name: salesdatacrawler Data source: s3://sales-data-bucket-2025/raw/ IAM Role: select the created role Output: Database: sales_analysis_db Board: sales_data_raw The crawler auto-detects the schema from the CSV file.\n"
 },
 {
 	"uri": "//localhost:1313/8-quicksight-dashboard/8.2-create-dashboard/",
@@ -102,7 +102,7 @@
 	"title": "Query Processed Data",
 	"tags": [],
 	"description": "",
-	"content": "6.2 Query Processed Data Once the crawler has created the sales_processed table, try running:\nSELECT * FROM sales_db.sales_processed LIMIT 10; "
+	"content": "6.2 Query Processed Data Once the crawler has created the sales_data_processed table, try running: SELECT * FROM sales_db.sales_processed LIMIT 10; Outcome: "
 },
 {
 	"uri": "//localhost:1313/5-crawler-processed/5.2-run-and-verify/",
@@ -116,7 +116,7 @@
 	"title": "Write ETL Script",
 	"tags": [],
 	"description": "",
-	"content": "4.2 Write ETL Script In the Python (Spark) script:\nRead data from the sales_raw table Rename columns if needed (e.g., order_id → id) Cast data types appropriately (e.g., date, float) Write output to s3://my-data-pipeline-bucket/processed/ in Parquet or CSV format import sys from pyspark.context import SparkContext from awsglue.utils import getResolvedOptions from awsglue.context import GlueContext from awsglue.job import Job from pyspark.sql.functions import col, trim, regexp_replace, round from awsglue.dynamicframe import DynamicFrame args = getResolvedOptions(sys.argv, [\u0026#39;JOB_NAME\u0026#39;]) sc = SparkContext() glueContext = GlueContext(sc) spark = glueContext.spark_session job = Job(glueContext) job.init(args[\u0026#39;JOB_NAME\u0026#39;], args) input_dyf = glueContext.create_dynamic_frame.from_catalog( database=\u0026#34;sales_analysis_db\u0026#34;, table_name=\u0026#34;raw_sales_dataset\u0026#34; ) df = input_dyf.toDF() for col_name in df.columns: if df.schema[col_name].dataType.simpleString() == \u0026#39;string\u0026#39;: df = df.withColumn( col_name, trim( regexp_replace( regexp_replace(col(col_name), \u0026#39;^\u0026#34;|\u0026#34;$\u0026#39;, \u0026#39;\u0026#39;), \u0026#39;\\s+\u0026#39;, \u0026#39; \u0026#39; ) ) ) if \u0026#39;price\u0026#39; in df.columns and \u0026#39;quantity\u0026#39; in df.columns: df = df.withColumn(\u0026#34;revenue\u0026#34;, round(col(\u0026#34;price\u0026#34;) * col(\u0026#34;quantity\u0026#34;), 2)) output_dyf = DynamicFrame.fromDF(df, glueContext, \u0026#34;output_dyf\u0026#34;) output_path = \u0026#34;s3://your-data-pipeline-bucket/processed/\u0026#34; glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={ \u0026#34;path\u0026#34;: output_path, \u0026#34;partitionKeys\u0026#34;: [] }, format=\u0026#34;csv\u0026#34; ) glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={\u0026#34;path\u0026#34;: \u0026#34;s3://your-data-pipeline-bucket/processed/\u0026#34;}, format=\u0026#34;csv\u0026#34; ) job.commit() Prefer Parquet for better performance and cost when querying with Athena.\n"
+	"content": "4.2 Write ETL Script In the Python (Spark) script:\nRead data from the sales_raw table Rename columns if needed (e.g., order_id → id) Cast data types appropriately (e.g., date, float) Write output to s3://sales-data-bucket-2025/processed/ in Parquet or CSV format import sys from pyspark.context import SparkContext from awsglue.utils import getResolvedOptions from awsglue.context import GlueContext from awsglue.job import Job from pyspark.sql.functions import col, trim, regexp_replace, round from awsglue.dynamicframe import DynamicFrame args = getResolvedOptions(sys.argv, [\u0026#39;JOB_NAME\u0026#39;]) sc = SparkContext() glueContext = GlueContext(sc) spark = glueContext.spark_session job = Job(glueContext) job.init(args[\u0026#39;JOB_NAME\u0026#39;], args) input_dyf = glueContext.create_dynamic_frame.from_catalog( database=\u0026#34;sales_analysis_db\u0026#34;, table_name=\u0026#34;sales_dataset_raw\u0026#34; ) df = input_dyf.toDF() for col_name in df.columns: if df.schema[col_name].dataType.simpleString() == \u0026#39;string\u0026#39;: df = df.withColumn( col_name, trim( regexp_replace( regexp_replace(col(col_name), \u0026#39;^\u0026#34;|\u0026#34;$\u0026#39;, \u0026#39;\u0026#39;), \u0026#39;\\s+\u0026#39;, \u0026#39; \u0026#39; ) ) ) if \u0026#39;price\u0026#39; in df.columns and \u0026#39;quantity\u0026#39; in df.columns: df = df.withColumn(\u0026#34;revenue\u0026#34;, round(col(\u0026#34;price\u0026#34;) * col(\u0026#34;quantity\u0026#34;), 2)) output_dyf = DynamicFrame.fromDF(df, glueContext, \u0026#34;output_dyf\u0026#34;) output_path = \u0026#34;s3://sales-data-bucket-2025/processed/\u0026#34; glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={ \u0026#34;path\u0026#34;: output_path, \u0026#34;partitionKeys\u0026#34;: [] }, format=\u0026#34;csv\u0026#34; ) glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={\u0026#34;path\u0026#34;: \u0026#34;s3://sales-data-bucket-2025/processed/\u0026#34;}, format=\u0026#34;csv\u0026#34; ) job.commit() Prefer Parquet for better performance and cost when querying with Athena.\n"
 },
 {
 	"uri": "//localhost:1313/7-automate-with-lambda/7.2-write-python-code/",
@@ -130,14 +130,14 @@
 	"title": "Advanced Queries",
 	"tags": [],
 	"description": "",
-	"content": "6.3 Advanced Queries (optional) Some useful examples:\nTotal revenue by product: SELECT product, SUM(amount) AS total_amount FROM sales_db.sales_processed GROUP BY product; Revenue by day: SELECT order_date, SUM(amount) AS total FROM sales_db.sales_processed GROUP BY order_date ORDER BY order_date; "
+	"content": "6.3 Advanced Queries (optional) Some common query examples:\nThe order is placed in Paris. SELECT * FROM sales_db.sales_processed WHERE city = \u0026#39;Paris\u0026#39;; The order belongs to the beverage product group. SELECT FROM sales_db.sales_processed WHERE product = \u0026#39;Beverages\u0026#39; "
 },
 {
 	"uri": "//localhost:1313/7-automate-with-lambda/7.3-attach-s3-trigger/",
 	"title": "Attach S3 Trigger",
 	"tags": [],
 	"description": "",
-	"content": "7.3 Attach S3 Trigger Go to S3 → select your bucket (my-data-pipeline-bucket) Navigate to Properties → Event notifications Add a new trigger: Prefix: raw/ Event type: PUT (ObjectCreated) Destination: Lambda function RunETLPipeline Every time a new file is uploaded to raw/, the Lambda function will automatically run the pipeline.\n"
+	"content": "7.3 Attach S3 Trigger At Lambda Function, select Add Trigger\nTrigger Configuration: S3 Bucket: s3/sales-data-bucket-2025 Event types: All Objects create events Then press Add Trigger Test Lambda and Trigger Add new files to S3 salesdatacrawler started run salesdatacrawler finished running Configure Amazon EventBridge so that other actions are also triggered after crawling data Go to Amazon EventBridge home page Select Create rule Select Event Pattern as JSON { \u0026#34;detail\u0026#34;: { \u0026#34;crawlerName\u0026#34;: [\u0026#34;salesdatacrawler\u0026#34;], \u0026#34;state\u0026#34;: [\u0026#34;SUCCEEDED\u0026#34;] } } Then configure as shown, role is LambdaRole Test again, after the first Crawl is finished, ETL will automatically run Job "
 },
 {
 	"uri": "//localhost:1313/3-crawler-raw/",
@@ -158,7 +158,7 @@
 	"title": "Run Crawler",
 	"tags": [],
 	"description": "",
-	"content": "3.3 Run Glue Crawler After creating, select the salesdatacrawler and click Run Crawler. Verify the table: Open Glue Console → Databases → sales_analysis_db Ensure sales_raw table has correct structure matching sales_dataset.csv. This confirms that schema extraction was successful.\n"
+	"content": "3.3 Run Glue Crawler After creating, select the salesdatacrawler and click Run Crawler. Verify the table: Open Glue Console → Databases → sales_analysis_db Ensure sales_data_raw table has correct structure matching sales_dataset.csv. This confirms that schema extraction was successful.\n"
 },
 {
 	"uri": "//localhost:1313/4-glue-job/4.3-run-and-verify/",
@@ -186,7 +186,7 @@
 	"title": "Track User Behavior with AWS CloudTrail",
 	"tags": [],
 	"description": "",
-	"content": "Purpose AWS CloudTrail records API calls and actions across your AWS account. This is crucial for auditing user activities, especially actions like file uploads into S3.\nSteps 1. Access CloudTrail Go to AWS Console → Search CloudTrail → Click Create trail 2. Create a new Trail Trail name: fcj-trail Storage: Choose or create an S3 bucket for logs Enable Log file validation Enable Multi-region trail 3. Configure Logging Enable Management events → Write-only Under Data events: Choose S3 Add bucket: your-data-pipeline-bucket Enable PUT actions only (to track uploads) 4. Verify in Event History Upload a file to S3 Navigate to Event history Filter: EventName = PutObject, Resource = your-data-pipeline-bucket You’ll see who uploaded what and when Benefits Track user actions on critical data Detect abnormal behavior or misuse Improve security and auditing posture Tip Integrate CloudTrail with:\nCloudWatch Logs for real-time alerts AWS Config for resource state tracking "
+	"content": "Purpose AWS CloudTrail records API calls and actions across your AWS account. This is crucial for auditing user activities, especially actions like file uploads into S3.\nSteps 1. Access CloudTrail Go to AWS Console → Search CloudTrail → Click Create trail 2. Create a new Trail Trail name: fcj-trail Storage: Choose or create an S3 bucket for logs Enable Log file validation Enable Multi-region trail 3. Verify in Event History Upload a file to S3 Navigate to Event history Filter: EventName = PutObject, Resource = your-data-pipeline-bucket You’ll see who uploaded what and when Benefits Track user actions on critical data Detect abnormal behavior or misuse Improve security and auditing posture Tip Integrate CloudTrail with:\nCloudWatch Logs for real-time alerts AWS Config for resource state tracking "
 },
 {
 	"uri": "//localhost:1313/5-crawler-processed/",

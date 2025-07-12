@@ -13,25 +13,35 @@ After completing the pipeline, it's recommended to clean up your AWS resources t
 ### 🧹 Delete resources by category:
 
 #### AWS Glue
-- Delete **Crawlers**: `salesdatacrawler`, `salesdatacrawler_processed`
+- Delete **Crawler**: `salesdatacrawler`, `salesdatacrawler_processed`
+![CleanUp](/images/09/4.png?featherlight=false&width=90pc)
 - Delete **Job**: `ProcessJob`
-- Delete **Database**: `sales_db`
+![CleanUp](/images/09/5.png?featherlight=false&width=90pc)
+- Delete **Database**: `sales_analysis_db`
+![CleanUp](/images/09/3.png?featherlight=false&width=90pc)
+![CleanUp](/images/09/6.png?featherlight=false&width=90pc)
 
 #### AWS Lambda
-- Delete Lambda function: `RunETLPipeline`
+- Delete function: `gluecrawljob`
+![CleanUp](/images/09/7.png?featherlight=false&width=90pc)
 
 #### Amazon S3
-- Delete the bucket: `my-data-pipeline-bucket` (or just delete `raw/`, `processed/` folders if keeping the bucket)
+- Delete bucket: `sales-data-bucket-2025` (or just delete folder `raw/`, `processed/` if keeping bucket)
+![CleanUp](/images/09/9.png?featherlight=false&width=90pc)
+![CleanUp](/images/09/10.png?featherlight=false&width=90pc)
 
 #### IAM
-- Delete IAM roles if no longer needed:
-  - `AWSGlueServiceRole`
-  - `AWSLambdaExecutionRole`
+- Delete IAM Roles if not reused
 
 #### CloudWatch
-- Go to CloudWatch → Logs → Delete Lambda log groups
+- Go to CloudWatch → Logs → Delete Lambda log group
+![CleanUp](/images/09/8.png?featherlight=false&width=90pc)
 
 #### QuickSight
-- In QuickSight:
-  - Delete the dataset: `sales_processed`
-  - Delete the dashboard (if created)
+- Go to QuickSight:
+
+- Delete dataset `sales_data_processed`
+
+- Delete dashboard if created
+![CleanUp](/images/09/1.png?featherlight=false&width=90pc)
+![CleanUp](/images/09/2.png?featherlight=false&width=90pc)

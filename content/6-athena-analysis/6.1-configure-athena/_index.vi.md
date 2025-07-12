@@ -10,5 +10,5 @@ pre: " <b> 6.1 </b> "
 
 1. Truy cập dịch vụ **Athena** từ AWS Console
 2. Ở lần sử dụng đầu tiên, cấu hình **Query result location**:
-   - Chọn thư mục: `s3://my-data-pipeline-bucket/query-results/`
+   - Chọn thư mục: `s3://sales-data-bucket-2025/query-results/`
 3. Nhấn **Save** để hoàn tất cấu hình

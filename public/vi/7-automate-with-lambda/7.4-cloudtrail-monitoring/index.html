@@ -12,21 +12,21 @@
     <title>Ghi lại hành vi người dùng với AWS CloudTrail :: Tạo mới tài khoản AWS</title>
 
     
-    <link href="/css/nucleus.css?1752112111" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752112111" rel="stylesheet">
-    <link href="/css/hybrid.css?1752112111" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752112111" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752112111" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752112111" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752112111" rel="stylesheet">
-    <link href="/css/theme.css?1752112111" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752112111" rel="stylesheet">
+    <link href="/css/nucleus.css?1752158688" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752158688" rel="stylesheet">
+    <link href="/css/hybrid.css?1752158688" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752158688" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752158688" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752158688" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752158688" rel="stylesheet">
+    <link href="/css/theme.css?1752158688" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752158688" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752112111" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752158688" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752112111"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752158688"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752112111"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752112111"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752158688"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752158688"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752112111"></script>
+<script type="text/javascript" src="/js/search.js?1752158688"></script>
 
     
   </div>
@@ -1183,8 +1183,7 @@
       <ul>
         <li><a href="#1-truy-cập-dịch-vụ-cloudtrail">1. Truy cập dịch vụ CloudTrail</a></li>
         <li><a href="#2-tạo-trail-mới">2. Tạo Trail mới</a></li>
-        <li><a href="#3-cấu-hình-nhật-ký">3. Cấu hình nhật ký</a></li>
-        <li><a href="#4-kiểm-tra-hoạt-động">4. Kiểm tra hoạt động</a></li>
+        <li><a href="#3-kiểm-tra-hoạt-động">3. Kiểm tra hoạt động</a></li>
       </ul>
     </li>
     <li><a href="#lợi-ích">Lợi ích</a></li>
@@ -1219,32 +1218,27 @@
 <h2 id="các-bước-thực-hiện">Các bước thực hiện</h2>
 <h3 id="1-truy-cập-dịch-vụ-cloudtrail">1. Truy cập dịch vụ CloudTrail</h3>
 <ul>
-<li>Vào AWS Console → Tìm <code>CloudTrail</code> → Nhấn <strong>Create trail</strong></li>
+<li>Vào AWS Console → Tìm <code>CloudTrail</code> → Nhấn <strong>Create trail</strong>
+<img src="/images/07/074/1.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
 </ul>
 <h3 id="2-tạo-trail-mới">2. Tạo Trail mới</h3>
 <ul>
-<li><strong>Trail name</strong>: <code>fcj-trail</code></li>
+<li><strong>Trail name</strong>: <code>management-events</code></li>
 <li><strong>Storage location</strong>: Tạo hoặc chọn 1 S3 Bucket để chứa log</li>
 <li>Bật tùy chọn <code>Log file validation</code></li>
-<li>Bật chế độ: <strong>Multi-region trail</strong></li>
+<li>Bật chế độ: <strong>Multi-region trail</strong>
+<img src="/images/07/074/2.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
 </ul>
-<h3 id="3-cấu-hình-nhật-ký">3. Cấu hình nhật ký</h3>
-<ul>
-<li>Chọn ghi nhật ký <strong>Management events</strong></li>
-<li>Loại hành động: <strong>Write-only</strong></li>
-<li>Bật tùy chọn: <code>Data events</code> → Chọn <strong>S3</strong> → Add bucket:
-<ul>
-<li>Bucket name: <code>your-data-pipeline-bucket</code></li>
-<li>Event type: <code>PUT</code> (để ghi lại hành vi ghi dữ liệu)</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-kiểm-tra-hoạt-động">4. Kiểm tra hoạt động</h3>
+<h3 id="3-kiểm-tra-hoạt-động">3. Kiểm tra hoạt động</h3>
 <ul>
 <li>Upload một file CSV mới vào S3</li>
 <li>Truy cập lại CloudTrail → <strong>Event history</strong></li>
 <li>Lọc theo <code>EventName = PutObject</code> và <code>Resource = your-data-pipeline-bucket</code></li>
-<li>Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào</li>
+<li>Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào
+<img src="/images/07/074/3.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/074/4.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/074/5.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/074/6.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
 </ul>
 <h2 id="lợi-ích">Lợi ích</h2>
 <ul>
@@ -1838,19 +1832,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752112111"></script>
-    <script src="/js/jquery.sticky.js?1752112111"></script>
-    <script src="/js/featherlight.min.js?1752112111"></script>
-    <script src="/js/highlight.pack.js?1752112111"></script>
+    <script src="/js/clipboard.min.js?1752158689"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752158689"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752158689"></script>
+    <script src="/js/jquery.sticky.js?1752158689"></script>
+    <script src="/js/featherlight.min.js?1752158689"></script>
+    <script src="/js/highlight.pack.js?1752158689"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752112111"></script>
-    <script src="/js/learn.js?1752112111"></script>
-    <script src="/js/hugo-learn.js?1752112111"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752158689"></script>
+    <script src="/js/learn.js?1752158689"></script>
+    <script src="/js/hugo-learn.js?1752158689"></script>
 
-    <link href="/mermaid/mermaid.css?1752112111" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752112111"></script>
+    <link href="/mermaid/mermaid.css?1752158689" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752158689"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -25,7 +25,7 @@
 	"title": "Tạo Crawler mới",
 	"tags": [],
 	"description": "",
-	"content": "5.1 Tạo Crawler mới Truy cập AWS Glue → Crawlers → Add crawler Nhập: Tên: salesdatacrawler_processed Data source: s3://my-data-pipeline-bucket/processed/ IAM Role: sử dụng role Glue đã tạo trước đó Output: Database: sales_db Tên bảng mới: sales_processed "
+	"content": "5.1 Tạo Crawler mới Truy cập AWS Glue → Crawlers → Add crawler Nhập: Tên: salesdatacrawler_processed Data source: s3://my-data-pipeline-bucket/processed/ IAM Role: sử dụng role Glue đã tạo trước đó Output: Database: sales_analysis_db Tên bảng mới: sales_data_processed "
 },
 {
 	"uri": "//localhost:1313/vi/3-crawler-raw/3.1-create-glue-database/",
@@ -39,7 +39,7 @@
 	"title": "Tạo Glue Job mới",
 	"tags": [],
 	"description": "",
-	"content": "4.1 Tạo Glue Job mới Vào AWS Glue → chọn Jobs → Add Job Tên Job: ProcessJob IAM Role: chọn IAM đã tạo từ bước trước Type: Spark, Python Script path: Tạo script xử lý dữ liệu từ bảng sales_raw và ghi kết quả ra s3://bucket/processed/ "
+	"content": "4.1 Tạo Glue Job mới Vào AWS Glue → chọn Jobs → Add Job Tên Job: ProcessJob IAM Role: chọn IAM đã tạo từ bước trước Type: Spark Vào phần Script, chọn Edit Script, Script path: Tạo script xử lý dữ liệu từ bảng sales_data_raw và ghi kết quả ra s3://sales-data-bucket-2025/processed/ "
 },
 {
 	"uri": "//localhost:1313/vi/2-prepare-environment/2.1-create-iam-role/",
@@ -74,7 +74,7 @@
 	"title": "Chạy Crawler và kiểm tra bảng",
 	"tags": [],
 	"description": "",
-	"content": "5.2 Chạy Crawler và kiểm tra bảng Sau khi tạo xong, chọn crawler salesdatacrawler_processed và nhấn Run Crawler Truy cập Glue → Databases → sales_db Kiểm tra bảng sales_processed đã được tạo đúng với schema sau khi ETL Schema lúc này đã chuẩn hóa, đúng định dạng theo yêu cầu.\n"
+	"content": "5.2 Chạy Crawler và kiểm tra bảng Sau khi tạo xong, chọn crawler salesdatacrawler_processed và nhấn Run Crawler Truy cập Glue → Databases → sales_analysis_db Kiểm tra bảng sales_data_processed đã được tạo đúng với schema sau khi ETL Schema lúc này đã chuẩn hóa, đúng định dạng theo yêu cầu.\n"
 },
 {
 	"uri": "//localhost:1313/vi/1-introduction/1.1-project-goals/",
@@ -95,7 +95,7 @@
 	"title": "Tạo Glue Crawler",
 	"tags": [],
 	"description": "",
-	"content": "3.2 Tạo Glue Crawler Vào Crawlers → chọn Add crawler Nhập: Tên: salesdatacrawler Data source: s3://my-data-pipeline-bucket/raw/ IAM Role: chọn role đã tạo Output: Database: sales_db Bảng: sales_raw Crawler giúp tự động phát hiện schema từ file CSV.\n"
+	"content": "3.2 Tạo Glue Crawler Vào Crawlers → chọn Add crawler Nhập: Tên: salesdatacrawler Data source: s3://sales-data-bucket-2025/raw/ IAM Role: chọn role đã tạo Output: Database: sales_analysis_db Bảng: sales_data_raw Crawler giúp tự động phát hiện schema từ file CSV.\n"
 },
 {
 	"uri": "//localhost:1313/vi/2-prepare-environment/2.2-create-s3-bucket/",
@@ -123,14 +123,14 @@
 	"title": "Viết script ETL",
 	"tags": [],
 	"description": "",
-	"content": "4.2 Viết script ETL Trong script Python (Spark):\nĐọc dữ liệu từ bảng sales_raw Đổi tên cột nếu cần (order_id → id, v.v.) Ép kiểu dữ liệu phù hợp (ví dụ: date, float) Ghi ra s3://my-data-pipeline-bucket/processed/ dưới dạng Parquet hoặc CSV import sys from pyspark.context import SparkContext from awsglue.utils import getResolvedOptions from awsglue.context import GlueContext from awsglue.job import Job from pyspark.sql.functions import col, trim, regexp_replace, round from awsglue.dynamicframe import DynamicFrame args = getResolvedOptions(sys.argv, [\u0026#39;JOB_NAME\u0026#39;]) sc = SparkContext() glueContext = GlueContext(sc) spark = glueContext.spark_session job = Job(glueContext) job.init(args[\u0026#39;JOB_NAME\u0026#39;], args) input_dyf = glueContext.create_dynamic_frame.from_catalog( database=\u0026#34;sales_analysis_db\u0026#34;, table_name=\u0026#34;raw_sales_dataset\u0026#34; ) df = input_dyf.toDF() for col_name in df.columns: if df.schema[col_name].dataType.simpleString() == \u0026#39;string\u0026#39;: df = df.withColumn( col_name, trim( regexp_replace( regexp_replace(col(col_name), \u0026#39;^\u0026#34;|\u0026#34;$\u0026#39;, \u0026#39;\u0026#39;), \u0026#39;\\s+\u0026#39;, \u0026#39; \u0026#39; ) ) ) if \u0026#39;price\u0026#39; in df.columns and \u0026#39;quantity\u0026#39; in df.columns: df = df.withColumn(\u0026#34;revenue\u0026#34;, round(col(\u0026#34;price\u0026#34;) * col(\u0026#34;quantity\u0026#34;), 2)) output_dyf = DynamicFrame.fromDF(df, glueContext, \u0026#34;output_dyf\u0026#34;) output_path = \u0026#34;s3://your-data-pipeline-bucket/processed/\u0026#34; glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={ \u0026#34;path\u0026#34;: output_path, \u0026#34;partitionKeys\u0026#34;: [] }, format=\u0026#34;csv\u0026#34; ) glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={\u0026#34;path\u0026#34;: \u0026#34;s3://your-data-pipeline-bucket/processed/\u0026#34;}, format=\u0026#34;csv\u0026#34; ) job.commit() Nên dùng định dạng Parquet để tối ưu chi phí \u0026amp; hiệu năng khi query bằng Athena.\n"
+	"content": "4.2 Viết script ETL Trong script Python (Spark):\nĐọc dữ liệu từ bảng sales_data_raw Đổi tên cột nếu cần (order_id → id, v.v.) Ép kiểu dữ liệu phù hợp (ví dụ: date, float) Ghi ra s3://sales-data-bucket-2025/processed/ dưới dạng Parquet hoặc CSV import sys from pyspark.context import SparkContext from awsglue.utils import getResolvedOptions from awsglue.context import GlueContext from awsglue.job import Job from pyspark.sql.functions import col, trim, regexp_replace, round from awsglue.dynamicframe import DynamicFrame args = getResolvedOptions(sys.argv, [\u0026#39;JOB_NAME\u0026#39;]) sc = SparkContext() glueContext = GlueContext(sc) spark = glueContext.spark_session job = Job(glueContext) job.init(args[\u0026#39;JOB_NAME\u0026#39;], args) input_dyf = glueContext.create_dynamic_frame.from_catalog( database=\u0026#34;sales_analysis_db\u0026#34;, table_name=\u0026#34;sales_dataset_raw\u0026#34; ) df = input_dyf.toDF() for col_name in df.columns: if df.schema[col_name].dataType.simpleString() == \u0026#39;string\u0026#39;: df = df.withColumn( col_name, trim( regexp_replace( regexp_replace(col(col_name), \u0026#39;^\u0026#34;|\u0026#34;$\u0026#39;, \u0026#39;\u0026#39;), \u0026#39;\\s+\u0026#39;, \u0026#39; \u0026#39; ) ) ) if \u0026#39;price\u0026#39; in df.columns and \u0026#39;quantity\u0026#39; in df.columns: df = df.withColumn(\u0026#34;revenue\u0026#34;, round(col(\u0026#34;price\u0026#34;) * col(\u0026#34;quantity\u0026#34;), 2)) output_dyf = DynamicFrame.fromDF(df, glueContext, \u0026#34;output_dyf\u0026#34;) output_path = \u0026#34;s3://sales-data-bucket-2025/processed/\u0026#34; glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={ \u0026#34;path\u0026#34;: output_path, \u0026#34;partitionKeys\u0026#34;: [] }, format=\u0026#34;csv\u0026#34; ) glueContext.write_dynamic_frame.from_options( frame=output_dyf, connection_type=\u0026#34;s3\u0026#34;, connection_options={\u0026#34;path\u0026#34;: \u0026#34;s3://sales-data-bucket-2025/processed/\u0026#34;}, format=\u0026#34;csv\u0026#34; ) job.commit() Nên dùng định dạng Parquet để tối ưu chi phí \u0026amp; hiệu năng khi query bằng Athena.\n"
 },
 {
 	"uri": "//localhost:1313/vi/3-crawler-raw/3.3-run-crawler/",
 	"title": "Chạy Crawler",
 	"tags": [],
 	"description": "",
-	"content": "3.3 Chạy Glue Crawler Sau khi tạo xong, chọn crawler salesdatacrawler và nhấn Run Crawler. Kiểm tra bảng: Vào Glue Console → Databases → sales_db Đảm bảo bảng sales_raw đúng với dữ liệu từ sales.csv. Đây là bước xác minh schema được trích xuất chính xác.\n"
+	"content": "3.3 Chạy Glue Crawler Sau khi tạo xong, chọn crawler salesdatacrawler và nhấn Run Crawler. Kiểm tra bảng: Vào Glue Console → Databases → sales_analysis_db Đảm bảo bảng sales_data_raw đúng với dữ liệu từ sales_dataset.csv. Đây là bước xác minh schema được trích xuất chính xác.\n"
 },
 {
 	"uri": "//localhost:1313/vi/4-glue-job/4.3-run-and-verify/",

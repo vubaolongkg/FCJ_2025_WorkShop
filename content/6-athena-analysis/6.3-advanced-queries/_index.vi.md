@@ -7,19 +7,20 @@ pre: " <b> 6.3 </b> "
 ---
 
 ## 6.3 Viết các câu truy vấn nâng cao (tuỳ chọn)
-
 Một số ví dụ truy vấn phổ biến:
-
-- Tổng doanh thu theo sản phẩm:
-
+- Đơn hàng ở được đặt Paris.
+![Athena](/images/06/063/1.png?featherlight=false&width=90pc)
 ```sql
-SELECT product, SUM(amount) AS total_amount
+SELECT *
 FROM sales_db.sales_processed
-GROUP BY product;
-
-Doanh thu theo ngày:
-
-SELECT order_date, SUM(amount) AS total
+WHERE city = 'Paris';
+```
+![Athena](/images/06/063/2.png?featherlight=false&width=90pc)
+- Đơn hàng thuộc nhóm sản phẩm nước uống. 
+![Athena](/images/06/063/3.png?featherlight=false&width=90pc)
+```sql
+SELECT 
 FROM sales_db.sales_processed
-GROUP BY order_date
-ORDER BY order_date;
+WHERE product = 'Beverages'
+```
+![Athena](/images/06/063/4.png?featherlight=false&width=90pc)

@@ -12,21 +12,21 @@
     <title>Track User Behavior with AWS CloudTrail :: Create a new AWS account.</title>
 
     
-    <link href="/css/nucleus.css?1752112111" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752112111" rel="stylesheet">
-    <link href="/css/hybrid.css?1752112111" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752112111" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752112111" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752112111" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752112111" rel="stylesheet">
-    <link href="/css/theme.css?1752112111" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752112111" rel="stylesheet">
+    <link href="/css/nucleus.css?1752158688" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752158688" rel="stylesheet">
+    <link href="/css/hybrid.css?1752158688" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752158688" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752158688" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752158688" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752158688" rel="stylesheet">
+    <link href="/css/theme.css?1752158688" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752158688" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752112111" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752158688" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752112111"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752158688"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752112111"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752112111"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752158688"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752158688"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752112111"></script>
+<script type="text/javascript" src="/js/search.js?1752158688"></script>
 
     
   </div>
@@ -1183,8 +1183,7 @@
       <ul>
         <li><a href="#1-access-cloudtrail">1. Access CloudTrail</a></li>
         <li><a href="#2-create-a-new-trail">2. Create a new Trail</a></li>
-        <li><a href="#3-configure-logging">3. Configure Logging</a></li>
-        <li><a href="#4-verify-in-event-history">4. Verify in Event History</a></li>
+        <li><a href="#3-verify-in-event-history">3. Verify in Event History</a></li>
       </ul>
     </li>
     <li><a href="#benefits">Benefits</a></li>
@@ -1219,32 +1218,27 @@
 <h2 id="steps">Steps</h2>
 <h3 id="1-access-cloudtrail">1. Access CloudTrail</h3>
 <ul>
-<li>Go to AWS Console → Search <code>CloudTrail</code> → Click <strong>Create trail</strong></li>
+<li>Go to AWS Console → Search <code>CloudTrail</code> → Click <strong>Create trail</strong>
+<img src="/images/07/074/1.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
 </ul>
 <h3 id="2-create-a-new-trail">2. Create a new Trail</h3>
 <ul>
 <li><strong>Trail name</strong>: <code>fcj-trail</code></li>
 <li><strong>Storage</strong>: Choose or create an S3 bucket for logs</li>
 <li>Enable <code>Log file validation</code></li>
-<li>Enable <strong>Multi-region trail</strong></li>
+<li>Enable <strong>Multi-region trail</strong>
+<img src="/images/07/074/2.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
 </ul>
-<h3 id="3-configure-logging">3. Configure Logging</h3>
-<ul>
-<li>Enable <code>Management events</code> → Write-only</li>
-<li>Under <code>Data events</code>:
-<ul>
-<li>Choose <strong>S3</strong></li>
-<li>Add bucket: <code>your-data-pipeline-bucket</code></li>
-<li>Enable <code>PUT</code> actions only (to track uploads)</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-verify-in-event-history">4. Verify in Event History</h3>
+<h3 id="3-verify-in-event-history">3. Verify in Event History</h3>
 <ul>
 <li>Upload a file to S3</li>
 <li>Navigate to <code>Event history</code></li>
 <li>Filter: <code>EventName = PutObject</code>, <code>Resource = your-data-pipeline-bucket</code></li>
-<li>You’ll see who uploaded what and when</li>
+<li>You’ll see who uploaded what and when
+<img src="/images/07/074/3.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/074/4.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/074/5.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/074/6.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
 </ul>
 <h2 id="benefits">Benefits</h2>
 <ul>
@@ -1838,19 +1832,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752112111"></script>
-    <script src="/js/jquery.sticky.js?1752112111"></script>
-    <script src="/js/featherlight.min.js?1752112111"></script>
-    <script src="/js/highlight.pack.js?1752112111"></script>
+    <script src="/js/clipboard.min.js?1752158688"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752158688"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752158688"></script>
+    <script src="/js/jquery.sticky.js?1752158688"></script>
+    <script src="/js/featherlight.min.js?1752158688"></script>
+    <script src="/js/highlight.pack.js?1752158688"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752112111"></script>
-    <script src="/js/learn.js?1752112111"></script>
-    <script src="/js/hugo-learn.js?1752112111"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752158688"></script>
+    <script src="/js/learn.js?1752158688"></script>
+    <script src="/js/hugo-learn.js?1752158688"></script>
 
-    <link href="/mermaid/mermaid.css?1752112111" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752112111"></script>
+    <link href="/mermaid/mermaid.css?1752158688" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752158688"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -7,19 +7,20 @@ pre: " <b> 6.3 </b> "
 ---
 
 ## 6.3 Advanced Queries (optional)
-
-Some useful examples:
-
-- Total revenue by product:
-
+Some common query examples:
+- The order is placed in Paris.
+![Athena](/images/06/063/1.png?featherlight=false&width=90pc)
 ```sql
-SELECT product, SUM(amount) AS total_amount
+SELECT *
 FROM sales_db.sales_processed
-GROUP BY product;
-
-Revenue by day:
-
-SELECT order_date, SUM(amount) AS total
+WHERE city = 'Paris';
+```
+![Athena](/images/06/063/2.png?featherlight=false&width=90pc)
+- The order belongs to the beverage product group.
+![Athena](/images/06/063/3.png?featherlight=false&width=90pc)
+```sql
+SELECT 
 FROM sales_db.sales_processed
-GROUP BY order_date
-ORDER BY order_date;
+WHERE product = 'Beverages'
+```
+![Athena](/images/06/063/4.png?featherlight=false&width=90pc)

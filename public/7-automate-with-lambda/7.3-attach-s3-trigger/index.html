@@ -12,21 +12,21 @@
     <title>Attach S3 Trigger :: Create a new AWS account.</title>
 
     
-    <link href="/css/nucleus.css?1752112111" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752112111" rel="stylesheet">
-    <link href="/css/hybrid.css?1752112111" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752112111" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752112111" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752112111" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752112111" rel="stylesheet">
-    <link href="/css/theme.css?1752112111" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752112111" rel="stylesheet">
+    <link href="/css/nucleus.css?1752158688" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752158688" rel="stylesheet">
+    <link href="/css/hybrid.css?1752158688" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752158688" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752158688" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752158688" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752158688" rel="stylesheet">
+    <link href="/css/theme.css?1752158688" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752158688" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752112111" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752158688" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752112111"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752158688"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752112111"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752112111"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752158688"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752158688"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752112111"></script>
+<script type="text/javascript" src="/js/search.js?1752158688"></script>
 
     
   </div>
@@ -1205,19 +1205,45 @@
 
 
 	<h2 id="73-attach-s3-trigger">7.3 Attach S3 Trigger</h2>
-<ol>
-<li>Go to S3 → select your bucket (<code>my-data-pipeline-bucket</code>)</li>
-<li>Navigate to <strong>Properties</strong> → <strong>Event notifications</strong></li>
-<li>Add a new trigger:
+<p>At Lambda Function, select <strong>Add Trigger</strong></p>
 <ul>
-<li>Prefix: <code>raw/</code></li>
-<li>Event type: <code>PUT</code> (ObjectCreated)</li>
-<li>Destination: Lambda function <code>RunETLPipeline</code></li>
+<li>Trigger Configuration: S3</li>
+<li>Bucket: <code>s3/sales-data-bucket-2025</code></li>
+<li>Event types: All Objects create events
+<img src="/images/07/073/2.png?featherlight=false&amp;width=90pc" alt="Lambda">
+Then press <code>Add Trigger</code>
+<img src="/images/07/073/3.png?featherlight=false&amp;width=90pc" alt="Lambda">
+Test Lambda and Trigger</li>
+<li>Add new files to S3
+<img src="/images/07/073/4.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/073/5.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
+<li>salesdatacrawler started run
+<img src="/images/07/073/6.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
+<li>salesdatacrawler finished running
+<img src="/images/07/073/7.png?featherlight=false&amp;width=90pc" alt="Lambda">
+Configure Amazon EventBridge so that other actions are also triggered after crawling data</li>
+<li>Go to Amazon EventBridge home page
+<img src="/images/07/073/8.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
+<li>Select <em>Create rule</em>
+<img src="/images/07/073/9.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
+<li>Select Event Pattern as JSON</li>
 </ul>
-</li>
-</ol>
-<blockquote>
-<p>Every time a new file is uploaded to <code>raw/</code>, the Lambda function will automatically run the pipeline.</p></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;detail&#34;</span>: {
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;crawlerName&#34;</span>: [<span style="color:#e6db74">&#34;salesdatacrawler&#34;</span>],
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;state&#34;</span>: [<span style="color:#e6db74">&#34;SUCCEEDED&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="/images/07/073/10.png?featherlight=false&amp;width=90pc" alt="Lambda"></p>
+<ul>
+<li>Then configure as shown, role is <code>LambdaRole</code>
+<img src="/images/07/073/11.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/073/12.png?featherlight=false&amp;width=90pc" alt="Lambda">
+Test again, after the first Crawl is finished, ETL will automatically run Job
+<img src="/images/07/073/13.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/073/14.png?featherlight=false&amp;width=90pc" alt="Lambda">
+<img src="/images/07/073/15.png?featherlight=false&amp;width=90pc" alt="Lambda"></li>
+</ul>
 
 
 
@@ -1798,19 +1824,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752112111"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752112111"></script>
-    <script src="/js/jquery.sticky.js?1752112111"></script>
-    <script src="/js/featherlight.min.js?1752112111"></script>
-    <script src="/js/highlight.pack.js?1752112111"></script>
+    <script src="/js/clipboard.min.js?1752158688"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752158688"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752158688"></script>
+    <script src="/js/jquery.sticky.js?1752158688"></script>
+    <script src="/js/featherlight.min.js?1752158688"></script>
+    <script src="/js/highlight.pack.js?1752158688"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752112111"></script>
-    <script src="/js/learn.js?1752112111"></script>
-    <script src="/js/hugo-learn.js?1752112111"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752158688"></script>
+    <script src="/js/learn.js?1752158688"></script>
+    <script src="/js/hugo-learn.js?1752158688"></script>
 
-    <link href="/mermaid/mermaid.css?1752112111" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752112111"></script>
+    <link href="/mermaid/mermaid.css?1752158688" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752158688"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
