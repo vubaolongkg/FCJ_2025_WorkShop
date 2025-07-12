@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Query Processed Data on Create a new AWS account.</title>
-    <link>/6-athena-analysis/6.2-basic-query/</link>
+    <link>http://localhost:1313/FCJ_2025_Workshop/6-athena-analysis/6.2-basic-query/</link>
     <description>Recent content in Query Processed Data on Create a new AWS account.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="/6-athena-analysis/6.2-basic-query/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/FCJ_2025_Workshop/6-athena-analysis/6.2-basic-query/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
