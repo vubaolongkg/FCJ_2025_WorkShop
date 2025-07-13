@@ -10,7 +10,7 @@ pre : " <b> 1. </b> "
 - [📌 Project Goals](#-project-goals)
 - [💡 Purpose and Applications](#-purpose-and-applications)
 
-![Pipeline Architecture](/images/00/0001.png?featherlight=false&width=90pc)
+![Pipeline Architecture](../images/00/0001.png?featherlight=false&width=90pc)
 
 ---
 

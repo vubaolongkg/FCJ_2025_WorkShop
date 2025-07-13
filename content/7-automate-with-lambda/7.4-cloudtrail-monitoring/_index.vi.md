@@ -14,7 +14,7 @@ pre: " <b> 7.4 </b> "
 ### 1. Truy cập dịch vụ CloudTrail
 
 - Vào AWS Console → Tìm `CloudTrail` → Nhấn **Create trail**
-![Lambda](../../images/07/074/1.png?featherlight=false&width=90pc)
+![Lambda](../../../images/07/074/1.png?featherlight=false&width=90pc)
 
 ### 2. Tạo Trail mới
 
@@ -22,7 +22,7 @@ pre: " <b> 7.4 </b> "
 - **Storage location**: Tạo hoặc chọn 1 S3 Bucket để chứa log
 - Bật tùy chọn `Log file validation`
 - Bật chế độ: **Multi-region trail**
-![Lambda](../../images/07/074/2.png?featherlight=false&width=90pc)
+![Lambda](../../../images/07/074/2.png?featherlight=false&width=90pc)
 
 ### 3. Kiểm tra hoạt động
 
@@ -30,10 +30,10 @@ pre: " <b> 7.4 </b> "
 - Truy cập lại CloudTrail → **Event history**
 - Lọc theo `EventName = PutObject` và `Resource = your-data-pipeline-bucket`
 - Bạn sẽ thấy ai (IAM user hoặc Lambda) đã thao tác, vào lúc nào
-![Lambda](../../images/07/074/3.png?featherlight=false&width=90pc)
-![Lambda](../../images/07/074/4.png?featherlight=false&width=90pc)
-![Lambda](../../images/07/074/5.png?featherlight=false&width=90pc)
-![Lambda](../../images/07/074/6.png?featherlight=false&width=90pc)
+![Lambda](../../../images/07/074/3.png?featherlight=false&width=90pc)
+![Lambda](../../../images/07/074/4.png?featherlight=false&width=90pc)
+![Lambda](../../../images/07/074/5.png?featherlight=false&width=90pc)
+![Lambda](../../../images/07/074/6.png?featherlight=false&width=90pc)
 
 ## Lợi ích
 
