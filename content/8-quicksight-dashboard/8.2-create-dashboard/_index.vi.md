@@ -15,8 +15,8 @@ pre: " <b> 8.2 </b> "
    - **Bảng dữ liệu**: top sản phẩm bán chạy (`product`, `SUM(amount)`)
 3. Tuỳ chỉnh màu sắc, tiêu đề và lọc dữ liệu theo nhu cầu
 - Tạo các biểu đồ bằng các chọn lại biểu đồ, kéo thả các measure
-![Quicksight](/images/08/082/1.png?featherlight=false&width=90pc)
-![Quicksight](/images/08/082/2.png?featherlight=false&width=90pc)
+![Quicksight](../../images/08/082/1.png?featherlight=false&width=90pc)
+![Quicksight](../../images/08/082/2.png?featherlight=false&width=90pc)
 - Tạo dashboard trực quan hóa dữ liệu
-![Quicksight](/images/08/082/3.png?featherlight=false&width=90pc)
-![Quicksight](/images/08/082/4.png?featherlight=false&width=90pc)
+![Quicksight](../../images/08/082/3.png?featherlight=false&width=90pc)
+![Quicksight](../../images/08/082/4.png?featherlight=false&width=90pc)
