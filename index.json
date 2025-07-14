@@ -172,7 +172,7 @@
 	"title": "Upload Sample Data",
 	"tags": [],
 	"description": "",
-	"content": "Upload Sample Data Sample data: Go to S3 Prepare sample file: sales_dataset.csv, simple CSV format (eg: id, date, amount) Access the created S3 Bucket, Upload the file sales_dataset.csv to the folder raw/ Then click Upload "
+	"content": "Upload Sample Data Sample data: S3 Go to S3 Prepare sample file: sales_dataset.csv, simple CSV format (eg: id, date, amount) Access the created S3 Bucket, Upload the file sales_dataset.csv to the folder raw/ Then click Upload "
 },
 {
 	"uri": "https://vubaolongkg.github.io/FCJ_2025_Workshop/4-glue-job/",
