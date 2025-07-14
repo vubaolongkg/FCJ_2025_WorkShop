@@ -7,8 +7,9 @@ pre : " <b> 2.3 </b> "
 ---
 
 ## Upload dữ liệu mẫu
-- Dữ liệu mẫu: 
-[S3](../../../files/sales_dataset.csv)
+
+📄 [Tải xuống dữ liệu mẫu (sales_dataset.csv)](../../../files/sales_dataset.csv)
+
 
 - Tạo thư mục bên `raw/` – chứa dữ liệu gốc
 
