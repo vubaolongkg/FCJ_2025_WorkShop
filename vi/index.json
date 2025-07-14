@@ -165,7 +165,7 @@
 	"title": "Upload dữ liệu mẫu",
 	"tags": [],
 	"description": "",
-	"content": "Upload dữ liệu mẫu Dữ liệu mẫu: S3\nTạo thư mục bên raw/ – chứa dữ liệu gốc\nVào S3 Chuẩn bị tệp mẫu: sales_dataset.csv, định dạng CSV đơn giản (ví dụ: id, date, amount) Truy cập S3 Bucket đã tạo, Upload tệp sales_dataset.csv vào thư mục raw/ Sau đó nhấn Upload "
+	"content": "Upload dữ liệu mẫu 📄 Tải xuống dữ liệu mẫu (sales_dataset.csv)\nTạo thư mục bên raw/ – chứa dữ liệu gốc\nVào S3 Chuẩn bị tệp mẫu: sales_dataset.csv, định dạng CSV đơn giản (ví dụ: id, date, amount) Truy cập S3 Bucket đã tạo, Upload tệp sales_dataset.csv vào thư mục raw/ Sau đó nhấn Upload "
 },
 {
 	"uri": "https://vubaolongkg.github.io/FCJ_2025_Workshop/vi/6-athena-analysis/6.3-advanced-queries/",
