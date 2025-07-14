@@ -7,7 +7,8 @@ pre : " <b> 2.3 </b> "
 ---
 
 ## Upload dữ liệu mẫu
-
+- Dữ liệu mẫu: 
+![S3](../../../images/sales_dataset.csv)
 - Tạo thư mục bên `raw/` – chứa dữ liệu gốc
 
 - Vào S3

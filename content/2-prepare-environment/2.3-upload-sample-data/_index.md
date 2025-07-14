@@ -7,7 +7,8 @@ pre : " <b> 2.3 </b> "
 ---
 
 ## Upload Sample Data
-
+- Sample data: 
+![S3](../../../images/sales_dataset.csv)
 - Go to S3
 ![S3](../../images/02/023/1.png?featherlight=false&width=90pc)
 
