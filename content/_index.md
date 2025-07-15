@@ -6,7 +6,7 @@ chapter: false
 ---
 
 # 👋 Welcome to the FCJ 2025 AWS Workshop
-
+# Building an Automated Sales Data Processing and Visualization Pipeline on AWS
 #### Overview
 
 In this hands-on workshop, you will build a **serverless data pipeline** using AWS services, from ingesting raw CSV files to visualizing clean data through QuickSight. You will also automate the process using Lambda and secure your solution with IAM & CloudTrail.

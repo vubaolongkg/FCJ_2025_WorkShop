@@ -6,7 +6,7 @@ chapter: false
 ---
 
 # 👋 Chào mừng đến với Workshop AWS - FCJ 2025
-
+# Xây dựng hệ thống xử lý và trực quan hóa dữ liệu bán hàng tự động trên nền tảng AWS
 #### Giới thiệu
 
 Trong workshop thực hành này, bạn sẽ học cách xây dựng **pipeline xử lý dữ liệu không dùng máy chủ** (serverless) sử dụng các dịch vụ AWS, từ việc nhận dữ liệu CSV đầu vào cho đến hiển thị dữ liệu qua QuickSight. Ngoài ra bạn còn được tự động hóa quy trình với Lambda và bảo mật bằng IAM & CloudTrail.
