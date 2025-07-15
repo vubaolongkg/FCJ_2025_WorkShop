@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Configure Athena on Create a new AWS account.</title>
-    <link>https://vubaolongkg.github.io/6-athena-analysis/6.1-configure-athena/</link>
+    <link>https://vubaolongkg.github.io/FCJ_2025_Workshop/6-athena-analysis/6.1-configure-athena/</link>
     <description>Recent content in Configure Athena on Create a new AWS account.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://vubaolongkg.github.io/6-athena-analysis/6.1-configure-athena/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vubaolongkg.github.io/FCJ_2025_Workshop/6-athena-analysis/6.1-configure-athena/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
