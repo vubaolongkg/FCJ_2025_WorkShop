@@ -20,6 +20,7 @@ home = [ "HTML", "RSS", "JSON"]
   canonifyURLs = false
 
 
+
   
 [Languages]
 [Languages.en]
@@ -55,4 +56,10 @@ name = "<i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB"
 identifier = "AWS Study Group FB"
 url = "https://www.facebook.com/groups/awsstudygroupfcj"
 weight = 20
+
+[Languages.en.params]
+  customLogoLink = "https://vubaolongkg.github.io/FCJ_2025_Workshop/"
+
+[Languages.vi.params]
+  customLogoLink = "https://vubaolongkg.github.io/FCJ_2025_Workshop/vi/"
 
