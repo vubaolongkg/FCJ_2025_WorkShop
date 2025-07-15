@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 👋 Welcome to the FCJ 2025 AWS Workshop
 # Building an Automated Sales Data Processing and Visualization Pipeline on AWS
 #### Overview
 

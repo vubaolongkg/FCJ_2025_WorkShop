@@ -5,7 +5,6 @@ weight: 1
 chapter: false
 ---
 
-# 👋 Chào mừng đến với Workshop AWS - FCJ 2025
 # Xây dựng hệ thống xử lý và trực quan hóa dữ liệu bán hàng tự động trên nền tảng AWS
 #### Giới thiệu
 
