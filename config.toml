@@ -1,6 +1,6 @@
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
-baseURL = "https://vubaolongkg.github.io/FCJ_2025_Workshop/"
+baseURL = "https://vubaolongkg.github.io/"
 
 # For search functionality
 [outputs]
