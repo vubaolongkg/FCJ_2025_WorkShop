@@ -1,4 +1,4 @@
-# 📊 Workshop: Build a Serverless Data Pipeline on AWS
+# 📊 Workshop: Building an Automated Sales Data Processing and Visualization Pipeline on AWS
 
 > 📘 **Workshop live at:**  
 > 🔗 [https://vubaolongkg.github.io/FCJ_2025_Workshop](https://vubaolongkg.github.io/FCJ_2025_Workshop)
@@ -70,7 +70,7 @@ Email: vubaolong1484@gmail.com
 
 ---
 
-## 🇻🇳 `_index.vi.md` (Tiếng Việt)
+## Tiếng Việt
 
 ```markdown
 # 📊 Workshop: Xây dựng Pipeline Xử Lý Dữ Liệu Tự Động với AWS
