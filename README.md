@@ -73,7 +73,7 @@ Email: vubaolong1484@gmail.com
 ## Tiếng Việt
 
 ```markdown
-# 📊 Workshop: Xây dựng Pipeline Xử Lý Dữ Liệu Tự Động với AWS
+# 📊 Workshop: Xây dựng hệ thống xử lý và trực quan hóa dữ liệu bán hàng tự động trên nền tảng AWS
 
 > 📘 **Workshop được triển khai tại:**  
 > 🔗 [https://vubaolongkg.github.io/FCJ_2025_Workshop](https://vubaolongkg.github.io/FCJ_2025_Workshop)
