@@ -51,7 +51,7 @@ To run this workshop locally:
 git clone https://github.com/vubaolongkg/FCJ_2025_Workshop.git
 cd FCJ_2025_Workshop
 hugo serve
-
+```
 Open your browser at http://localhost:1313
 
 🌐 Live Site (GitHub Pages)
