@@ -48,81 +48,61 @@ Các doanh nghiệp thường lưu trữ dữ liệu bán hàng ở dạng CSV r
 [S3] --> [Lambda] --> [Glue Crawler Raw] --> [Glue Job] --> [Glue Crawler Processed] --> [Athena] --> [QuickSight]
 ```
 
-S3: Nơi lưu dữ liệu raw và processed
-
-Lambda: Xử lý chuỗi hành động ETL qua trigger & EventBridge
-
-Glue Crawler: Tạo schema tự động
-
-Glue Job: Làm sạch và chuẩn hóa dữ liệu
-
-Athena: Truy vấn dữ liệu dạng SQL
-
-QuickSight: Trực quan hóa và dashboard
+- S3: Nơi lưu dữ liệu raw và processed
+- Lambda: Xử lý chuỗi hành động ETL qua trigger & EventBridge
+- Glue Crawler: Tạo schema tự động
+- Glue Job: Làm sạch và chuẩn hóa dữ liệu
+- Athena: Truy vấn dữ liệu dạng SQL
+- QuickSight: Trực quan hóa và dashboard
 
 Mô hình bảo mật
-IAM roles giới hạn truy cập từng service
-
-Sử dụng CloudTrail để theo dõi hành vi và ghi log
+* IAM roles giới hạn truy cập từng service
+* Sử dụng CloudTrail để theo dõi hành vi và ghi log
 
 🔧 Technical Implementation
-Các giai đoạn chính:
-Tạo Bucket S3: raw/ và processed/
+*Các giai đoạn chính:
+- Tạo Bucket S3: raw/ và processed/
+- Tạo Glue Crawler: Phân tích schema raw và processed
+- Viết Glue Job ETL: làm sạch, định dạng, làm tròn số
+- Viết Lambda function: trigger từ S3, gọi Glue Crawler/Job
+- Thiết lập EventBridge: nối kết các bước xử lý
+- Truy vấn bằng Athena
+- Xây dựng Dashboard trên QuickSight
 
-Tạo Glue Crawler: Phân tích schema raw và processed
-
-Viết Glue Job ETL: làm sạch, định dạng, làm tròn số
-
-Viết Lambda function: trigger từ S3, gọi Glue Crawler/Job
-
-Thiết lập EventBridge: nối kết các bước xử lý
-
-Truy vấn bằng Athena
-
-Xây dựng Dashboard trên QuickSight
-
-DevOps
-Quản lý mã nguồn qua GitHub
-
-Ghi log Lambda qua CloudWatch
-
-Dùng versioning trong S3
+* DevOps
+- Quản lý mã nguồn qua GitHub
+- Ghi log Lambda qua CloudWatch
+- Dùng versioning trong S3
 
 📅 Timeline & Milestones
-Giai đoạn	Thời gian	Kết quả
-Khởi tạo môi trường	Tuần 1	S3, IAM, Glue config
-Tự động hóa Pipeline	Tuần 2	Lambda + EventBridge
-Làm sạch dữ liệu	Tuần 3	Glue Job thành công
-Trực quan hóa	Tuần 4	Dashboard QuickSight
-Tài liệu hóa	Tuần 5	Báo cáo + Slide
+- Giai đoạn	Thời gian	Kết quả
+- Khởi tạo môi trường	Tuần 1	S3, IAM, Glue config
+- Tự động hóa Pipeline	Tuần 2	Lambda + EventBridge
+- Làm sạch dữ liệu	Tuần 3	Glue Job thành công
+- Trực quan hóa	Tuần 4	Dashboard QuickSight
+- Tài liệu hóa	Tuần 5	Báo cáo + Slide
 
 💰 Budget Estimation
-Thành phần	Chi phí ước tính/tháng
-S3 Storage	$0.10 (cho 1-5 GB dữ liệu)
-AWS Glue (Crawler + Job)	~$5 (cho <1000 phút)
-Lambda	$0.20 (dưới 1M request)
-Athena	$1.00 (cho ~1TB scanned)
-QuickSight (Standard User)	$9.00
-Tổng	~$15–20/tháng
+- Thành phần	Chi phí ước tính/tháng
+- S3 Storage	$0.10 (cho 1-5 GB dữ liệu)
+- AWS Glue (Crawler + Job)	~$5 (cho <1000 phút)
+- Lambda	$0.20 (dưới 1M request)
+- Athena	$1.00 (cho ~1TB scanned)
+- QuickSight (Standard User)	$9.00
+  --> Tổng	~$15–20/tháng
 
 ⚠️ Risk Assessment
-Rủi ro	Giải pháp
-Crawler nhận sai schema	Thêm schema manually
-Lambda timeout	Tối ưu Glue Job runtime
-Chi phí vượt kiểm soát	Giới hạn dung lượng file đầu vào
-Dashboard không cập nhật	Tạo trigger định kỳ hoặc realtime
+- Rủi ro	Giải pháp
+- Crawler nhận sai schema	Thêm schema manually
+- Lambda timeout	Tối ưu Glue Job runtime
+- Chi phí vượt kiểm soát	Giới hạn dung lượng file đầu vào
+- Dashboard không cập nhật	Tạo trigger định kỳ hoặc realtime
 
 🎯 Expected Outcomes
-Tự động xử lý dữ liệu tải lên → không cần thao tác tay
-
-Truy vấn bằng Athena dễ dàng
-
-Dashboard hiện thị các chỉ số như:
-
-Doanh thu theo khu vực
-
-Top sản phẩm bán chạy
-
-Sản phẩm có lợi nhuận thấp
-
-Dễ dàng mở rộng sang tích hợp AI/ML
+- Tự động xử lý dữ liệu tải lên → không cần thao tác tay
+- Truy vấn bằng Athena dễ dàng
+- Dashboard hiện thị các chỉ số như:
+      Doanh thu theo khu vực
+      Top sản phẩm bán chạy
+      Sản phẩm có lợi nhuận thấp
+      Dễ dàng mở rộng sang tích hợp AI/ML
