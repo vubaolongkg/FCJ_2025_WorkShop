@@ -46,6 +46,8 @@ Các doanh nghiệp thường lưu trữ dữ liệu bán hàng ở dạng CSV r
 
 ```plaintext
 [S3] --> [Lambda] --> [Glue Crawler Raw] --> [Glue Job] --> [Glue Crawler Processed] --> [Athena] --> [QuickSight]
+```
+
 S3: Nơi lưu dữ liệu raw và processed
 
 Lambda: Xử lý chuỗi hành động ETL qua trigger & EventBridge
